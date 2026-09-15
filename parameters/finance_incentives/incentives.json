@@ -1,0 +1,34 @@
+{
+ "source": "incentive proxies: Boiler Upgrade Scheme, ECO4 (eligibility proxied by fuel poverty / IMD / social tenure), Great British Insulation Scheme",
+ "BUS": {
+  "measures": [
+   "ashp"
+  ],
+  "kind": "fixed",
+  "amount": 7500.0,
+  "rule": "tenure != rented (social)"
+ },
+ "ECO4_proxy": {
+  "measures": [
+   "cavity_fill",
+   "solid_wall_iwi",
+   "loft_topup",
+   "flat_roof",
+   "draught_proofing"
+  ],
+  "kind": "share",
+  "share": 0.9,
+  "cap": 10000.0,
+  "rule": "fuel_poor_pct >= 12 or imd_decile <= 3 or tenure == rented (social)"
+ },
+ "GBIS_proxy": {
+  "measures": [
+   "cavity_fill",
+   "loft_topup"
+  ],
+  "kind": "share",
+  "share": 0.75,
+  "cap": 1500.0,
+  "rule": "floor_area_final < 120 and not ECO4-eligible"
+ }
+}

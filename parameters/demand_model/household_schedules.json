@@ -1,0 +1,15 @@
+{
+ "source": "CHAP microdata (McKenna, Thomson & Watson 2018, CREST Heat and Power model; EFUS 2011 heating-regime categories, timer start/duration distributions, thermostat distributions, CREST four-state occupancy transition matrices) bundled in uk_ubem_schedule_generator/chap_microdata.npz",
+ "timing_source": "chap_microdata",
+ "timer_sampling": "per_dwelling",
+ "setpoint_source": "chap_microdata",
+ "occupancy_mode": "crest_tpm",
+ "setpoint_clip_c": [
+  12,
+  27
+ ],
+ "heating_season_mode": "efus_sampled",
+ "timestep_minutes": 60,
+ "efus_category_2_is_continuous_heating": true,
+ "household_prior": "Census 2021 household-size marginals by accommodation type, floor-area band and tenure (uk_ubem_schedule_generator / ukubem.schedules.sample_household)"
+}

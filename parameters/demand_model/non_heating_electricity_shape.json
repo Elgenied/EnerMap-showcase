@@ -1,0 +1,29 @@
+{
+ "source": "winter whole-house electricity shape of the EFUS 2011 monitoring (non-heating appliances and lighting), relative weights per clock hour; used for the non-heating electricity of the ward peak analysis",
+ "hourly_weights": [
+  0.55,
+  0.48,
+  0.45,
+  0.45,
+  0.48,
+  0.58,
+  0.85,
+  1.05,
+  1.1,
+  1.05,
+  1.0,
+  1.02,
+  1.05,
+  1.0,
+  0.98,
+  1.1,
+  1.45,
+  1.85,
+  1.9,
+  1.75,
+  1.5,
+  1.25,
+  0.95,
+  0.7
+ ]
+}

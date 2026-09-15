@@ -1,0 +1,11 @@
+{
+ "source": "2021 unit prices GBP/kWh (gas, electricity, oil, LPG, solid fuel, other)",
+ "GBP_per_kWh": {
+  "gas": 0.041,
+  "elec": 0.203,
+  "S.OilBoiler": 0.047,
+  "S.LPGBoiler": 0.075,
+  "S.SolidFuel": 0.045,
+  "other": 0.05
+ }
+}

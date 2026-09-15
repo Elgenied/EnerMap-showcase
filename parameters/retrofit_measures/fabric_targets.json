@@ -1,0 +1,25 @@
+{
+ "source": "target U-values after each measure; 'planning' = current Building Regulations-style targets used for the scenarios, 'register' = the stricter register values used for the borough sensitivity",
+ "planning": {
+  "cavity_fill_U": 0.55,
+  "solid_wall_iwi_U": 0.6,
+  "loft_topup_U": 0.16,
+  "loft_eligible_above_U": 0.2,
+  "flat_roof_U": 0.25,
+  "flat_roof_eligible_above_U": 0.35,
+  "glazing_U": 2.0,
+  "glazing_SHGC": 0.72,
+  "draught_ach_factor": 0.85
+ },
+ "register": {
+  "cavity_fill_U": 0.55,
+  "solid_wall_iwi_U": 0.3,
+  "loft_topup_U": 0.16,
+  "loft_eligible_above_U": 0.2,
+  "flat_roof_U": 0.18,
+  "flat_roof_eligible_above_U": 0.35,
+  "glazing_U": 1.4,
+  "glazing_SHGC": 0.63,
+  "draught_ach_factor": 0.75
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "source": "economics of the low-hanging-fruit ranking: horizon, acceptable payback, priority-group quantiles",
+ "horizon_years": 15,
+ "acceptable_payback_years": 12.5,
+ "group_quantiles": [
+  0.05,
+  0.15,
+  0.4,
+  0.8,
+  0.95
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "source": "unit costs 2021 GBP per m2 (fabric), per dwelling (draught proofing), per installation (ASHP fixed + per kW, wet-system uplift; PV fixed + per kWp)",
+ "fabric_GBP_per_unit": {
+  "cavity_fill": 14.0,
+  "solid_wall_iwi": 90.0,
+  "loft_topup": 18.0,
+  "flat_roof": 95.0,
+  "glazing_upgrade": 420.0,
+  "draught_proofing": 300.0
+ },
+ "ashp": {
+  "fixed_GBP": 4000.0,
+  "per_kW_GBP": 850.0,
+  "bus_grant_GBP": 7500.0,
+  "min_kW": 4.0,
+  "max_kW": 16.0,
+  "design_T_out_C": -3.2,
+  "design_T_in_C": 21.0,
+  "wet_system_uplift_GBP": 1273.0
+ },
+ "pv_cost": {
+  "fixed_GBP": 500.0,
+  "per_kWp_GBP": 1600.0
+ }
+}

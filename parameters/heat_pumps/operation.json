@@ -1,0 +1,22 @@
+{
+ "source": "Watson, Lomas & Buswell (2021) Energy and Buildings 238, 110777 (heat-pump households heat longer: +8 % annual heat, 12 % lower peak, 67 % lower ramp than gas-boiler households in a cold year); Halloran (2024) DPhil thesis, University of Oxford, chapters 5-6 (building-fabric heating flexibility as thermal energy storage in a PyPSA capacity-expansion model).",
+ "annual_heat_uplift_heat_pump_households": 1.08,
+ "apply_uplift_in_scenarios": true,
+ "daily_total_source": "ubem",
+ "daily_total_source_options": {"ubem": "each day's space heat is the calibrated hourly model's day total for that dwelling (fabric, weather and calibrated behaviour), re-shaped within the day by the trial profile of the day's temperature band", "watson": "the day totals follow Watson's piece-wise linear regression against the effective outdoor temperature, scaled to the dwelling's calibrated annual"},
+ "temperature_band_basis": "daily_mean",
+ "effective_temperature_weight_today": 0.5,
+ "heat_pump_kind_default": "ASHP",
+ "flexibility": {
+  "delta_T_window_K": 3.0,
+  "comfort_start_C": 21.0,
+  "comfort_min_C": 18.0,
+  "specific_heat_capacity_kJ_per_m2K": 250.0,
+  "specific_heat_capacity_note": "SAP medium thermal mass parameter, used by Halloran (2024) section 5.2.4 to convert floor area to heat capacity",
+  "heat_pump_thermal_capacity_kW_per_dwelling": 10.0,
+  "heat_pump_thermal_capacity_note": "Halloran (2024) equation 6.9, average thermal heat-pump capacity used for the flexibility charging link; the tool also reports the sized ASHP capacity of the scenario",
+  "reference_outdoor_C": 5.0,
+  "winter_temperature_percentiles": [5, 40],
+  "winter_months": [12, 1, 2]
+ }
+}

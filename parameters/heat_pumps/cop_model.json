@@ -1,0 +1,18 @@
+{
+ "source": "Ruhnau, Hirth & Praktiknjo (2019) Time series of heat demand and heat pump efficiency for energy system modeling, Scientific Data 6:189, doi:10.1038/s41597-019-0199-y - as applied by Halloran (2024) Spatial planning of a bulk power system with high residential heat pump adoption, DPhil thesis, University of Oxford, section 3.2.5 (equations 3.4-3.7).",
+ "cop_quadratic_in_delta_T": {
+  "ASHP": [6.08, -0.09, 0.0005],
+  "GSHP": [10.29, -0.21, 0.0012]
+ },
+ "min_delta_T_K": 15.0,
+ "cop_floor": 1.0,
+ "sink_temperature_C": {
+  "radiator": {"intercept": 40.0, "slope_per_K_outdoor": -1.0},
+  "underfloor": {"intercept": 30.0, "slope_per_K_outdoor": -0.5},
+  "dhw": {"intercept": 50.0, "slope_per_K_outdoor": 0.0}
+ },
+ "source_temperature": {"ASHP": "outdoor air", "GSHP": "ground (1-3 m soil; approximated in ukubem.heatpumps.ground_temperature from the air temperature when no soil series is supplied)"},
+ "default_kind": "ASHP",
+ "default_emitter": "radiator",
+ "notes": "Manufacturer-based regressions: no defrost cycles, no backup heaters. At -0.4 C outdoor they give COP 3.24 (ASHP) and 3.71 (GSHP); the Electrification of Heat demonstration measured a mean of 2.44 at that temperature (Halloran 2024). The annual scenario accounting keeps the evidence-based seasonal performance factors in heating_systems/efficiencies.json; this hourly model is used for peaks, hourly electricity and the interface, as Halloran does, and the implied seasonal COP is reported next to the evidence value. The earlier Carnot-fraction rule (0.35 x T_sink,K / dT, 45 C flow, dT >= 5 K, COP 1-5) stays in ukubem.profiles.cop_ashp for comparison only."
+}

@@ -1,0 +1,13 @@
+{
+ "source": "electricity grid factor trajectory 2026-2050 (kgCO2e/kWh), linear between the years listed, flat after",
+ "years": [
+  2026,
+  2040,
+  2050
+ ],
+ "elec_kg_per_kWh": [
+  0.21233,
+  0.035,
+  0.035
+ ]
+}

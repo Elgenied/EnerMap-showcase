@@ -1,0 +1,11 @@
+measure,category,cost_basis,unit_cost_GBP,eligible_support,applied_in_any_scenario,notes
+cavity_fill,Envelope,per wall m2,14,"ECO4_proxy: 90% of cost, cap GBP 10,000 | GBIS_proxy: 75% of cost, cap GBP 1,500",YES,
+solid_wall_iwi,Envelope,per wall m2,90,"ECO4_proxy: 90% of cost, cap GBP 10,000",YES,
+solid_wall_ewi,Envelope,per wall m2,115,"ECO4_proxy: 90% of cost, cap GBP 10,000",NO - priced but in no package,
+loft_topup,Envelope,per roof m2,18,"ECO4_proxy: 90% of cost, cap GBP 10,000 | GBIS_proxy: 75% of cost, cap GBP 1,500",YES,
+flat_roof,Envelope,per roof m2,95,"ECO4_proxy: 90% of cost, cap GBP 10,000",YES,
+glazing_upgrade,Envelope,per glazing m2,420,none,YES,
+draught_proofing,Envelope,per dwelling,300,"ECO4_proxy: 90% of cost, cap GBP 10,000",YES,
+ashp,Heating,fixed + per kW design heat load,4000 + 850/kW,"BUS: fixed GBP 7,500",YES,includes cylinder=True; wet-system uplift GBP 1273 for electric-heated homes
+new_gas_boiler,Heating,per dwelling,2800,none,NO - priced but in no package,
+pv,PV,fixed + per kWp,500 + 1600/kWp,none,YES,self-consumption 45%; SEG export GBP 0.075/kWh; mode max_feasible

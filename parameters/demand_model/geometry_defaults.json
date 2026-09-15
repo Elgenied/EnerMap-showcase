@@ -1,0 +1,83 @@
+{
+ "source": "RdSAP conventions and the ISO 52016-1 adapter of this tool (ukubem.geometry); the calibrated scalers of calibration.json apply on top",
+ "plan_aspect_ratio": 1.5,
+ "window_area_method": "rdsap_s4",
+ "window_to_wall_ratio": 0.25,
+ "max_window_fraction_of_wall": 0.6,
+ "default_storey_height": 2.5,
+ "storey_height_bounds": [
+  2.3,
+  3.5
+ ],
+ "max_storeys": 12,
+ "exposed_perimeter_fraction": {
+  "detached": 1.0,
+  "semi-detached": 0.7,
+  "end-terrace": 0.7,
+  "mid-terrace": 0.4
+ },
+ "default_exposed_fraction": 0.7,
+ "roof_area_factor": {
+  "roof room": 1.2
+ },
+ "u_floor_by_age": {
+  "A": 0.7,
+  "B": 0.7,
+  "C": 0.7,
+  "D": 0.7,
+  "E": 0.6,
+  "F": 0.6,
+  "G": 0.6,
+  "H": 0.45,
+  "I": 0.45,
+  "J": 0.25,
+  "K": 0.22,
+  "L": 0.18
+ },
+ "default_u_floor": 0.7,
+ "ach_infiltration_by_age": {
+  "A": 0.55,
+  "B": 0.55,
+  "C": 0.45,
+  "D": 0.4,
+  "E": 0.35,
+  "F": 0.3,
+  "G": 0.28,
+  "H": 0.25,
+  "I": 0.22,
+  "J": 0.18,
+  "K": 0.18,
+  "L": 0.18
+ },
+ "default_ach_infiltration": 0.4,
+ "ach_ventilation": 0.35,
+ "thermal_bridging_y": 0.15,
+ "thermal_capacitance_by_construction": {
+  "solid brick": 260000,
+  "stone": 260000,
+  "cavity": 165000,
+  "system built": 165000,
+  "timber frame": 110000,
+  "park home": 80000
+ },
+ "default_thermal_capacitance": 165000,
+ "internal_capacity_per_area": 10000,
+ "solar_absorptance_wall": 0.6,
+ "solar_absorptance_roof": 0.6,
+ "window_height": 1.2,
+ "window_g_default": 0.72,
+ "max_heating_w_per_m2": 150.0,
+ "cooling_setpoint": 26.0,
+ "cooling_capacity_w": 0.0,
+ "wall_u_scale": 1.0,
+ "roof_u_scale": 1.0,
+ "window_u_scale": 1.0,
+ "floor_u_scale": 1.0,
+ "infil_scale": 1.0,
+ "gains_scale": 1.0,
+ "setpoint_offset_c": 0.0,
+ "default_setpoint_c": 19.5,
+ "default_setback_c": 16.0,
+ "default_gains_w_m2": 4.0,
+ "stochastic_setback_c": 12.0
+}

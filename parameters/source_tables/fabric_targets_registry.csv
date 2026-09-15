@@ -1,0 +1,14 @@
+parameter,value,unit,read_by_measures_engine
+cavity_fill_U,0.55,W/m2K,YES
+solid_wall_insulated_U,0.3,W/m2K,YES
+system_timber_upgrade_U,0.3,W/m2K,NO - DEAD CONFIG
+loft_topup_roof_U,0.16,W/m2K,YES
+flat_roof_upgrade_U,0.18,W/m2K,YES
+double_glazing_U,1.4,W/m2K,YES
+double_glazing_g,0.63,-,YES
+airtightness_ach_factor,0.75,-,YES
+airtightness_ach_floor,0.3,ACH,YES
+ashp_scop,calibrated theta*,-,YES
+ashp_design_cop_at_peak,2.0,-,YES
+new_gas_boiler_eff,0.92,-,YES
+hp_sizing_safety,1.0,-,YES

@@ -1,0 +1,16 @@
+{
+ "source": "BREDEM 2012 / SAP 10.2 usage model (occupancy N(TFA), hot water 46 + 26 N l/day, appliances and lighting (TFA N)^0.4714, cooking, internal gains); expected values per dwelling",
+ "occupancy": "SAP 10.2 Table 1b N(TFA)",
+ "dhw_litres": "V = 46 + 26 N litre/day (EST/Defra measured regression, as V2)",
+ "dhw_delta_t_K": 37.0,
+ "dhw_loss_factor_system": 1.15,
+ "electric_shower_share": 0.37,
+ "shower_events_per_person_day": 0.83,
+ "shower_litres": 40.0,
+ "gas_cooking_share_in_gas_homes": 0.5,
+ "appliances_kWh": "184.8 (TFA N)^0.4714 (BREDEM 2012)",
+ "lighting_kWh": "59.73 (TFA N)^0.4714 (1 - 0.5 x 0.75) (BREDEM 2012, low-energy fraction)",
+ "cooking_electric_kWh": "275 + 55 N (BREDEM Table 5)",
+ "cooking_gas_kWh": "481 + 96 N (BREDEM Table 5)",
+ "gains": "20 N W + 1.00 appl + 0.85 light + 0.90 cook_e + 0.75 cook_g + 0.25 x 0.85 dhw_system (BREDEM S6)"
+}

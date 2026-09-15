@@ -1,0 +1,44 @@
+{
+ "source": "boiler 0.82 (EST 2009 in-situ trial weighted by the EHS 2021 boiler mix); heat-pump SPF 2.8 space / 2.0 hot water (Electrification of Heat demonstration medians); direct electric 1.0; communal distribution loss 15 %",
+ "family_fuel": {
+  "S.GasBoiler": {
+   "fuel": "gas",
+   "kind": "boiler"
+  },
+  "S.GasCommunal": {
+   "fuel": "gas",
+   "kind": "boiler"
+  },
+  "S.OilBoiler": {
+   "fuel": "other",
+   "kind": "boiler"
+  },
+  "S.LPGBoiler": {
+   "fuel": "other",
+   "kind": "boiler"
+  },
+  "S.SolidFuel": {
+   "fuel": "other",
+   "kind": "boiler"
+  },
+  "S.ElecResistive": {
+   "fuel": "elec",
+   "kind": "direct"
+  },
+  "S.ElecStorage": {
+   "fuel": "elec",
+   "kind": "direct"
+  },
+  "S.HeatPump": {
+   "fuel": "elec",
+   "kind": "heat_pump"
+  }
+ },
+ "boiler_eff": 0.82,
+ "hp_scop": 2.8,
+ "direct_eff": 1.0,
+ "dhw_boiler_eff": 0.82,
+ "dhw_hp_scop": 2.0,
+ "dhw_electric_eff": 1.0,
+ "communal_distribution_loss": 0.15
+}

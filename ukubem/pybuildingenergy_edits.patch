@@ -1,0 +1,143 @@
+diff --git a/src/pybuildingenergy/source/utils.py b/src/pybuildingenergy/source/utils.py
+index bbe273e..36ebc87 100644
+--- a/src/pybuildingenergy/source/utils.py
++++ b/src/pybuildingenergy/source/utils.py
+@@ -2761,6 +2761,52 @@ def Calculation_ISO_52010(building_object, path_weather_file, weather_source="pv
+ # ===============================================================================================
+ 
+ 
++def _annual_hour_positions(index) -> np.ndarray:
++    """
++    Position (0..8759) of every timestamp of a simulation horizon inside a calendar-year
++    hourly array, by day-of-year and hour. Leap days are folded so that a 8760-long
++    series also serves leap-year horizons; the December warm-up month that precedes the
++    simulated year maps onto the December values of the same series.
++    """
++    dt = pd.DatetimeIndex(index)
++    doy = dt.dayofyear.to_numpy() - np.where(dt.is_leap_year & (dt.month > 2), 1, 0)
++    return np.clip((doy - 1) * 24 + dt.hour.to_numpy(), 0, 8759)
++
++
++def _align_annual_series_to_index(values, index) -> np.ndarray:
++    """Map a calendar-year hourly series (8760 or 8784 values) onto a simulation index."""
++    a = np.asarray(values, dtype=float).reshape(-1)
++    if a.size == 8784:                                   # leap-year series: drop 29 February
++        a = np.delete(a, np.arange(59 * 24, 60 * 24))
++    return a[_annual_hour_positions(index)]
++
++
++def _apply_hourly_profile_override(building_object, profile_df):
++    """
++    UBEM extension. If `building_parameters["hourly_profiles"]` holds calendar-year hourly
++    arrays keyed by category ("heating", "cooling", "ventilation", "occupancy", "lighting",
++    "appliances"; with or without the "_profile" suffix), replace the corresponding
++    weekday/weekend-generated columns of `profile_df` with those values, aligned to the
++    simulation horizon by day-of-year and hour. Categories not supplied keep the daily profiles.
++    """
++    bp = building_object.get("building_parameters") or {}
++    hourly = bp.get("hourly_profiles")
++    if not hourly:
++        return profile_df
++    if "datetime" in profile_df.columns:
++        idx = pd.DatetimeIndex(profile_df["datetime"])
++    else:
++        idx = pd.DatetimeIndex(profile_df.index)
++    out = profile_df.copy()
++    for cat, values in hourly.items():
++        col = cat if str(cat).endswith("_profile") else f"{cat}_profile"
++        arr = np.asarray(values, dtype=float).reshape(-1)
++        if arr.size not in (8760, 8784):
++            raise ValueError(f"hourly_profiles['{cat}'] must hold 8760 (or 8784) hourly values, got {arr.size}")
++        out[col] = _align_annual_series_to_index(arr, idx)
++    return out
++
++
+ def _series_to_float_array(df, col: str, default: float | None = None):
+     """Return a column of df as a float64 NumPy array.
+     Used to replace hot-path .iloc[t] accesses with O(1) array indexing.
+@@ -3418,8 +3464,25 @@ class ISO52016:
+             2. External Temperature [degC]
+         """
+         wall_thickness = building_object["building"]["wall_thickness"]
++        # Floor construction thermal resistance (excluding the effect of the ground) [m2 K/W].
++        # UBEM extension: derive it from the GROUND surfaces' U-values (area-weighted,
++        # R = 1/U - R_si - R_se) so that ISO 13370's U_sog and the virtual-layer resistance are
++        # consistent with the floor actually described; the historical constant 5.3 (a very
++        # well-insulated slab) remains the fallback when no ground surface carries a U-value.
+         thermal_resistance_floor = 5.3
+-        # building_object.thermal_resistance_floor = 5.3  # Floor construction thermal resistance (excluding effect of ground) [m2 K/W]
++        _gr_num, _gr_den = 0.0, 0.0
++        for _s in building_object.get("building_surface", []):
++            if not isinstance(_s, dict) or not _surface_is_ground_contact(_s):
++                continue
++            try:
++                _u = float(_s.get("u_value", 0.0)); _a = float(_s.get("area", 0.0))
++            except Exception:
++                continue
++            if np.isfinite(_u) and _u > 0 and np.isfinite(_a) and _a > 0:
++                _gr_num += max(1.0 / _u - R_si - R_se, 0.05) * _a
++                _gr_den += _a
++        if _gr_den > 0:
++            thermal_resistance_floor = _gr_num / _gr_den
+ 
+         # The thermal transmittance depends on the characteristic dimension of the floor, B' [see 8.1 and Equation (2)], and the total equivalent thickness, dt (see 8.2), defined by Equation (3):
+         equivalent_ground_thickness = wall_thickness + lambda_gr * (thermal_resistance_floor + R_se)  # [m]
+@@ -6938,7 +7001,15 @@ class ISO52016:
+             path_weather_file_ = kwargs.get("path_weather_file", None)
+             if kwargs["weather_source"] == "pvgis":
+                 path_weather_file_ = None
+-            sim_df = ISO52016().Weather_data_bui(building_object, path_weather_file_, weather_source=kwargs["weather_source"]).simulation_df
++            # UBEM extension (stock-scale runs): a caller simulating many buildings at one site with the
++            # same surface layout may pass the pre-computed ISO 52010 weather/solar frame
++            # (`weather_sim_df`, as returned by ISO52016().Weather_data_bui(...).simulation_df) and skip
++            # the per-building weather/solar/shading pre-processing, which otherwise dominates runtime.
++            _weather_sim_df = kwargs.get("weather_sim_df", None)
++            if _weather_sim_df is not None:
++                sim_df = _weather_sim_df.copy()
++            else:
++                sim_df = ISO52016().Weather_data_bui(building_object, path_weather_file_, weather_source=kwargs["weather_source"]).simulation_df
+             Tstepn = len(sim_df)  # number of timesteps
+ 
+             # Heating/cooling load (heating +, cooling -)
+@@ -7258,15 +7329,23 @@ class ISO52016:
+             lighting_schedule_workdays,
+             lighting_schedule_weekend,
+             )
+-        try:
+-            country_calendar = get_country_code_from_latlon(
+-                building_object["building"]["latitude"],
+-                building_object["building"]["longitude"],
+-            )
+-        except Exception:
+-            country_calendar = "IT"
++        # UBEM extension: an explicit ISO 3166-1 alpha-2 code on the building
++        # (`building.country_code`) avoids the reverse-geocoding web request per run.
++        country_calendar = building_object["building"].get("country_code")
++        if not country_calendar:
++            try:
++                country_calendar = get_country_code_from_latlon(
++                    building_object["building"]["latitude"],
++                    building_object["building"]["longitude"],
++                )
++            except Exception:
++                country_calendar = "IT"
+         gen = HourlyProfileGenerator(country=country_calendar, num_months=13, category_profiles=category_profiles)
+         profile_df = gen.generate()
++        # UBEM extension: per-building hourly schedules (8760 values per category under
++        # building_parameters["hourly_profiles"]) override the weekday/weekend daily profiles,
++        # e.g. stochastic occupancy/heating from a CREST- or StROBe-type generator.
++        profile_df = _apply_hourly_profile_override(building_object, profile_df)
+ 
+         def _has_energy(arrlike):
+             a = np.asarray(arrlike, dtype=float)
+@@ -7291,6 +7370,10 @@ class ISO52016:
+             external_internal_gains_series = np.zeros(Tstepn, dtype=float)
+         else:
+             ext_arr = np.asarray(external_internal_gains_series, dtype=float).reshape(-1)
++            if ext_arr.size in (8760, 8784) and ext_arr.size < Tstepn:
++                # UBEM extension: a calendar-year series is aligned to the simulation horizon
++                # (which carries a December warm-up month) by day-of-year and hour.
++                ext_arr = _align_annual_series_to_index(ext_arr, sim_df.index)
+             if ext_arr.size < Tstepn:
+                 ext_arr = np.pad(ext_arr, (0, Tstepn - ext_arr.size), mode="constant", constant_values=0.0)
+             external_internal_gains_series = ext_arr[:Tstepn]

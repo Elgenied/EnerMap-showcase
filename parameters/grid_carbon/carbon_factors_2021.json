@@ -1,0 +1,11 @@
+{
+ "source": "UK Government GHG conversion factors 2021 (kgCO2e/kWh)",
+ "kg_per_kWh": {
+  "gas": 0.18316,
+  "elec": 0.21233,
+  "S.OilBoiler": 0.24677,
+  "S.LPGBoiler": 0.21449,
+  "S.SolidFuel": 0.32,
+  "other": 0.24677
+ }
+}

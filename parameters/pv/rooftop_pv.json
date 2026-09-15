@@ -1,0 +1,6 @@
+{
+ "source": "rooftop PV: per-building potential from the solar layer; cap per dwelling, self-consumption share and Smart Export Guarantee export price",
+ "cap_kWp": 4.0,
+ "self_consumption": 0.45,
+ "seg_export_GBP_per_kWh": 0.075
+}

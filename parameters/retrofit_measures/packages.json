@@ -1,0 +1,56 @@
+{
+ "source": "scenario packages of the ten-ward study (U0-U5) and the PyPSA-LAEP retrofit options (R0-R2)",
+ "ward_scenarios": {
+  "U0_baseline": [],
+  "U1_electrification": [
+   "ashp"
+  ],
+  "U2_envelope": [
+   "cavity_fill",
+   "solid_wall_iwi",
+   "loft_topup",
+   "flat_roof",
+   "glazing_upgrade",
+   "draught_proofing"
+  ],
+  "U3_envelope_elec": [
+   "cavity_fill",
+   "solid_wall_iwi",
+   "loft_topup",
+   "flat_roof",
+   "glazing_upgrade",
+   "draught_proofing",
+   "ashp"
+  ],
+  "U4_elec_pv": [
+   "ashp",
+   "pv"
+  ],
+  "U5_envelope_elec_pv": [
+   "cavity_fill",
+   "solid_wall_iwi",
+   "loft_topup",
+   "flat_roof",
+   "glazing_upgrade",
+   "draught_proofing",
+   "ashp",
+   "pv"
+  ]
+ },
+ "pypsa_retrofit_options": {
+  "R0": [],
+  "R1": [
+   "loft_topup",
+   "draught_proofing",
+   "cavity_fill"
+  ],
+  "R2": [
+   "cavity_fill",
+   "solid_wall_iwi",
+   "loft_topup",
+   "flat_roof",
+   "glazing_upgrade",
+   "draught_proofing"
+  ]
+ }
+}

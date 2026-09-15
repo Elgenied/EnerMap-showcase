@@ -1,0 +1,26 @@
+group,key,value,unit
+fuel price,gas,0.041,GBP/kWh
+fuel price,elec,0.203,GBP/kWh
+fuel price,other_default,0.05,GBP/kWh
+fuel price,Oil boiler,0.047,GBP/kWh
+fuel price,Bottled gas boiler,0.075,GBP/kWh
+fuel price,Solid fuel boiler,0.045,GBP/kWh
+carbon factor,gas,0.18316,kgCO2e/kWh
+carbon factor,elec,0.21233,kgCO2e/kWh
+carbon factor,other_default,0.24677,kgCO2e/kWh
+carbon factor,Oil boiler,0.24677,kgCO2e/kWh
+carbon factor,Bottled gas boiler,0.21449,kgCO2e/kWh
+carbon factor,Solid fuel boiler,0.32,kgCO2e/kWh
+finance,horizon_years,15,
+finance,acceptable_payback_years,12.5,
+finance,group_quantiles,"[0.05, 0.15, 0.4, 0.8, 0.95]",
+grid,substations_relpath,data/gis_workflow/gf_secondary_substations.geojson,
+grid,hp_diversity_factor,0.4,
+grid,power_factor,0.95,
+grid,focus_scenario,S5_Fabric_HP_PV,
+pv,mode,max_feasible,
+pv,self_consumption,0.45,
+pv,seg_export_gbp_per_kwh,0.075,
+pv,carbon_offset_full_generation,True,
+pv,cost_gbp_per_kwp,1600.0,
+pv,cost_fixed_gbp,500.0,

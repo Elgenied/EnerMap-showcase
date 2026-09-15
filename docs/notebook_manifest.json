@@ -1,0 +1,260 @@
+[
+  {
+    "source": "EnerMap\\buildingfootprint_RES_nonRES_classfication\\guildford_buildings.ipynb",
+    "notebook": "notebooks/01_stock/01_footprints_and_classification.ipynb",
+    "source_sha256": "bedab4c99e4413db0331c50935373aa45e860b732729902723bdf91b40049695",
+    "original_outputs": 0,
+    "retained_pngs": 0,
+    "changes": []
+  },
+  {
+    "source": "EnerMap\\EPC_completion_linking_to_UPRN\\stock_synthesis\\01_prepare_inputs.ipynb",
+    "notebook": "notebooks/01_stock/02_census_reconciliation.ipynb",
+    "source_sha256": "a6bc76a4c50bc5b0089ed0da5ce7281e7f66a20efceace06a836b53a10f07f68",
+    "original_outputs": 13,
+    "retained_pngs": 1,
+    "changes": [
+      {
+        "cell": 3,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 3,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 5,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 6,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 17,
+        "reason": "address-level or identifier-bearing output"
+      }
+    ]
+  },
+  {
+    "source": "EnerMap\\EPC_completion_linking_to_UPRN\\stock_synthesis\\02_synthesise_mostlyai.ipynb",
+    "notebook": "notebooks/01_stock/03_epc_stock_completion.ipynb",
+    "source_sha256": "0ff3ceac40856d6a069842c3fc2645900fc515f362d9165f15ce3c1ee4070aae",
+    "original_outputs": 25,
+    "retained_pngs": 2,
+    "changes": [
+      {
+        "cell": 8,
+        "reason": "embedded interactive output or widget payload"
+      },
+      {
+        "cell": 9,
+        "reason": "large cached report or log"
+      },
+      {
+        "cell": 17,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 21,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 21,
+        "reason": "address-level or identifier-bearing output"
+      }
+    ]
+  },
+  {
+    "source": "EnerMap\\EPC_completion_linking_to_UPRN\\stock_synthesis\\04_link_and_locate.ipynb",
+    "notebook": "notebooks/01_stock/04_uprn_linkage.ipynb",
+    "source_sha256": "efc174570c667d4ee823e1dc073aa85c6784122d36ae084a94ebf1b788c43303",
+    "original_outputs": 16,
+    "retained_pngs": 1,
+    "changes": [
+      {
+        "cell": 3,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 5,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 9,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 12,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 18,
+        "reason": "address-level or identifier-bearing output"
+      }
+    ]
+  },
+  {
+    "source": "enermap_ubem\\00_data_basis.ipynb",
+    "notebook": "notebooks/02_model/00_data_basis.ipynb",
+    "source_sha256": "07651e338d819a5d51df3a450aa2035d782958b337d90ece7771a7d6dd653057",
+    "original_outputs": 8,
+    "retained_pngs": 2,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\01_archetypes.ipynb",
+    "notebook": "notebooks/02_model/01_archetypes.ipynb",
+    "source_sha256": "241402e4e4cdab9d275fef49aa79bd6eecae693fc4a5920952088ea2f784e378",
+    "original_outputs": 23,
+    "retained_pngs": 6,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\02_representatives.ipynb",
+    "notebook": "notebooks/02_model/02_representatives.ipynb",
+    "source_sha256": "bd03c42fa122525f9dd055ac4b8e3b2e1b4887ff9776c644cdb748c3ad34d1a6",
+    "original_outputs": 10,
+    "retained_pngs": 2,
+    "changes": [
+      {
+        "cell": 7,
+        "reason": "address-level or identifier-bearing output"
+      }
+    ]
+  },
+  {
+    "source": "enermap_ubem\\03_engine_setup.ipynb",
+    "notebook": "notebooks/02_model/03_engine_setup.ipynb",
+    "source_sha256": "aa617dc77ff3c4a8a79f1841efe6b53c8cc7f985b197f47cf5c1bcaa70f1e217",
+    "original_outputs": 13,
+    "retained_pngs": 3,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\04_household_schedules.ipynb",
+    "notebook": "notebooks/02_model/04_household_schedules.ipynb",
+    "source_sha256": "27ff243fe3b62ccd15b05b986ec72b8963014ab2a5c40274ffaaf15432fa4e51",
+    "original_outputs": 12,
+    "retained_pngs": 5,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\05_archetype_run.ipynb",
+    "notebook": "notebooks/02_model/05_archetype_run.ipynb",
+    "source_sha256": "7c6008a4130f34855b042e8dd386bd5f0c5590d92b63aa90441e4f5bd589786d",
+    "original_outputs": 8,
+    "retained_pngs": 2,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\06_calibration.ipynb",
+    "notebook": "notebooks/02_model/06_calibration.ipynb",
+    "source_sha256": "f1aa74e01293070bd22107a329e81b3d38c2d7a130288387d0fe24bf7df76df5",
+    "original_outputs": 49,
+    "retained_pngs": 3,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\07_spatial_cv.ipynb",
+    "notebook": "notebooks/02_model/07_spatial_cv.ipynb",
+    "source_sha256": "f9394c4706efa915326336d7ce7dcc6dc5c0f143c44b812b4531e7d57ca4d45b",
+    "original_outputs": 12,
+    "retained_pngs": 1,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\08_dwelling_tier_check.ipynb",
+    "notebook": "notebooks/02_model/08_dwelling_tier_check.ipynb",
+    "source_sha256": "b5f454176449fc4c39417beb69268f8ce514b054a85c823017e56128fd736c85",
+    "original_outputs": 7,
+    "retained_pngs": 2,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\09_lsoa_atlas.ipynb",
+    "notebook": "notebooks/02_model/09_lsoa_atlas.ipynb",
+    "source_sha256": "4a55f829197d50cda653fe2c5673f45e280051e1ce4d40185c7691ebf2382f12",
+    "original_outputs": 13,
+    "retained_pngs": 6,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\10_ward_scenarios.ipynb",
+    "notebook": "notebooks/02_model/10_ward_scenarios.ipynb",
+    "source_sha256": "ff8846d59c7d7dfb1a2ab836816004c8bdeea01c91afa1265e04f5fb6638271e",
+    "original_outputs": 34,
+    "retained_pngs": 10,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\11_pypsa_interface.ipynb",
+    "notebook": "notebooks/02_model/11_pypsa_interface.ipynb",
+    "source_sha256": "abd7dd1ed50c418fab6fc4714c5461f83bc43134bef612efa1dc9138ddac3534",
+    "original_outputs": 16,
+    "retained_pngs": 4,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem\\12_planning_visuals.ipynb",
+    "notebook": "notebooks/02_model/12_planning_visuals.ipynb",
+    "source_sha256": "5dbfdf68ed98666e49de3377c7b64c2f036c7b2e3410e8ff166dc8857b566293",
+    "original_outputs": 12,
+    "retained_pngs": 4,
+    "changes": []
+  },
+  {
+    "source": "EnerMap\\Solar_rooftop_potential\\guildford_rooftop_pv.ipynb",
+    "notebook": "notebooks/03_solar/01_rooftop_pv.ipynb",
+    "source_sha256": "737fae99dcefebbe4d075799aa154168033dd74c0271bc9f724bbc61614b8373",
+    "original_outputs": 52,
+    "retained_pngs": 6,
+    "changes": [
+      {
+        "cell": 8,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 18,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 32,
+        "reason": "large cached report or log"
+      },
+      {
+        "cell": 34,
+        "reason": "embedded interactive output or widget payload"
+      },
+      {
+        "cell": 36,
+        "reason": "large cached report or log"
+      }
+    ]
+  },
+  {
+    "source": "EnerMap\\buildingfootprint_RES_nonRES_classfication\\Guildford_Extraction.ipynb",
+    "notebook": "notebooks/04_explorations/01_osm_road_proximity.ipynb",
+    "source_sha256": "452021e61c9dc3ae7dc890566d8d8c19a2686a9ead868adbd63f8bc29ec29baa",
+    "original_outputs": 45,
+    "retained_pngs": 6,
+    "changes": [
+      {
+        "cell": 6,
+        "reason": "traceback replaced with explicit error notice"
+      },
+      {
+        "cell": 7,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 17,
+        "reason": "address-level or identifier-bearing output"
+      },
+      {
+        "cell": 27,
+        "reason": "address-level or identifier-bearing output"
+      }
+    ]
+  }
+]
