@@ -1,0 +1,5 @@
+# Keep code/docs portable and preserve exact bytes of the scientific snapshot.
+* text=auto eol=lf
+outputs/current/** -text -whitespace
+# Unified patches contain significant context-line whitespace.
+*.patch text eol=lf -whitespace

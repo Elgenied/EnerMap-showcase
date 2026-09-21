@@ -1,96 +1,229 @@
-"""EnerMap review dashboard. Run: python -m streamlit run app.py. Reads saved aggregate results only."""
+"""EnerMap results explorer. Run with: python -m streamlit run app.py.
+
+Reads only the completed outputs/current snapshot; never imports the engine.
+The identical app is distributed in the GitHub showcase.
+"""
 from pathlib import Path
 import json
+
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
-HERE = Path(__file__).parent
-UB = HERE / "outputs" / "ubem"; FIG = HERE / "outputs" / "figures"
-SCN = {"U0_baseline": "U0 baseline", "U1_electrification": "U1 electrification", "U2_envelope": "U2 envelope",
-       "U3_envelope_elec": "U3 envelope + electrification", "U4_elec_pv": "U4 electrification + PV", "U5_envelope_elec_pv": "U5 envelope + electrification + PV"}
+HERE = Path(__file__).resolve().parent
+CURRENT = HERE / "outputs" / "current"
+FIG = CURRENT / "figures"
+SCENARIOS = {
+    "U0_baseline": "U0 · Baseline",
+    "U1_electrification": "U1 · Electrification",
+    "U2_envelope": "U2 · Fabric retrofit",
+    "U3_envelope_elec": "U3 · Fabric + electrification",
+    "U4_elec_pv": "U4 · Electrification + PV",
+    "U5_envelope_elec_pv": "U5 · Fabric + electrification + PV",
+}
+SCOPE = {"Ten planning wards": "planning_wards", "Borough stock": "borough"}
+COLORS = ["#267c88", "#d08a49", "#628dae", "#9a649f", "#609578", "#b56572"]
 
-st.set_page_config(page_title="EnerMap · Guildford", layout="wide")
-st.image(str(HERE / "assets" / "EnerMap_logo.png"), width=360)
-st.title("EnerMap: a UBEM tool for local area energy planning")
-st.caption("Guildford demonstration: 57,300 dwellings, 84 LSOAs, ten study-area wards. Saved model outputs for exploration; interpretation and verification limits are documented in docs/INTERPRETATION.md.")
+
+def read_json(path):
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 @st.cache_data
-def load():
-    d = {}
-    d["ss"] = pd.read_csv(UB / "10_scenario_summary.csv"); d["ss"]["scenario"] = d["ss"]["scenario"].map(SCN)
-    d["sw"] = pd.read_csv(UB / "10_scenario_by_ward.csv"); d["sw"]["scenario"] = d["sw"]["scenario"].map(SCN)
-    d["pk"] = pd.read_csv(UB / "10_ward_peaks.csv"); d["pk"]["scenario"] = d["pk"]["scenario"].map(SCN)
-    d["cal"] = pd.read_csv(UB / "06_lsoa_calibrated.csv")
-    d["val"] = pd.read_csv(UB / "09_validation_table.csv").rename(columns={"Unnamed: 0": "population"})
-    d["flex"] = pd.read_csv(UB / "10_flexibility_by_ward.csv")
-    d["meth"] = pd.read_csv(UB / "10_peak_method_comparison.csv")
-    d["hh"] = pd.read_csv(UB / "09_stock_hourly_heat_MW.csv", index_col=0, parse_dates=True)
-    d["tw"] = pd.read_csv(UB / "10_tenward_hourly_elec_MW.csv", index_col=0, parse_dates=True)
-    d["theta"] = json.load(open(UB / "06_calibrated_theta.json"))
-    d["atlas"] = pd.read_csv(UB / "09_lsoa_atlas.csv")
-    return d
+def load(snapshot_signature):
+    # File size/mtime signature invalidates cached tables when a rerun replaces them.
+    return {
+        "summary": read_json(CURRENT / "baseline/summary.json"),
+        "metrics": read_json(CURRENT / "baseline/metrics.json"),
+        "completion": read_json(CURRENT / "completion.json"),
+        "validation": pd.read_csv(CURRENT / "baseline/lsoa_validation.csv"),
+        "alignment": pd.read_csv(CURRENT / "baseline/lsoa_alignment_ranking.csv"),
+        "totals": pd.read_csv(CURRENT / "baseline/lsoa_demand_totals.csv"),
+        "hourly": pd.read_csv(CURRENT / "baseline/stock_hourly.csv", index_col="time", parse_dates=True),
+        "scenarios": pd.read_csv(CURRENT / "scenarios/scenario_summary.csv"),
+        "wards": pd.read_csv(CURRENT / "scenarios/planning_ward_summary.csv"),
+        "scenario_hourly": {
+            code: pd.read_csv(CURRENT / f"scenarios/{code}_hourly.csv", index_col="time", parse_dates=True)
+            for code in SCENARIOS
+        },
+    }
 
 
-D = load()
-k1, k2, k3, k4, k5 = st.columns(5)
-k1.metric("Gas WAPE, in-sample", "6.5 %", "bias −2.1 %"); k2.metric("Gas WAPE, spatial refits", "6.7 %"); k3.metric("Electricity WAPE, fitted", "10.9 %")
-u = D["pk"].groupby("scenario")["elec_peak_MW"].sum()
-k4.metric("Ten-ward peak U0 → U1", "30 → 78 MW"); k5.metric("CO₂ under U5", "−62 %", "bills −24 %")
-st.caption("Both fuels entered calibration. Spatial refits inherited the full-data starting point. Peak values include the modelled residential loads; they are not total network demand.")
+def figure(filename, caption=None):
+    path = FIG / filename
+    if path.exists():
+        st.image(str(path), caption=caption, width="stretch")
+    else:
+        st.warning(f"Figure unavailable in this snapshot: {filename}")
 
-tabs = st.tabs(["Calibration", "Demand curves", "Scenarios", "Electrified peak", "Flexibility", "Maps and figures", "Parameters"])
+
+def csv_download(frame, filename, label="Download table"):
+    st.download_button(label, frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=filename)
+
+
+def scatter(frame, fuel, label, color):
+    x, y = f"{fuel}_mean_kWh", f"sim_{fuel}_mean_kWh"
+    chart = px.scatter(frame, x=x, y=y, hover_name="lsoa_name", hover_data=["LSOA"],
+        labels={x: "Observed (kWh / consuming meter / year)", y: "Modelled (kWh / eligible dwelling / year)"},
+        title=label, color_discrete_sequence=[color])
+    limit = float(frame[[x, y]].max().max()) * 1.06
+    chart.add_trace(go.Scatter(x=[0, limit, limit, 0], y=[0, .9*limit, 1.1*limit, 0],
+        mode="lines", fill="toself", fillcolor="rgba(120,130,140,0.10)", line={"width": 0},
+        name="±10%", hoverinfo="skip"))
+    chart.add_trace(go.Scatter(x=[0, limit], y=[0, limit], mode="lines",
+        line={"color": "#65747a", "dash": "dash"}, name="Equality", hoverinfo="skip"))
+    chart.update_xaxes(range=[0, limit], constrain="domain")
+    chart.update_yaxes(range=[0, limit], constrain="domain", scaleanchor="x", scaleratio=1)
+    chart.update_layout(height=460, margin={"t": 80, "b": 70},
+        legend={"orientation": "h", "y": 1.06, "yanchor": "bottom", "x": 0})
+    return chart
+
+
+st.set_page_config(page_title="EnerMap · LAEP framework", page_icon="🌍", layout="wide")
+logo = HERE / "assets/EnerMap_logo.png"
+if logo.exists():
+    st.image(str(logo), width=270)
+st.title("EnerMap framework for local area energy planning")
+st.caption("Completed building stock → construction archetypes → household schedules → demand simulation → planning scenarios")
+
+required = [CURRENT / "completion.json", CURRENT / "baseline/summary.json", CURRENT / "baseline/metrics.json",
+    CURRENT / "baseline/lsoa_validation.csv", CURRENT / "baseline/lsoa_alignment_ranking.csv",
+    CURRENT / "baseline/lsoa_demand_totals.csv", CURRENT / "baseline/stock_hourly.csv",
+    CURRENT / "scenarios/scenario_summary.csv", CURRENT / "scenarios/planning_ward_summary.csv"]
+required += [CURRENT / f"scenarios/{code}_hourly.csv" for code in SCENARIOS]
+missing = [str(p.relative_to(HERE)) for p in required if not p.exists()]
+if missing:
+    st.error("The current results snapshot is incomplete. Missing: " + ", ".join(missing))
+    st.stop()
+D = load(tuple((str(p), p.stat().st_size, p.stat().st_mtime_ns) for p in required))
+if not D["completion"].get("completed") or D["completion"].get("calibration") is not False:
+    st.error("This explorer requires a completed uncalibrated results snapshot.")
+    st.stop()
+M = D["metrics"]
+st.sidebar.subheader("Guildford demonstration")
+st.sidebar.write(f"Engine run completed {D['completion']['completed_utc'][:10]}.")
+st.sidebar.write("Planning scenarios: the dense ten-ward study area. Demand and validation: the modelled borough stock and available LSOAs.")
+st.sidebar.caption("This app explores saved results. Controls change the presentation; they do not rerun the thermal model.")
+
+cards = st.columns(4)
+cards[0].metric("Modelled dwellings", f"{D['summary']['stock_dwellings']:,}")
+cards[1].metric("Gas WAPE", f"{M['gas_WAPE_pct']:.2f}%")
+cards[2].metric("Electricity WAPE", f"{M['elec_WAPE_pct']:.2f}%")
+cards[3].metric("Validation areas", f"{len(D['validation'])} LSOAs")
+st.caption("Annual gas and electricity are compared with observed consumption. No parameters were fitted to these benchmarks.")
+
+tabs = st.tabs(["Overview", "Validation", "Demand through time", "Planning scenarios", "Electricity peaks", "Demand maps", "Methods and assumptions"])
 
 with tabs[0]:
-    import plotly.express as px
-    c1, c2 = st.columns(2)
-    cal = D["cal"]
-    c1.plotly_chart(px.scatter(cal, x="gas_mean_kWh", y="sim_gas_mean_kWh", hover_name="LSOA", labels={"gas_mean_kWh": "DESNZ gas per meter [kWh]", "sim_gas_mean_kWh": "EnerMap [kWh]"}, title="Gas per meter, 84 LSOAs (fitted)"), use_container_width=True)
-    c2.plotly_chart(px.scatter(cal, x="elec_mean_kWh", y="sim_elec_mean_kWh", hover_name="LSOA", labels={"elec_mean_kWh": "DESNZ electricity per meter [kWh]", "sim_elec_mean_kWh": "EnerMap [kWh]"}, title="Electricity per meter, 84 LSOAs (fitted)"), use_container_width=True)
-    st.subheader("Annual LSOA assessment")
-    assessment = D["val"].copy()
-    assessment["population"] = assessment["population"].str.replace("out-of-fold (7 spatial bands, nb07)", "spatial refits (7 bands; full-data warm start)", regex=False)
-    st.dataframe(assessment.round(2), hide_index=True, use_container_width=True)
-    st.image(str(FIG / "ubem" / "09_atlas_lsoa_demand.png"), caption="LSOA demand atlas")
+    st.subheader("From the baseline to local energy planning")
+    st.write("EnerMap links each dwelling to construction, size and household representations, calculates hourly thermal demand, and converts heat into delivered fuel and electricity. The Guildford case demonstrates how those results support electrification, fabric retrofit and rooftop-PV comparisons.")
+    totals = D["summary"]["totals_GWh"]
+    cols = st.columns(4)
+    for col, key, label in zip(cols, ["Q_H_kWh", "delivered_gas_kWh", "delivered_elec_kWh", "delivered_other_kWh"],
+        ["Useful space heat", "Delivered gas", "Delivered electricity", "Other fuels"]):
+        col.metric(label, f"{totals[key]:,.1f} GWh/year")
+    st.caption("Borough totals. Useful space heat and delivered energy describe different stages of the energy balance and should not be added together.")
+    figure("09_annual_and_hourly_demand.png")
 
 with tabs[1]:
-    hh = D["hh"]
-    st.line_chart(hh["heat_MW"].resample("1D").mean().rename("daily mean space heat [MW]"))
-    wk = st.slider("Week of the weather year", 1, 52, 5)
-    sl = hh.iloc[(wk - 1) * 168:wk * 168]
-    st.line_chart(sl[["p5_MW", "heat_MW", "p95_MW"]])
-    st.image(str(FIG / "ubem" / "09_demand_curves.png"), caption="Demand curves from the stochastic households")
+    st.subheader("Validation against observed annual consumption")
+    cols = st.columns(2)
+    for col, fuel, label, color in zip(cols, ["gas", "elec"], ["Gas", "Electricity"], [COLORS[0], COLORS[3]]):
+        with col:
+            st.plotly_chart(scatter(D["validation"], fuel, label, color), width="stretch")
+    assessment = pd.DataFrame([{"Fuel": label, "WAPE (%)": M[f"{fuel}_WAPE_pct"],
+        "Signed bias (%)": M[f"{fuel}_NMBE_pct"], "Predictive R²": M[f"{fuel}_R2_predictive"]}
+        for fuel, label in [("gas", "Gas"), ("elec", "Electricity")]])
+    st.dataframe(assessment.round(3), hide_index=True, width="stretch")
+    st.write("WAPE is the meter-count-weighted absolute discrepancy between area means. Signed bias shows the overall direction of the difference. The shaded ±10% band is a visual reference, not a formal acceptance threshold.")
+    st.caption("Modelled means are per eligible dwelling; observed means are per consuming meter. These observations were inspected during development. Annual area comparisons do not establish dwelling-level or hourly accuracy.")
+    figure("06_validation_maps.png", "Where annual modelled and observed consumption agree or differ")
+    figure("06_canet_style_distribution.png", "Canet-inspired presentation of area errors; the energy boundary and sign convention follow this study")
+    st.subheader("Which areas align most closely?")
+    ranking = D["alignment"]
+    fields = ["lsoa_name", "LSOA", "gas_error_pct", "elec_error_pct", "joint_absolute_error_pct"]
+    st.dataframe(ranking[fields].round(2), hide_index=True, width="stretch")
+    st.caption("Sorted by the mean of each area's absolute gas and electricity percentage errors. Every validation area is retained. This ranking is distinct from the weighted WAPE metric.")
+    figure("06_lsoa_alignment.png")
+    csv_download(ranking, "lsoa_validation_and_alignment.csv")
 
 with tabs[2]:
-    ss = D["ss"]
-    c1, c2 = st.columns(2)
-    c1.bar_chart(ss.set_index("scenario")["carbon_kt"].rename("ktCO₂e / yr")); c2.bar_chart(ss.set_index("scenario")["bills_MGBP"].rename("bills £M / yr"))
-    st.dataframe(ss.round(1), hide_index=True, use_container_width=True)
-    scn = st.selectbox("Scenario by ward", list(SCN.values()), index=5)
-    st.dataframe(D["sw"][D["sw"].scenario == scn].round(1), hide_index=True, use_container_width=True)
-    for f in ["10_scenarios_by_ward.png", "10_low_hanging_fruit.png"]:
-        st.image(str(FIG / "ubem" / f))
-    for f in ["12_retrofit_gap.png", "12_pies_in_maps.png"]:
-        st.image(str(FIG / "planning" / f))
+    st.subheader("Hourly demand across the modelled borough stock")
+    hh = D["hourly"]
+    enduses = {"space_heat_kWh": "Useful space heat", "dhw_useful_kWh": "Useful hot water",
+        "nonheating_electricity_kWh": "Non-heating electricity", "delivered_electricity_kWh": "Total electricity"}
+    selected = st.multiselect("Series", list(enduses.values()), default=["Useful space heat", "Total electricity"])
+    chosen = [key for key, label in enduses.items() if label in selected]
+    week = st.slider("Demand week", 1, 53, 3)
+    if chosen:
+        view = hh[chosen].rename(columns=enduses) / 1000
+        st.line_chart(view.resample("D").mean(), y_label="Daily mean demand (MW)")
+        st.line_chart(view.iloc[(week-1)*168:week*168], y_label="Hourly mean demand (MW)")
+    st.caption("An hourly energy value in kWh divided by 1,000 equals average MW over that one-hour interval. Week 53 contains the final 24 hours of the 8,760-hour model year. Electricity components are included within total electricity.")
+    csv_download(hh.reset_index(), "baseline_stock_hourly.csv", "Download hourly baseline")
 
 with tabs[3]:
-    tw = D["tw"]; wk = st.slider("Week", 1, 52, 3, key="pk")
-    st.line_chart(tw.iloc[(wk - 1) * 168:wk * 168], y_label="Electricity demand [MW]")
-    pk = D["pk"].pivot(index="ward", columns="scenario", values="elec_peak_MW").round(1)
-    st.bar_chart(pk, stack=False)
-    st.subheader("Peak by method (U1)"); st.dataframe(D["meth"].round(2), hide_index=True, use_container_width=True)
-    for f in ["10_heat_pump_shape.png", "10_peaks_map.png", "10_substation_cells.png"]:
-        st.image(str(FIG / "ubem" / f))
+    st.subheader("Electrification, fabric retrofit and rooftop PV")
+    scope_label = st.radio("Scenario results area", list(SCOPE), horizontal=True)
+    ss = D["scenarios"].loc[D["scenarios"].scope.eq(SCOPE[scope_label])].copy()
+    ss["Scenario"] = ss.scenario.map(SCENARIOS)
+    st.caption(f"{scope_label}: {int(ss.dwellings.iloc[0]):,} dwellings. Annual totals under the retained project assumptions.")
+    energy = ss.rename(columns={"delivered_gas_GWh": "Gas", "delivered_elec_GWh": "Electricity", "delivered_other_GWh": "Other fuels"})
+    a, b = st.columns(2)
+    with a:
+        st.plotly_chart(px.bar(energy, y="Scenario", x=["Gas", "Electricity", "Other fuels"], orientation="h",
+            title="Delivered energy before PV offsets", labels={"value": "GWh/year", "variable": "Fuel"},
+            color_discrete_sequence=COLORS), width="stretch")
+    with b:
+        st.plotly_chart(px.bar(ss, y="Scenario", x="carbon_kt", orientation="h", title="Operational carbon",
+            labels={"carbon_kt": "ktCO₂e/year"}, color_discrete_sequence=[COLORS[0]]), width="stretch")
+    st.dataframe(ss.drop(columns="Scenario").round(2), hide_index=True, width="stretch")
+    csv_download(ss.drop(columns="Scenario"), "scenario_summary_selected_area.csv")
+    st.caption("Net annual electricity includes the assumed PV self-consumption offset. Costs and carbon factors are retained project inputs. PV inputs cover the original planning area, so borough PV results do not represent an exhaustive rooftop assessment.")
+    scenario = st.selectbox("Scenario by ward", list(SCENARIOS), format_func=SCENARIOS.get, index=5)
+    wards = D["wards"].loc[D["wards"].scenario.eq(scenario)]
+    st.plotly_chart(px.bar(wards.rename(columns={"gas_GWh": "Gas", "electricity_GWh": "Electricity"}), x="ward", y=["Gas", "Electricity"], barmode="group",
+        labels={"value": "GWh/year", "ward": "Ward", "variable": "Delivered energy"}, color_discrete_sequence=COLORS), width="stretch")
+    st.dataframe(wards.round(2), hide_index=True, width="stretch")
+    figure("10_retrofit_saving_map.png")
 
 with tabs[4]:
-    st.dataframe(D["flex"].round(2), hide_index=True, use_container_width=True)
-    st.image(str(FIG / "ubem" / "10_flexibility.png"))
+    st.subheader("Simultaneous hourly electricity demand")
+    st.write("These profiles cover the borough's modelled residential stock. Peaks are calculated from the sum of demand at the same hour, before PV offsets. They have not been validated against hourly electricity measurements.")
+    profiles = pd.DataFrame({SCENARIOS[k]: v.delivered_electricity_kWh / 1000 for k, v in D["scenario_hourly"].items()})
+    choices = st.multiselect("Compare hourly scenarios", list(SCENARIOS.values()), default=list(SCENARIOS.values())[:2])
+    peak_week = st.slider("Electricity week", 1, 53, 3)
+    if choices:
+        st.line_chart(profiles[choices].iloc[(peak_week-1)*168:peak_week*168], y_label="Gross electricity demand (MW)")
+    peaks = pd.DataFrame({"Scenario": profiles.columns, "Peak (MW)": profiles.max().values,
+        "Peak time": profiles.idxmax().astype(str).values, "Annual electricity (GWh)": (profiles.sum()/1000).values})
+    st.dataframe(peaks.round(2), hide_index=True, width="stretch")
+    csv_download(peaks, "borough_scenario_electricity_peaks.csv")
+    st.caption("PV scenarios can have the same gross demand peak as the corresponding case without PV. Annual PV offsets do not supply an hourly grid-import profile.")
 
 with tabs[5]:
-    for f in ["12_prioritisation_strategies.png", "12_carbon_x_vulnerability.png"]:
-        st.image(str(FIG / "planning" / f))
-    st.image(str(HERE / "assets" / "EnerMap_workflow.png"), caption="The modular workflow")
+    st.subheader("Locating demand across the completed building stock")
+    figure("09_demand_totals_maps.png", "Annual LSOA demand totals")
+    figure("09_building_demand_maps.png", "Demand assigned to building footprints")
+    figure("09_neighbourhood_demand_detail.png", "Neighbourhood detail")
+    csv_download(D["totals"], "lsoa_demand_totals.csv")
 
 with tabs[6]:
-    st.json(D["theta"])
-    st.caption("Saved fitted coefficients are shown above. The parameters folder records additional assumptions and sources; editing those files does not rerun this dashboard.")
+    st.subheader("How annual and hourly demand connect")
+    st.markdown("""1. **Space heating:** the thermal engine calculates hourly useful heat. Three household draws are averaged for each size representative, then expanded using each dwelling's floor area.
+2. **Appliances, lighting and cooking:** annual BREDEM/SAP-based quantities are distributed using normalized hourly profiles. Raw schedule totals are not a second final annual estimate.
+3. **Hot water:** annual usage defines useful tap heat, system-side heat including losses, and electric-shower electricity. The hourly profile is normalized to those quantities.
+4. **Heat pumps:** useful space heat and system-side hot-water heat are divided by hourly COP. Annual heat-pump electricity is the sum of those hourly values. Electric-shower electricity is counted separately.
+5. **Delivered energy:** boiler efficiencies and other system assumptions convert heat into the gas, electricity and other fuels compared with annual observations.""")
+    st.latex(r"T_{\mathrm{sink},h}=40-T_{\mathrm{out},h},\quad \Delta T_h=\max(T_{\mathrm{sink},h}-T_{\mathrm{out},h},15)")
+    st.latex(r"\mathrm{COP}_h=\max(1,6.08-0.09\Delta T_h+0.0005\Delta T_h^2),\quad E_{\mathrm{HP},h}=Q_h/\mathrm{COP}_h")
+    st.write("Space heating uses the radiator-temperature rule above; hot water uses a 50°C sink. Existing heat pumps use the ASHP curve. New electrification retains the configured profile redistribution and 1.08 space-heat uplift; this uplift is not applied again to existing heat pumps.")
+    st.write("The rerun corrected thermal-capacity units, thermal-bridge handling, internal-gain overrides, no-ground geometry and heat-balance reporting. Completed-stock inputs, clustering and household sampling were retained.")
+    st.caption("The simplified COP curve omits defrost, backup and cycling. Three draws per representative do not establish uncertainty convergence. Annual agreement does not validate occupancy, individual buildings, hourly peaks or future scenarios.")
+    st.subheader("Run record")
+    st.json({"completed_utc": D["completion"]["completed_utc"], "calibration": False,
+        "baseline_simulations": D["completion"]["baseline_simulations"],
+        "stochastic_baseline_simulations": D["summary"]["stochastic_simulations"],
+        "retrofit_simulations": D["completion"]["retrofit_simulations"],
+        "annual_hourly_consistency_passed": D["summary"]["annual_hourly_consistency_passed"]})

@@ -1,71 +1,65 @@
-<img src="assets/EnerMap_logo.png" width="440" alt="EnerMap logo">
+<img src="assets/EnerMap_logo.png" width="360" alt="EnerMap logo">
 
-# EnerMap research showcase
+# EnerMap framework for local area energy planning
 
-A private supervisor-review snapshot of the Guildford urban building energy modelling workflow: stock development, construction archetypes, household schedules, hourly demand, calibration, rooftop solar potential and decarbonisation planning.
+EnerMap connects completed building stock, construction archetypes and stochastic household schedules to hourly demand simulation and electrification planning. Guildford demonstrates the framework; planning scenarios focus on its dense ten-ward study area.
 
-**Start with the saved notebook outputs and the dashboard. No research calculations need to be rerun.** This is an isolated copy; the original working folders are not part of this Git repository. The results are exploratory: see [interpretation notes](docs/INTERPRETATION.md).
+**Updated to the completed 18 September 2026 uncalibrated engine run.** The dashboard and modelling notebooks now use outputs/current. Gas WAPE is **7.28%** and electricity WAPE is **11.21%**, comparing annual area means across 84 LSOAs. Read the [interpretation notes](docs/INTERPRETATION.md) alongside these results.
 
-## Suggested presentation route
+## Explore
 
-1. **Stock development** — `notebooks/01_stock`: footprint preparation, classification, census reconciliation, EPC completion and UPRN linkage.
-2. **Archetypes and households** — `notebooks/02_model/00`–`04`: modelling inputs, construction groups, representatives, thermal setup and occupancy.
-3. **Demand and calibration** — model notebooks `05`–`09`: representative runs, calibration, spatial refits, dwelling-tier comparison and demand atlas.
-4. **Solar resource** — `notebooks/03_solar`: the supplied irradiation raster, rooftop suitability and PV yield.
-5. **Planning** — model notebooks `10`–`12`: six cases U0–U5, heat-pump peaks, fabric flexibility, prioritisation and the PyPSA export interface.
-6. **Interactive demonstration** — open the Streamlit app to compare saved scenarios and weekly profiles.
+1. Stock preparation and linkage: notebooks/01_stock.
+2. Construction archetypes, size representatives and household schedules: model notebooks 00–04 and the clustering diagnostics.
+3. Demand, validation and consistency checks: 05, 06_validation, 07_consistency_checks and 09_lsoa_atlas.
+4. Electrification, fabric and PV scenarios: 10_ward_scenarios and 12_planning_visuals.
+5. The Streamlit app: validation, time profiles, scenario comparisons, electricity peaks and maps from the same current run.
 
-The road-proximity experiment is retained separately in `notebooks/04_explorations`. It is not presented as a completed link into the stock pipeline.
+The rooftop-PV notebook remains in notebooks/03_solar. The separate road-proximity experiment remains in notebooks/04_explorations.
 
-## Run the results explorer
+## Run the dashboard
 
-Use Python 3.11 or 3.12 in a separate environment:
+Use Python 3.11 or 3.12:
 
 ```sh
 python -m venv .venv
-# Windows PowerShell: .venv\Scripts\Activate.ps1
+# Windows PowerShell: .venv/Scripts/Activate.ps1
 # macOS/Linux: source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-The app reads the included small aggregate CSV/JSON files and saved figures. No model engine, raw datasets or simulation run is required. Selecting scenarios or weeks changes the displayed saved results. This repository does not by itself host a live website; run the app locally after cloning or downloading the private repository.
+The app reads packaged results and does not execute the modelling notebooks. Scenario, area and week controls select saved data. No raw inputs or thermal-engine installation is required to explore the app. A GitHub repository alone is not a hosted Streamlit website.
+
+## Current results
+
+The borough baseline contains 57,300 dwellings and reports 565.6 GWh/year useful space heat, 719.7 GWh/year delivered gas and 246.8 GWh/year delivered electricity. Scenario tables also include the ten-ward subtotal of 28,663 dwellings. Scope is explicit in every view.
+
+Heat-pump electricity now comes from hourly heat/COP and is summed annually. Annual BREDEM/SAP usage and normalized hourly profiles provide one consistent electricity/DHW account. Calibration and spatial-refit notebooks have been retired from the active presentation. See [the engine workflow](docs/ENGINE_WORKFLOW.md) and [scenario assumptions](docs/SCENARIO_NOTES.md).
+
+Hourly peaks are modelled residential demand before PV offsets and have not been validated against hourly metering. Annual observations were inspected during development, so the reported comparison is not an untouched holdout.
 
 ## Notebook guide
 
-Open the `.ipynb` files directly in GitHub to inspect code and cached static outputs. If a large notebook preview does not render, download it and open it locally in Jupyter or VS Code without executing its cells. Interactive widget payloads are excluded.
+Open notebooks directly in GitHub or download for local viewing. Saved static charts are retained; interactive payloads and address-level tables are excluded. Notebooks 03–04 have no current saved demonstration outputs. Packaging does not execute the simulations.
 
-| Notebook | Purpose and status |
+| Notebook | Role |
 |---|---|
-| [01_footprints_and_classification.ipynb](notebooks/01_stock/01_footprints_and_classification.ipynb) | OS MasterMap footprint preparation and evidence-based use classification. The source notebook has no saved outputs; no results have been invented. |
-| [02_census_reconciliation.ipynb](notebooks/01_stock/02_census_reconciliation.ipynb) | Upstream stock completion and linkage, with retained safe cached results. |
-| [03_epc_stock_completion.ipynb](notebooks/01_stock/03_epc_stock_completion.ipynb) | Upstream stock completion and linkage, with retained safe cached results. |
-| [04_uprn_linkage.ipynb](notebooks/01_stock/04_uprn_linkage.ipynb) | Upstream stock completion and linkage, with retained safe cached results. |
-| [00_data_basis.ipynb](notebooks/02_model/00_data_basis.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [01_archetypes.ipynb](notebooks/02_model/01_archetypes.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [02_representatives.ipynb](notebooks/02_model/02_representatives.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [03_engine_setup.ipynb](notebooks/02_model/03_engine_setup.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [04_household_schedules.ipynb](notebooks/02_model/04_household_schedules.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [05_archetype_run.ipynb](notebooks/02_model/05_archetype_run.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [06_calibration.ipynb](notebooks/02_model/06_calibration.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [07_spatial_cv.ipynb](notebooks/02_model/07_spatial_cv.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [08_dwelling_tier_check.ipynb](notebooks/02_model/08_dwelling_tier_check.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [09_lsoa_atlas.ipynb](notebooks/02_model/09_lsoa_atlas.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [10_ward_scenarios.ipynb](notebooks/02_model/10_ward_scenarios.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [11_pypsa_interface.ipynb](notebooks/02_model/11_pypsa_interface.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [12_planning_visuals.ipynb](notebooks/02_model/12_planning_visuals.ipynb) | Main EnerMap modelling sequence. Existing results are retained without rerunning calculations. |
-| [01_rooftop_pv.ipynb](notebooks/03_solar/01_rooftop_pv.ipynb) | Rooftop PV suitability and yield from a supplied annual irradiation raster. This notebook does not itself establish the full upstream LiDAR-to-irradiation run provenance. |
-| [01_osm_road_proximity.ipynb](notebooks/04_explorations/01_osm_road_proximity.ipynb) | Separate OSM road/land-use feature and decision-tree experiment. Its predictions are not imported by the inspected MasterMap-to-EPC pipeline; it must not be presented as an integrated classification stage. |
+| [00_data_basis.ipynb](notebooks/02_model/00_data_basis.ipynb) | Current modelling workflow |
+| [01_archetypes.ipynb](notebooks/02_model/01_archetypes.ipynb) | Current modelling workflow |
+| [02_representatives.ipynb](notebooks/02_model/02_representatives.ipynb) | Current modelling workflow |
+| [03_engine_setup.ipynb](notebooks/02_model/03_engine_setup.ipynb) | Current modelling workflow |
+| [04_household_schedules.ipynb](notebooks/02_model/04_household_schedules.ipynb) | Current modelling workflow |
+| [05_archetype_run.ipynb](notebooks/02_model/05_archetype_run.ipynb) | Current modelling workflow |
+| [06_validation.ipynb](notebooks/02_model/06_validation.ipynb) | Current modelling workflow |
+| [07_consistency_checks.ipynb](notebooks/02_model/07_consistency_checks.ipynb) | Current modelling workflow |
+| [09_lsoa_atlas.ipynb](notebooks/02_model/09_lsoa_atlas.ipynb) | Current modelling workflow |
+| [10_ward_scenarios.ipynb](notebooks/02_model/10_ward_scenarios.ipynb) | Current modelling workflow |
+| [11_pypsa_interface.ipynb](notebooks/02_model/11_pypsa_interface.ipynb) | Internal downstream interface; optional review |
+| [12_planning_visuals.ipynb](notebooks/02_model/12_planning_visuals.ipynb) | Current modelling workflow |
+| [notebook13_clustering_diagnostics.ipynb](notebooks/02_model/notebook13_clustering_diagnostics.ipynb) | Current modelling workflow |
 
-## Code and supporting material
+## Provenance and access
 
-* `ukubem/` — modelling, accounting, calibration, retrofit, flexibility and spatial-export code.
-* `uk_ubem_schedule_generator/` — household and schedule source; underlying microdata excluded.
-* `parameters/` — saved assumptions and their recorded sources.
-* `docs/INPUT_SCHEMA.md` — what the original modelling pipeline expects.
-* `docs/DATA_AND_REUSE.md` — included/excluded files and review-copy treatment.
-* `docs/notebook_manifest.json` — source hashes, retained figure counts and removed-output reasons.
+The source is included for inspection in ukubem/ and uk_ubem_schedule_generator/. Legacy compatibility modules are not dashboard inputs. docs/snapshot_manifest.json records the copied current result files and hashes; docs/notebook_manifest.json records notebook treatment. Read docs/DATA_AND_REUSE.md for excluded inputs and provider terms.
 
-## Access
-
-Keep the repository private. The owner can add supervisors under **Settings → Collaborators → Add people**. No collaborators are automatically invited and no public app deployment is created by this package.
+This remains a private research showcase. The original calibrated version is recoverable from Git history.

@@ -1,0 +1,13 @@
+# Uncalibrated validation and interpretation
+
+Gas WAPE is 7.28% and electricity WAPE is 11.21%. Signed aggregate bias is -5.84% and +1.39%, respectively. Gas is within ±10% in 64 of 84 LSOAs; electricity in 43. This band is descriptive, not a formal acceptance criterion.
+
+The closest combined matches are Guildford 007C (E01030483: gas -0.4%, electricity +1.3%); Guildford 010C (E01030432: gas -1.8%, electricity +1.3%); Guildford 001E (E01030476: gas -2.9%, electricity -0.3%). The largest combined discrepancies are Guildford 015C (E01030468: gas -18.5%, electricity +28.1%); Guildford 002D (E01030474: gas -23.3%, electricity +20.5%); Guildford 008C (E01030462: gas -8.9%, electricity +32.3%). No areas have been removed. The ranking gives equal weight to each area's absolute gas and electricity percentage errors; it is not WAPE.
+
+The map shows generally modest gas underprediction, while electricity discrepancies are more spatially varied. Residuals locate disagreement but do not establish its cause. Possible factors requiring separate checks include dwelling/meter population differences, heating-system classification, building attributes, annual usage assumptions and the TMY-versus-meter weather basis. Good totals can conceal opposing local errors.
+
+The Canet-inspired box plot shows signed delivered-gas/electricity discrepancies, 100 × (modelled − observed)/observed. It is not a replication of Canet's gas-to-heat comparison and does not use his sign/reference convention. All 84 points are shown. Boxes represent the middle 50% and median, not confidence intervals. Whiskers extend to observations within 1.5 IQR. The median is not WAPE.
+
+The thermal solver supplies hourly useful space heat. Annual appliances, lighting, electric cooking and hot water retain the BREDEM/SAP-based estimates. Normalized profiles distribute those quantities across the year; raw generator sums are not a second annual energy account. Hot water at the tap, system-side hot-water heat including losses, and electric-shower electricity are distinct fields. Boiler efficiencies convert heat to fuel. Existing heat pumps use hourly COP with radiator sink 40 − outdoor temperature and DHW sink 50°C. Annual HP electricity is the sum of hourly electricity, with no fixed-SPF rescaling. The aggregate heat-pump family is treated as ASHP; defrost, backup and part-load effects are not resolved.
+
+No calibration or spatial refit is performed. These observations have already informed model inspection, so the comparison is not an untouched holdout. Annual area-level agreement does not validate individual dwellings, hourly peaks, household behaviour, COP performance or scenarios. The existing weather and population conventions remain limitations.

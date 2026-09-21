@@ -1,0 +1,25 @@
+{
+  "completed": true,
+  "completed_utc": "2026-09-18T12:16:18.749455+00:00",
+  "calibration": false,
+  "baseline_simulations": 408,
+  "retrofit_simulations": 612,
+  "interface_import_passed": true,
+  "physics_tests": 16,
+  "accounting_tests": 15,
+  "package_fingerprints": {
+    "R0": "3fd5f84f243f2b8dd2015ca6494449445c343cb1a3e9532f679782fa9824179c",
+    "R1": "70938f4dda5cff3d60e6f518e8110339b63a8c8e3e28df18faa26a8fb36b2bf6",
+    "R2": "064068648b03c1b1a8d262ab9bd73b35f2ccb0b4de1046116427fe2ae174a51c"
+  },
+  "pipeline_source_hashes": {
+    "ukubem\\unified.py": "c2c5ef053d5259015cd0d6a9d85a13c0419a6d445cf8b2618f6ea8c130df4e79",
+    "ukubem\\reporting.py": "03bb99068f899ad0e699dcf484b52ab6d8dab2c3a10fc11237d92df70421de39",
+    "run_all.py": "1cb4b4197fe83adb5c46c0f7454cb4dc715498e3d67cbb2894d22ee11caa1162",
+    "build_result_index.py": "ec5763b00e2119b02e7aea2579050e145b87916e9293e0b7c4a55006727fec64",
+    "tests\\verify_current.py": "4c28e0ff925f6a522c0d5b1bde32d434532a6134b1550ba472660677bfeb1c24",
+    "tests\\verify_physics.py": "87433bc8673ab6d885ca2be4b02ceea53d3c378fdd1b1e42c7ca70553e6af5ce",
+    "tests\\verify_pypsa_interface.py": "4ac3d4c9ae8690bd6a110403cb5f0d5a1ccd6589e29055a581e2c28ef0df88b5",
+    "tests\\verify_scenarios.py": "bac7858193eaf207e29f72e8023a1dede565f0206c2cbcba468824d78959806c"
+  }
+}

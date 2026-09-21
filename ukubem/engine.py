@@ -117,6 +117,10 @@ def annual_summary(hourly: pd.DataFrame, annual: pd.DataFrame, floor_area: float
         "peak_heat_W": float(heat_w.max()),
     }
     res["Q_H_kWh_m2"] = res["Q_H_kWh"] / floor_area if floor_area else np.nan
+    if "Q_air_balance_residual_W" in hourly:
+        residual = hourly["Q_air_balance_residual_W"].to_numpy(dtype=float)
+        res["air_balance_max_abs_W"] = float(np.max(np.abs(residual)))
+        res["air_balance_rms_W"] = float(np.sqrt(np.mean(residual ** 2)))
     for col in ("Q_solar_gains_kWh", "Q_internal_gains_kWh", "Q_tr_total_loss_kWh", "Q_ve_loss_kWh",
                 "Q_ground_loss_kWh", "Q_tb_loss_kWh", "Q_tr_window_loss_kWh", "Q_tr_opaque_loss_kWh"):
         if col in annual.columns:

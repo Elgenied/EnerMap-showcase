@@ -95,7 +95,16 @@ def simulate_rows(rows: pd.DataFrame, epw: str, pybui_src: str, assumptions: UKG
             hourly = None
         dhw_gen = float(sch["dhw_kWh_year"]) if np.isfinite(sch.get("dhw_kWh_year", np.nan)) else np.nan
         q_sim = float(res.get("Q_H_kWh", np.nan))
-        acc = account([q_sim], [derived["A_floor"]], masks, post, usage=usage)
+        hp_elec = None
+        if masks['hp'][0] and hourly is not None:
+            from .profiles import epw_hourly
+            from .heatpumps import hourly_electricity
+            eh, ew = hourly_electricity(np.clip(hourly['Q_HC'].to_numpy(float), 0, None) / 1000.,
+                usage['dhw_system_kWh'][0], epw_hourly(epw).T_out_C.to_numpy())
+            hp_elec = [eh.sum() + ew.sum()]
+        if masks['hp'][0] and hourly is None:
+            raise RuntimeError(f'Heat-pump thermal simulation failed for {did}: {status}')
+        acc = account([q_sim], [derived["A_floor"]], masks, post, usage=usage, hp_electric_kWh=hp_elec)
         deliv = {k: (float(v[0]) if k not in ("in_gas_benchmark", "gas_connected_nonheat") else bool(v[0])) for k, v in acc.items()}
         deliv["Q_H_kWh_m2"] = deliv["Q_H_kWh"] / derived["A_floor"]
         row = {"dwelling_id": did, "status": status, "seconds": secs, "household_archetype": hh,

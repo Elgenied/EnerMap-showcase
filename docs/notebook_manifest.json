@@ -95,115 +95,6 @@
     ]
   },
   {
-    "source": "enermap_ubem\\00_data_basis.ipynb",
-    "notebook": "notebooks/02_model/00_data_basis.ipynb",
-    "source_sha256": "07651e338d819a5d51df3a450aa2035d782958b337d90ece7771a7d6dd653057",
-    "original_outputs": 8,
-    "retained_pngs": 2,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\01_archetypes.ipynb",
-    "notebook": "notebooks/02_model/01_archetypes.ipynb",
-    "source_sha256": "241402e4e4cdab9d275fef49aa79bd6eecae693fc4a5920952088ea2f784e378",
-    "original_outputs": 23,
-    "retained_pngs": 6,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\02_representatives.ipynb",
-    "notebook": "notebooks/02_model/02_representatives.ipynb",
-    "source_sha256": "bd03c42fa122525f9dd055ac4b8e3b2e1b4887ff9776c644cdb748c3ad34d1a6",
-    "original_outputs": 10,
-    "retained_pngs": 2,
-    "changes": [
-      {
-        "cell": 7,
-        "reason": "address-level or identifier-bearing output"
-      }
-    ]
-  },
-  {
-    "source": "enermap_ubem\\03_engine_setup.ipynb",
-    "notebook": "notebooks/02_model/03_engine_setup.ipynb",
-    "source_sha256": "aa617dc77ff3c4a8a79f1841efe6b53c8cc7f985b197f47cf5c1bcaa70f1e217",
-    "original_outputs": 13,
-    "retained_pngs": 3,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\04_household_schedules.ipynb",
-    "notebook": "notebooks/02_model/04_household_schedules.ipynb",
-    "source_sha256": "27ff243fe3b62ccd15b05b986ec72b8963014ab2a5c40274ffaaf15432fa4e51",
-    "original_outputs": 12,
-    "retained_pngs": 5,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\05_archetype_run.ipynb",
-    "notebook": "notebooks/02_model/05_archetype_run.ipynb",
-    "source_sha256": "7c6008a4130f34855b042e8dd386bd5f0c5590d92b63aa90441e4f5bd589786d",
-    "original_outputs": 8,
-    "retained_pngs": 2,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\06_calibration.ipynb",
-    "notebook": "notebooks/02_model/06_calibration.ipynb",
-    "source_sha256": "f1aa74e01293070bd22107a329e81b3d38c2d7a130288387d0fe24bf7df76df5",
-    "original_outputs": 49,
-    "retained_pngs": 3,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\07_spatial_cv.ipynb",
-    "notebook": "notebooks/02_model/07_spatial_cv.ipynb",
-    "source_sha256": "f9394c4706efa915326336d7ce7dcc6dc5c0f143c44b812b4531e7d57ca4d45b",
-    "original_outputs": 12,
-    "retained_pngs": 1,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\08_dwelling_tier_check.ipynb",
-    "notebook": "notebooks/02_model/08_dwelling_tier_check.ipynb",
-    "source_sha256": "b5f454176449fc4c39417beb69268f8ce514b054a85c823017e56128fd736c85",
-    "original_outputs": 7,
-    "retained_pngs": 2,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\09_lsoa_atlas.ipynb",
-    "notebook": "notebooks/02_model/09_lsoa_atlas.ipynb",
-    "source_sha256": "4a55f829197d50cda653fe2c5673f45e280051e1ce4d40185c7691ebf2382f12",
-    "original_outputs": 13,
-    "retained_pngs": 6,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\10_ward_scenarios.ipynb",
-    "notebook": "notebooks/02_model/10_ward_scenarios.ipynb",
-    "source_sha256": "ff8846d59c7d7dfb1a2ab836816004c8bdeea01c91afa1265e04f5fb6638271e",
-    "original_outputs": 34,
-    "retained_pngs": 10,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\11_pypsa_interface.ipynb",
-    "notebook": "notebooks/02_model/11_pypsa_interface.ipynb",
-    "source_sha256": "abd7dd1ed50c418fab6fc4714c5461f83bc43134bef612efa1dc9138ddac3534",
-    "original_outputs": 16,
-    "retained_pngs": 4,
-    "changes": []
-  },
-  {
-    "source": "enermap_ubem\\12_planning_visuals.ipynb",
-    "notebook": "notebooks/02_model/12_planning_visuals.ipynb",
-    "source_sha256": "5dbfdf68ed98666e49de3377c7b64c2f036c7b2e3410e8ff166dc8857b566293",
-    "original_outputs": 12,
-    "retained_pngs": 4,
-    "changes": []
-  },
-  {
     "source": "EnerMap\\Solar_rooftop_potential\\guildford_rooftop_pv.ipynb",
     "notebook": "notebooks/03_solar/01_rooftop_pv.ipynb",
     "source_sha256": "737fae99dcefebbe4d075799aa154168033dd74c0271bc9f724bbc61614b8373",
@@ -256,5 +147,114 @@
         "reason": "address-level or identifier-bearing output"
       }
     ]
+  },
+  {
+    "source": "enermap_ubem/00_data_basis.ipynb",
+    "notebook": "notebooks/02_model/00_data_basis.ipynb",
+    "source_sha256": "07651e338d819a5d51df3a450aa2035d782958b337d90ece7771a7d6dd653057",
+    "original_outputs": 8,
+    "retained_pngs": 2,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/01_archetypes.ipynb",
+    "notebook": "notebooks/02_model/01_archetypes.ipynb",
+    "source_sha256": "241402e4e4cdab9d275fef49aa79bd6eecae693fc4a5920952088ea2f784e378",
+    "original_outputs": 23,
+    "retained_pngs": 6,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/02_representatives.ipynb",
+    "notebook": "notebooks/02_model/02_representatives.ipynb",
+    "source_sha256": "360f8a246030aaa5ea05a41a8fa11c7edccba511a89559ab0f8e587fe09e77aa",
+    "original_outputs": 0,
+    "retained_pngs": 0,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/03_engine_setup.ipynb",
+    "notebook": "notebooks/02_model/03_engine_setup.ipynb",
+    "source_sha256": "c68c84fb453d7842e29386336082b9fe4a793f17515cd657930c2ac582484366",
+    "original_outputs": 0,
+    "retained_pngs": 0,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/04_household_schedules.ipynb",
+    "notebook": "notebooks/02_model/04_household_schedules.ipynb",
+    "source_sha256": "e455c4ad8ac5b6b755d6d5e0276b934f04fd3f708466e9aad90770a0fb577249",
+    "original_outputs": 0,
+    "retained_pngs": 0,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/05_archetype_run.ipynb",
+    "notebook": "notebooks/02_model/05_archetype_run.ipynb",
+    "source_sha256": "4379f992ea088d9ca4538f585aa5a5a08ecebf4aa4e95849c3d2fbc09f8397a7",
+    "original_outputs": 22,
+    "retained_pngs": 0,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/06_validation.ipynb",
+    "notebook": "notebooks/02_model/06_validation.ipynb",
+    "source_sha256": "be1400c16190fa64ac3bbe68b4e919ed209361299f1cb5cb8c49358762913e54",
+    "original_outputs": 7,
+    "retained_pngs": 4,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/07_consistency_checks.ipynb",
+    "notebook": "notebooks/02_model/07_consistency_checks.ipynb",
+    "source_sha256": "37e33afdc552ad11ad909a6c61b2ed6f40b7ad8151977f8226048b1484c876b9",
+    "original_outputs": 19,
+    "retained_pngs": 0,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/09_lsoa_atlas.ipynb",
+    "notebook": "notebooks/02_model/09_lsoa_atlas.ipynb",
+    "source_sha256": "717586e781b730131a5b777edc41ef8d14ac2eb2037d4130df8e54fc72f1e3ff",
+    "original_outputs": 4,
+    "retained_pngs": 3,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/10_ward_scenarios.ipynb",
+    "notebook": "notebooks/02_model/10_ward_scenarios.ipynb",
+    "source_sha256": "427355103abecf260268f1bb1f4b4a232817bf68264afd19116d332d3c702885",
+    "original_outputs": 12,
+    "retained_pngs": 2,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/11_pypsa_interface.ipynb",
+    "notebook": "notebooks/02_model/11_pypsa_interface.ipynb",
+    "source_sha256": "cc7dfb84eee6e52d8ce2da3184f1489d3dcd0ebc2271564e452c3f81954eea42",
+    "original_outputs": 13,
+    "retained_pngs": 1,
+    "changes": [
+      {
+        "cell": 4,
+        "reason": "identifier-bearing output"
+      }
+    ]
+  },
+  {
+    "source": "enermap_ubem/12_planning_visuals.ipynb",
+    "notebook": "notebooks/02_model/12_planning_visuals.ipynb",
+    "source_sha256": "ab02689b4955a7dc16c8af5c2c1c28281cab8ae0d96c4cd5d1341624afe28593",
+    "original_outputs": 7,
+    "retained_pngs": 4,
+    "changes": []
+  },
+  {
+    "source": "enermap_ubem/notebook13_clustering_diagnostics.ipynb",
+    "notebook": "notebooks/02_model/notebook13_clustering_diagnostics.ipynb",
+    "source_sha256": "d931d2575093765d0194ee07df5934dd15fb46f7fef9144387ef5b4e9291229f",
+    "original_outputs": 14,
+    "retained_pngs": 7,
+    "changes": []
   }
 ]

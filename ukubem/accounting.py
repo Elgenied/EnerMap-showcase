@@ -56,7 +56,8 @@ def usage_for(area_m2, masks: dict, occupancy=None) -> dict:
     return bredem_usage(area_m2, masks["gas_eligible"], occupancy)
 
 
-def account(q_sim_kWh, area_m2, masks: dict, post: dict | None = None, usage: dict | None = None, occupancy=None) -> dict:
+def account(q_sim_kWh, area_m2, masks: dict, post: dict | None = None, usage: dict | None = None, occupancy=None,
+            hp_electric_kWh=None) -> dict:
     """
     Needs -> delivered fuel (vectorised). `q_sim_kWh`: simulated space heat (TMY weather).
     `usage`: BREDEM components (computed here when None). Returns arrays; Q_H_kWh / dhw_kWh /
@@ -76,8 +77,12 @@ def account(q_sim_kWh, area_m2, masks: dict, post: dict | None = None, usage: di
     boiler = masks["boiler_gas"] | masks["boiler_other"]
     fuel_in = np.where(boiler, (q + dhw) / p["boiler_eff"], 0.0)
     fuel_in = np.where(masks["communal"], fuel_in / (1.0 - p["communal_distribution_loss"]), fuel_in)
-    elec_heat = (np.where(masks["hp"], q / p["hp_scop"] + dhw / p["dhw_hp_scop"], 0.0)
-                 + np.where(masks["direct"], q + dhw, 0.0))
+    if np.any(masks['hp']) and hp_electric_kWh is None:
+        raise ValueError('Hourly heat-pump electricity is required. Sum hourly space/DHW heat divided by configured COP; fixed seasonal factors are retired.')
+    hp_elec = np.zeros_like(q) if hp_electric_kWh is None else np.asarray(hp_electric_kWh, float)
+    if hp_elec.shape != q.shape or not np.all(np.isfinite(hp_elec)) or np.any(hp_elec < 0):
+        raise ValueError('hp_electric_kWh must be finite, nonnegative, and aligned with dwellings')
+    elec_heat = np.where(masks['hp'], hp_elec, 0.) + np.where(masks['direct'], q + dhw, 0.)
     gas = np.where(masks["boiler_gas"], fuel_in, 0.0) + cook_gas
     return {"Q_H_kWh": q, "dhw_kWh": dhw, "appliances_kWh": app, "cooking_gas_kWh": cook_gas, "dhw_pou_elec_kWh": pou,
             "elec_heat_kWh": elec_heat, "occupancy_N": np.asarray(u["occupancy_N"], float),

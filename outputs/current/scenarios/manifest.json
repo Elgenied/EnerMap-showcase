@@ -1,0 +1,7 @@
+{
+  "calibration": false,
+  "hourly_COP": true,
+  "space_heat_uplift": "Existing configuration applied only to newly converted HP dwellings",
+  "economic_assumptions": "Existing project prices/carbon factors retained, not current quotes; retrofit costs and policy incentives only for original planning-ward scope",
+  "scope": "borough plus separately labelled planning-ward subtotal"
+}

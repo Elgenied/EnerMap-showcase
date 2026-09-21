@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "scenario": "U0_baseline",
+      "passed": true,
+      "dwellings": 57300,
+      "hours": 8760
+    },
+    {
+      "scenario": "U1_electrification",
+      "passed": true,
+      "dwellings": 57300,
+      "hours": 8760
+    },
+    {
+      "scenario": "U2_envelope",
+      "passed": true,
+      "dwellings": 57300,
+      "hours": 8760
+    },
+    {
+      "scenario": "U3_envelope_elec",
+      "passed": true,
+      "dwellings": 57300,
+      "hours": 8760
+    },
+    {
+      "scenario": "U4_elec_pv",
+      "passed": true,
+      "dwellings": 57300,
+      "hours": 8760
+    },
+    {
+      "scenario": "U5_envelope_elec_pv",
+      "passed": true,
+      "dwellings": 57300,
+      "hours": 8760
+    }
+  ],
+  "boundary": "Hourly gross electricity reconciles before annual PV self-consumption offsets."
+}

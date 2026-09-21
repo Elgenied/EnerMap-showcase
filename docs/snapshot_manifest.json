@@ -1,0 +1,688 @@
+{
+  "engine_completed_utc": "2026-09-18T12:16:18.749455+00:00",
+  "calibration": false,
+  "files": [
+    {
+      "source": "enermap_ubem/outputs/current/completion.json",
+      "file": "outputs/current/completion.json",
+      "source_sha256": "ed9656a872aa8be06402c85d001cef18107c0f26683401340635f05f69ea2dc2",
+      "packaged_sha256": "ed9656a872aa8be06402c85d001cef18107c0f26683401340635f05f69ea2dc2"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/summary.json",
+      "file": "outputs/current/baseline/summary.json",
+      "source_sha256": "5f5e756e5813e173b7d391e535b804ca31d210f1237f500449cfd49247afe998",
+      "packaged_sha256": "5f5e756e5813e173b7d391e535b804ca31d210f1237f500449cfd49247afe998"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/metrics.json",
+      "file": "outputs/current/baseline/metrics.json",
+      "source_sha256": "f35b32dc62e13d8b8104aea6b4efed98f392d47c4d43fcd76d405d2a7c295ea1",
+      "packaged_sha256": "f35b32dc62e13d8b8104aea6b4efed98f392d47c4d43fcd76d405d2a7c295ea1"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/complete.json",
+      "file": "outputs/current/baseline/complete.json",
+      "source_sha256": "f4db2d87599f6d9f00806d712a23cd9f7a4a3a73911bc354709e7a06814936af",
+      "packaged_sha256": "f4db2d87599f6d9f00806d712a23cd9f7a4a3a73911bc354709e7a06814936af"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/lsoa_validation.csv",
+      "file": "outputs/current/baseline/lsoa_validation.csv",
+      "source_sha256": "186537b634720fcea6b58c962780d473683a80b12ac3011573744119b3f06436",
+      "packaged_sha256": "186537b634720fcea6b58c962780d473683a80b12ac3011573744119b3f06436"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/lsoa_alignment_ranking.csv",
+      "file": "outputs/current/baseline/lsoa_alignment_ranking.csv",
+      "source_sha256": "59730fa7418981ee09b2373c19735013ace4ea0f6f09babc1bc4df4f1850ea74",
+      "packaged_sha256": "59730fa7418981ee09b2373c19735013ace4ea0f6f09babc1bc4df4f1850ea74"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/lsoa_demand_totals.csv",
+      "file": "outputs/current/baseline/lsoa_demand_totals.csv",
+      "source_sha256": "2e064bd339bb01a6cd4280a5fc02dba3b005de9459c4656aac841b940956958c",
+      "packaged_sha256": "2e064bd339bb01a6cd4280a5fc02dba3b005de9459c4656aac841b940956958c"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/stock_hourly.csv",
+      "file": "outputs/current/baseline/stock_hourly.csv",
+      "source_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45",
+      "packaged_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/DISCUSSION.md",
+      "file": "outputs/current/baseline/DISCUSSION.md",
+      "source_sha256": "25ef3cffc3ade4558e920bf072c843fb8403bc2a6d8736f99134b5e46ce86e8e",
+      "packaged_sha256": "25ef3cffc3ade4558e920bf072c843fb8403bc2a6d8736f99134b5e46ce86e8e"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/baseline/MAP_NOTES.md",
+      "file": "outputs/current/baseline/MAP_NOTES.md",
+      "source_sha256": "1aa9e8a93752d10358d961c19f62b58e01d86ea3b9873976dc5ee7e7aabac404",
+      "packaged_sha256": "1aa9e8a93752d10358d961c19f62b58e01d86ea3b9873976dc5ee7e7aabac404"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/scenario_summary.csv",
+      "file": "outputs/current/scenarios/scenario_summary.csv",
+      "source_sha256": "e9ece4559c59856ac4d04dbf7d10fac85b124bb9090d94fe14195ca9fb2df91d",
+      "packaged_sha256": "e9ece4559c59856ac4d04dbf7d10fac85b124bb9090d94fe14195ca9fb2df91d"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/planning_ward_summary.csv",
+      "file": "outputs/current/scenarios/planning_ward_summary.csv",
+      "source_sha256": "fe7b1c8db78ec4585e5594cdc72b8fefaa7e9816dc338fe74a8e911e07d7f35e",
+      "packaged_sha256": "fe7b1c8db78ec4585e5594cdc72b8fefaa7e9816dc338fe74a8e911e07d7f35e"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/manifest.json",
+      "file": "outputs/current/scenarios/manifest.json",
+      "source_sha256": "7bfe1725dca2f3eb5a6a98b00869fb194af2d03144214fd8793f8a914bae8f2e",
+      "packaged_sha256": "7bfe1725dca2f3eb5a6a98b00869fb194af2d03144214fd8793f8a914bae8f2e"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/U0_baseline_hourly.csv",
+      "file": "outputs/current/scenarios/U0_baseline_hourly.csv",
+      "source_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45",
+      "packaged_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/U1_electrification_hourly.csv",
+      "file": "outputs/current/scenarios/U1_electrification_hourly.csv",
+      "source_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db",
+      "packaged_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/U2_envelope_hourly.csv",
+      "file": "outputs/current/scenarios/U2_envelope_hourly.csv",
+      "source_sha256": "2cb25e8d9cc6c301ae67e497eba8f38eeeaf3b658812e3be708bbf9b1e27f581",
+      "packaged_sha256": "2cb25e8d9cc6c301ae67e497eba8f38eeeaf3b658812e3be708bbf9b1e27f581"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/U3_envelope_elec_hourly.csv",
+      "file": "outputs/current/scenarios/U3_envelope_elec_hourly.csv",
+      "source_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5",
+      "packaged_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/U4_elec_pv_hourly.csv",
+      "file": "outputs/current/scenarios/U4_elec_pv_hourly.csv",
+      "source_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db",
+      "packaged_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/scenarios/U5_envelope_elec_pv_hourly.csv",
+      "file": "outputs/current/scenarios/U5_envelope_elec_pv_hourly.csv",
+      "source_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5",
+      "packaged_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/checks/accounting.json",
+      "file": "outputs/current/checks/accounting.json",
+      "source_sha256": "ce9fb35117634e5ef0257c8a247a001f6389f48a7335e978153569db8aadc9a0",
+      "packaged_sha256": "ce9fb35117634e5ef0257c8a247a001f6389f48a7335e978153569db8aadc9a0"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/checks/scenarios.json",
+      "file": "outputs/current/checks/scenarios.json",
+      "source_sha256": "da39bdad5e8fd56cf0507268e6ae95d2d6f66849e7fa5dac5abafe01497ede07",
+      "packaged_sha256": "da39bdad5e8fd56cf0507268e6ae95d2d6f66849e7fa5dac5abafe01497ede07"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.pdf",
+      "file": "outputs/current/figures/06_canet_style_distribution.pdf",
+      "source_sha256": "a59ddf45d5cf9b4c54822d4c01193f4c67cedd99bfe001be12c473765039ea1b",
+      "packaged_sha256": "a59ddf45d5cf9b4c54822d4c01193f4c67cedd99bfe001be12c473765039ea1b"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.png",
+      "file": "outputs/current/figures/06_canet_style_distribution.png",
+      "source_sha256": "fa71f7d6452c0303978d9f469004b626a164beb4a5fb701e230e840129ca70fb",
+      "packaged_sha256": "fa71f7d6452c0303978d9f469004b626a164beb4a5fb701e230e840129ca70fb"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.svg",
+      "file": "outputs/current/figures/06_canet_style_distribution.svg",
+      "source_sha256": "53020cc52100acd59582983998c0245da6bc9f0fd59b116498a9778a2bf2f0cb",
+      "packaged_sha256": "53020cc52100acd59582983998c0245da6bc9f0fd59b116498a9778a2bf2f0cb"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.pdf",
+      "file": "outputs/current/figures/06_lsoa_alignment.pdf",
+      "source_sha256": "e524eb52fac9af244f245ea19c7e3f08860e6dc3c96f1f7b3f98775264bc6656",
+      "packaged_sha256": "e524eb52fac9af244f245ea19c7e3f08860e6dc3c96f1f7b3f98775264bc6656"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.png",
+      "file": "outputs/current/figures/06_lsoa_alignment.png",
+      "source_sha256": "dcbd8c9d71e36deb3d29baeb7b3a65d95784bf31d62e89d4b1b7da04c18e9337",
+      "packaged_sha256": "dcbd8c9d71e36deb3d29baeb7b3a65d95784bf31d62e89d4b1b7da04c18e9337"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.svg",
+      "file": "outputs/current/figures/06_lsoa_alignment.svg",
+      "source_sha256": "1487a722fb4cbc31e036b8c292aeffe1532808e44a7f8cadb7f0e0afc3cec12f",
+      "packaged_sha256": "1487a722fb4cbc31e036b8c292aeffe1532808e44a7f8cadb7f0e0afc3cec12f"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_validation_maps.pdf",
+      "file": "outputs/current/figures/06_validation_maps.pdf",
+      "source_sha256": "d61345ac5c286e8f4a0b9984b2a6d199714ca1c048b17257e35a519a808d2d2d",
+      "packaged_sha256": "d61345ac5c286e8f4a0b9984b2a6d199714ca1c048b17257e35a519a808d2d2d"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_validation_maps.png",
+      "file": "outputs/current/figures/06_validation_maps.png",
+      "source_sha256": "fc50fff48ca275eb3a83603584f4cba09197ccd4c8d64905b6bbe8d11784c360",
+      "packaged_sha256": "fc50fff48ca275eb3a83603584f4cba09197ccd4c8d64905b6bbe8d11784c360"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_validation_maps.svg",
+      "file": "outputs/current/figures/06_validation_maps.svg",
+      "source_sha256": "9f7ff0cbdd2ff61f33f812eca9ca2d451a9453785f221b52da1266967b91de0e",
+      "packaged_sha256": "9f7ff0cbdd2ff61f33f812eca9ca2d451a9453785f221b52da1266967b91de0e"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.pdf",
+      "file": "outputs/current/figures/06_validation_observed_modelled.pdf",
+      "source_sha256": "73f971a2fe2c755a6a20db5a59f1362b21a17847b714f8e4e53ed0172a9768c5",
+      "packaged_sha256": "73f971a2fe2c755a6a20db5a59f1362b21a17847b714f8e4e53ed0172a9768c5"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.png",
+      "file": "outputs/current/figures/06_validation_observed_modelled.png",
+      "source_sha256": "38ebe5f6a7844c3fd9f019e37ca8e4768d27f1b1293632388a5ca05207c58913",
+      "packaged_sha256": "38ebe5f6a7844c3fd9f019e37ca8e4768d27f1b1293632388a5ca05207c58913"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.svg",
+      "file": "outputs/current/figures/06_validation_observed_modelled.svg",
+      "source_sha256": "0f6022c53a5a36baaf0197657591f613881ec93d6190f19fa8b4853c564adc37",
+      "packaged_sha256": "0f6022c53a5a36baaf0197657591f613881ec93d6190f19fa8b4853c564adc37"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.pdf",
+      "file": "outputs/current/figures/09_annual_and_hourly_demand.pdf",
+      "source_sha256": "009e92218df559fba8ebfe9cfda7e219d975ff1eb43dc0993ec230006a295afd",
+      "packaged_sha256": "009e92218df559fba8ebfe9cfda7e219d975ff1eb43dc0993ec230006a295afd"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.png",
+      "file": "outputs/current/figures/09_annual_and_hourly_demand.png",
+      "source_sha256": "d32188522e8fec58ea01980534897c3773ec569b52363dc7bb86b8f2be5de921",
+      "packaged_sha256": "d32188522e8fec58ea01980534897c3773ec569b52363dc7bb86b8f2be5de921"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.svg",
+      "file": "outputs/current/figures/09_annual_and_hourly_demand.svg",
+      "source_sha256": "3f76e942a3e32eca2b5a98a263449266773c44e6867f5c1fe4d91af8b62b8e5c",
+      "packaged_sha256": "3f76e942a3e32eca2b5a98a263449266773c44e6867f5c1fe4d91af8b62b8e5c"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.pdf",
+      "file": "outputs/current/figures/09_building_demand_maps.pdf",
+      "source_sha256": "1b572754f018d5ddfd62f64b95e9063241d0f332e6c6a974b22b3859f938051a",
+      "packaged_sha256": "1b572754f018d5ddfd62f64b95e9063241d0f332e6c6a974b22b3859f938051a"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.png",
+      "file": "outputs/current/figures/09_building_demand_maps.png",
+      "source_sha256": "f0bbd580cb3c62e65f1dea8cd126c16dac2f18a58a174545bdf8f7c6bdc0d1d8",
+      "packaged_sha256": "f0bbd580cb3c62e65f1dea8cd126c16dac2f18a58a174545bdf8f7c6bdc0d1d8"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.svg",
+      "file": "outputs/current/figures/09_building_demand_maps.svg",
+      "source_sha256": "b3f5231a238313d5f5ba10c4672bc4fa0b8f41a41a145231caeaa824cd393228",
+      "packaged_sha256": "b3f5231a238313d5f5ba10c4672bc4fa0b8f41a41a145231caeaa824cd393228"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.pdf",
+      "file": "outputs/current/figures/09_demand_totals_maps.pdf",
+      "source_sha256": "b4884f0693280c4307d524d76bec1e4505f086d5cff54b5a535eefe95d40583f",
+      "packaged_sha256": "b4884f0693280c4307d524d76bec1e4505f086d5cff54b5a535eefe95d40583f"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.png",
+      "file": "outputs/current/figures/09_demand_totals_maps.png",
+      "source_sha256": "0f16fb65fa30da3223ac3a762d8c5fec264edbed35ba029d3251b095174bfa88",
+      "packaged_sha256": "0f16fb65fa30da3223ac3a762d8c5fec264edbed35ba029d3251b095174bfa88"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.svg",
+      "file": "outputs/current/figures/09_demand_totals_maps.svg",
+      "source_sha256": "e25acd349e6bb9197f674f1691d9cfee6ccebc6000b845cfda70ed9c908f4124",
+      "packaged_sha256": "e25acd349e6bb9197f674f1691d9cfee6ccebc6000b845cfda70ed9c908f4124"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.pdf",
+      "file": "outputs/current/figures/09_neighbourhood_demand_detail.pdf",
+      "source_sha256": "90b538aaa4d7376d3c4c103838b5a6548cbadf8f1830b34d6bbefbdde0311393",
+      "packaged_sha256": "90b538aaa4d7376d3c4c103838b5a6548cbadf8f1830b34d6bbefbdde0311393"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.png",
+      "file": "outputs/current/figures/09_neighbourhood_demand_detail.png",
+      "source_sha256": "34b15cb90c63b60762c1082350314ed740f6b4fffe76c4e23bc057fba9713be5",
+      "packaged_sha256": "34b15cb90c63b60762c1082350314ed740f6b4fffe76c4e23bc057fba9713be5"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.svg",
+      "file": "outputs/current/figures/09_neighbourhood_demand_detail.svg",
+      "source_sha256": "8725c1e54f6ef75db4992eeb6b59397d504707e0be4609412eb8026ef5749d36",
+      "packaged_sha256": "8725c1e54f6ef75db4992eeb6b59397d504707e0be4609412eb8026ef5749d36"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.pdf",
+      "file": "outputs/current/figures/10_retrofit_saving_map.pdf",
+      "source_sha256": "5101782def41aa262e2155dcd51790870952a02aa921ecaef3c55e648353f6df",
+      "packaged_sha256": "5101782def41aa262e2155dcd51790870952a02aa921ecaef3c55e648353f6df"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.png",
+      "file": "outputs/current/figures/10_retrofit_saving_map.png",
+      "source_sha256": "d8f95b28175e9a486b00716f7c786aec892027e5c996fdf54757a5b27ac32469",
+      "packaged_sha256": "d8f95b28175e9a486b00716f7c786aec892027e5c996fdf54757a5b27ac32469"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.svg",
+      "file": "outputs/current/figures/10_retrofit_saving_map.svg",
+      "source_sha256": "e2a3f6969eb07da2a115a54d7d4644bb6570fd028c30724eb7606e9f03d7b864",
+      "packaged_sha256": "e2a3f6969eb07da2a115a54d7d4644bb6570fd028c30724eb7606e9f03d7b864"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.pdf",
+      "file": "outputs/current/figures/10_scenario_energy_carbon.pdf",
+      "source_sha256": "09e74c40b3263a559d0331d052611f83413ce7331d0c562ddcb95a9b93266944",
+      "packaged_sha256": "09e74c40b3263a559d0331d052611f83413ce7331d0c562ddcb95a9b93266944"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.png",
+      "file": "outputs/current/figures/10_scenario_energy_carbon.png",
+      "source_sha256": "37abe9ae8fcf6018db7b5fad1ad351dbf06754340459f71931f0192935098e6d",
+      "packaged_sha256": "37abe9ae8fcf6018db7b5fad1ad351dbf06754340459f71931f0192935098e6d"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.svg",
+      "file": "outputs/current/figures/10_scenario_energy_carbon.svg",
+      "source_sha256": "368f0fa285ff3ba8de79bc76665bdd146cc15015d4a3ca29c3d375341d826bd2",
+      "packaged_sha256": "368f0fa285ff3ba8de79bc76665bdd146cc15015d4a3ca29c3d375341d826bd2"
+    },
+    {
+      "source": "enermap_ubem/app.py",
+      "file": "app.py",
+      "source_sha256": "bcf519c155bcca04cd4d142dcdb0bba208bba217f546081a0b24598fbb752771",
+      "packaged_sha256": "bcf519c155bcca04cd4d142dcdb0bba208bba217f546081a0b24598fbb752771"
+    },
+    {
+      "source": "enermap_ubem/config.py",
+      "file": "config.py",
+      "source_sha256": "836f1296d854257d0ab859c05ce29d2c45510e6c377c07334fa1625065af28d0",
+      "packaged_sha256": "d6ffab7d135fe88601b7842fbece89a173a3d6e14bba50502c9ec806fceae9e6"
+    },
+    {
+      "source": "enermap_ubem/pbc_helpers.py",
+      "file": "pbc_helpers.py",
+      "source_sha256": "da8e4ef895a9de2642a9379cca84cadfe2116ea5bc84e4711e825914c101e4f1",
+      "packaged_sha256": "da8e4ef895a9de2642a9379cca84cadfe2116ea5bc84e4711e825914c101e4f1"
+    },
+    {
+      "source": "enermap_ubem/run_all.py",
+      "file": "run_all.py",
+      "source_sha256": "1cb4b4197fe83adb5c46c0f7454cb4dc715498e3d67cbb2894d22ee11caa1162",
+      "packaged_sha256": "7c99aba753c6872cba4f055eafcd3f7b6189857783859614ec062c36b19aa916"
+    },
+    {
+      "source": "enermap_ubem/build_result_index.py",
+      "file": "build_result_index.py",
+      "source_sha256": "ec5763b00e2119b02e7aea2579050e145b87916e9293e0b7c4a55006727fec64",
+      "packaged_sha256": "ec5763b00e2119b02e7aea2579050e145b87916e9293e0b7c4a55006727fec64"
+    },
+    {
+      "source": "enermap_ubem/ukubem/__init__.py",
+      "file": "ukubem/__init__.py",
+      "source_sha256": "9b1aa2cb61a9769f8b546fd57682f5e4b09516c13cbf6f03d6bf1beaf9179ba9",
+      "packaged_sha256": "613ae4dd19ddfcc6d6661d9a5ddcfd3b53a8dc6684984b5fccddd964d8a81fec"
+    },
+    {
+      "source": "enermap_ubem/ukubem/accounting.py",
+      "file": "ukubem/accounting.py",
+      "source_sha256": "cf4a6271b74ecf53bf7cbcf0b409b05c098ec2cef72983f5dd3cac4d406f3926",
+      "packaged_sha256": "a2961db3f86a3c7d6f559a7ed4bf7622787662b67ff9aa415ced09faf04e953f"
+    },
+    {
+      "source": "enermap_ubem/ukubem/calibrate.py",
+      "file": "ukubem/calibrate.py",
+      "source_sha256": "a0c4ae843e8eaebcf249fea1563b187f9e7e447cd85c0013ffd9b956a272a666",
+      "packaged_sha256": "aa25dc269024b54a61ae169dac854ff86dffe7a40063327434ba041923dd00d2"
+    },
+    {
+      "source": "enermap_ubem/ukubem/engine.py",
+      "file": "ukubem/engine.py",
+      "source_sha256": "34f6da959480611bb7c8f0f56161e2d4a837b0ffb7ac31ba8acb9f5037f8d0bc",
+      "packaged_sha256": "34f6da959480611bb7c8f0f56161e2d4a837b0ffb7ac31ba8acb9f5037f8d0bc"
+    },
+    {
+      "source": "enermap_ubem/ukubem/flexibility.py",
+      "file": "ukubem/flexibility.py",
+      "source_sha256": "86deb2362f1a11f6155fa435a39ddc393f446bfde1729b196f4cf779385a55f3",
+      "packaged_sha256": "d6254fce7e8b21a783eba034e692702ed329ca5ee0eb2c7a8de00777d084648b"
+    },
+    {
+      "source": "enermap_ubem/ukubem/geometry.py",
+      "file": "ukubem/geometry.py",
+      "source_sha256": "6fe7ac4bb4dcef6d5985cea61bd4e61407c496f85ee477688b04cd6fb498bb7a",
+      "packaged_sha256": "5511cbdd9308d76d1947008709e833c63b35d4ba74c512dc98dcc092715b9bf4"
+    },
+    {
+      "source": "enermap_ubem/ukubem/heatpumps.py",
+      "file": "ukubem/heatpumps.py",
+      "source_sha256": "dc91113273ea8ebb22d4ffaae12a6eba19b2790fabc1e993f03980bffe76f0ba",
+      "packaged_sha256": "dc91113273ea8ebb22d4ffaae12a6eba19b2790fabc1e993f03980bffe76f0ba"
+    },
+    {
+      "source": "enermap_ubem/ukubem/maps.py",
+      "file": "ukubem/maps.py",
+      "source_sha256": "1d506c402ee80a10edf76d667619a68674fa4a4817ecfaa6a5bd1e9130ccdbf4",
+      "packaged_sha256": "248c97314b07740b9cbb4f6f4d38bfa590a6af3112c443e10dc8030bbf024993"
+    },
+    {
+      "source": "enermap_ubem/ukubem/measures.py",
+      "file": "ukubem/measures.py",
+      "source_sha256": "d2741a09f98f79170331a05dc9643827d4e1a3837580e3eb904d97942e27c437",
+      "packaged_sha256": "48c5911efeeaf19cdacbff0d5e7c17c5fc50d6e733b34f3e52acd9470565fd5b"
+    },
+    {
+      "source": "enermap_ubem/ukubem/metrics.py",
+      "file": "ukubem/metrics.py",
+      "source_sha256": "62c6a788c2d2b71ab8a31a46afd74ca9b9d76997e08194481668b8fd5cae30b0",
+      "packaged_sha256": "f27680b8f19516596159539e187b1f157f24f9a644b15cee0bb62462d3887180"
+    },
+    {
+      "source": "enermap_ubem/ukubem/params.py",
+      "file": "ukubem/params.py",
+      "source_sha256": "7f234b141c2c01f3cc81d5b02bdf15102be72cd5ee20730074b037f0f023d2dd",
+      "packaged_sha256": "7f234b141c2c01f3cc81d5b02bdf15102be72cd5ee20730074b037f0f023d2dd"
+    },
+    {
+      "source": "enermap_ubem/ukubem/profiles.py",
+      "file": "ukubem/profiles.py",
+      "source_sha256": "f10edd7bc9a1de36b4916cc7370371446356c8286d2190ae16ef54954d3a7a8d",
+      "packaged_sha256": "12c62c1cf7a767fa3179ca5177a4cb87535317a7cc26b620a82a6a56a2c5ea40"
+    },
+    {
+      "source": "enermap_ubem/ukubem/pubstyle.py",
+      "file": "ukubem/pubstyle.py",
+      "source_sha256": "6f2fd7a5c643f9620e487002d02fbbdfc66196c9107e189f14020fbd8870b2c3",
+      "packaged_sha256": "6f2fd7a5c643f9620e487002d02fbbdfc66196c9107e189f14020fbd8870b2c3"
+    },
+    {
+      "source": "enermap_ubem/ukubem/pypsa_export.py",
+      "file": "ukubem/pypsa_export.py",
+      "source_sha256": "63c9c8dec8de2224828634acb254c1c4c4cb998c5e4434477afbdadf967ed2b3",
+      "packaged_sha256": "7574ac4eeea2f2f6a8d31fb239599a7fdf5a57e27deee8d0aa41da9270becec6"
+    },
+    {
+      "source": "enermap_ubem/ukubem/reporting.py",
+      "file": "ukubem/reporting.py",
+      "source_sha256": "03bb99068f899ad0e699dcf484b52ab6d8dab2c3a10fc11237d92df70421de39",
+      "packaged_sha256": "03bb99068f899ad0e699dcf484b52ab6d8dab2c3a10fc11237d92df70421de39"
+    },
+    {
+      "source": "enermap_ubem/ukubem/runner.py",
+      "file": "ukubem/runner.py",
+      "source_sha256": "e71ee3e3fc3095f953e30309c2a9626eaf166f5761e8cb4f7e846197bcb1347f",
+      "packaged_sha256": "91d8729920a05ca862fb3f82be982bb12f0d5075d92a7ab53c3882522f55b198"
+    },
+    {
+      "source": "enermap_ubem/ukubem/schedules.py",
+      "file": "ukubem/schedules.py",
+      "source_sha256": "091602cf96982b8a431037f64eb826bd7991180a72dfa2f3979563be5baa78de",
+      "packaged_sha256": "091602cf96982b8a431037f64eb826bd7991180a72dfa2f3979563be5baa78de"
+    },
+    {
+      "source": "enermap_ubem/ukubem/stock.py",
+      "file": "ukubem/stock.py",
+      "source_sha256": "e738eb8830022e6adfbfb916920307e765e83c16a11dccc6915ef69ee0a4641d",
+      "packaged_sha256": "e738eb8830022e6adfbfb916920307e765e83c16a11dccc6915ef69ee0a4641d"
+    },
+    {
+      "source": "enermap_ubem/ukubem/systems.py",
+      "file": "ukubem/systems.py",
+      "source_sha256": "fe33eecd4fc4db10e8df7976668562641ffbb7f93cbc68313411419a927e647f",
+      "packaged_sha256": "37ca2730e9acb57a72a551893a6e801b9d83f9121ffecdf045993bda1e3c843f"
+    },
+    {
+      "source": "enermap_ubem/ukubem/unified.py",
+      "file": "ukubem/unified.py",
+      "source_sha256": "c2c5ef053d5259015cd0d6a9d85a13c0419a6d445cf8b2618f6ea8c130df4e79",
+      "packaged_sha256": "c2c5ef053d5259015cd0d6a9d85a13c0419a6d445cf8b2618f6ea8c130df4e79"
+    },
+    {
+      "source": "enermap_ubem/ukubem/usage.py",
+      "file": "ukubem/usage.py",
+      "source_sha256": "6970d08278436b3872b7b00b9863ef947e133077a06b69d95c1cb46010230010",
+      "packaged_sha256": "6e36ae948e7777ceff7ca60247ebf7a263668d2e90d3699bf4401a9510f10b2b"
+    },
+    {
+      "source": "enermap_ubem/uk_ubem_schedule_generator/chap_microdata.py",
+      "file": "uk_ubem_schedule_generator/chap_microdata.py",
+      "source_sha256": "a3bde2faf3f67cc769fd4a83ca8d5ac4582ce55d7d4dd580101e0190f4b76db4",
+      "packaged_sha256": "08a6e3f0f5dd36a4955d4a7f8a33c25a48ac06d7ef1778455ae4caf6d97fb8a9"
+    },
+    {
+      "source": "enermap_ubem/uk_ubem_schedule_generator/example_integration.py",
+      "file": "uk_ubem_schedule_generator/example_integration.py",
+      "source_sha256": "3d7c89ede9e6e803f65d514f2c37058f14427beb546620c5452e04f7c561acbc",
+      "packaged_sha256": "3d7c89ede9e6e803f65d514f2c37058f14427beb546620c5452e04f7c561acbc"
+    },
+    {
+      "source": "enermap_ubem/uk_ubem_schedule_generator/test_stratified_draws.py",
+      "file": "uk_ubem_schedule_generator/test_stratified_draws.py",
+      "source_sha256": "a7e4dfab47ced8730febd62834465bd06c34969f944b6cfc9789a83faa2584c8",
+      "packaged_sha256": "a7e4dfab47ced8730febd62834465bd06c34969f944b6cfc9789a83faa2584c8"
+    },
+    {
+      "source": "enermap_ubem/uk_ubem_schedule_generator/test_uk_ubem_schedules.py",
+      "file": "uk_ubem_schedule_generator/test_uk_ubem_schedules.py",
+      "source_sha256": "be609227383e3e715c075aec781729ea1e2662d6dd0edb830964098fc2152c6a",
+      "packaged_sha256": "ec7b44b5c4bf2e8b203bca088cfdd96d90668284a6c105cada229b5c13f8f3d1"
+    },
+    {
+      "source": "enermap_ubem/uk_ubem_schedule_generator/uk_ubem_schedules.py",
+      "file": "uk_ubem_schedule_generator/uk_ubem_schedules.py",
+      "source_sha256": "d594cc952724ffcbfae880e18d91e37b99b526a0a34edb3b5eb1f218554094a4",
+      "packaged_sha256": "b8a42c2bd612170285b86c12d7709f23bec81636f09e98c3ed53f32bebfe357b"
+    },
+    {
+      "source": "enermap_ubem/tests/verify_current.py",
+      "file": "tests/verify_current.py",
+      "source_sha256": "4c28e0ff925f6a522c0d5b1bde32d434532a6134b1550ba472660677bfeb1c24",
+      "packaged_sha256": "4c28e0ff925f6a522c0d5b1bde32d434532a6134b1550ba472660677bfeb1c24"
+    },
+    {
+      "source": "enermap_ubem/tests/verify_physics.py",
+      "file": "tests/verify_physics.py",
+      "source_sha256": "87433bc8673ab6d885ca2be4b02ceea53d3c378fdd1b1e42c7ca70553e6af5ce",
+      "packaged_sha256": "87433bc8673ab6d885ca2be4b02ceea53d3c378fdd1b1e42c7ca70553e6af5ce"
+    },
+    {
+      "source": "enermap_ubem/tests/verify_pypsa_interface.py",
+      "file": "tests/verify_pypsa_interface.py",
+      "source_sha256": "4ac3d4c9ae8690bd6a110403cb5f0d5a1ccd6589e29055a581e2c28ef0df88b5",
+      "packaged_sha256": "4ac3d4c9ae8690bd6a110403cb5f0d5a1ccd6589e29055a581e2c28ef0df88b5"
+    },
+    {
+      "source": "enermap_ubem/tests/verify_scenarios.py",
+      "file": "tests/verify_scenarios.py",
+      "source_sha256": "bac7858193eaf207e29f72e8023a1dede565f0206c2cbcba468824d78959806c",
+      "packaged_sha256": "bac7858193eaf207e29f72e8023a1dede565f0206c2cbcba468824d78959806c"
+    },
+    {
+      "source": "enermap_ubem/parameters/demand_model/calibration.json",
+      "file": "parameters/demand_model/calibration.json",
+      "source_sha256": "2589a77f4a50ec782e14f8be60bafa625d2ad50e3849910adcac668d6e452efd",
+      "packaged_sha256": "abe3c86ce677d72e23d205e3be84337f9f96a490f4a5c4621e67435a53640d88"
+    },
+    {
+      "source": "enermap_ubem/parameters/demand_model/geometry_defaults.json",
+      "file": "parameters/demand_model/geometry_defaults.json",
+      "source_sha256": "366b5b24e37ce6407c62bd639828bd5f496e19b8231d3b02bd94a68aa461cec0",
+      "packaged_sha256": "16161a0bb504ec1fea0ded05cf1f88de80d7f0d34c7367645319777b6273ca52"
+    },
+    {
+      "source": "enermap_ubem/parameters/demand_model/household_schedules.json",
+      "file": "parameters/demand_model/household_schedules.json",
+      "source_sha256": "99d9e4999b993b98c8ae68c527a01dd302b5ab0dc80a4eefc65186dfb47b4e4d",
+      "packaged_sha256": "f8957482ef68bbd1ae6ef057150a8c33e555c6d59fb9acec5b4b4cd602716bc1"
+    },
+    {
+      "source": "enermap_ubem/parameters/demand_model/non_heating_electricity_shape.json",
+      "file": "parameters/demand_model/non_heating_electricity_shape.json",
+      "source_sha256": "10b377391e11e249d66aef44fa6e1fc322ad48dd2ce09f6fcc3542a2a2395675",
+      "packaged_sha256": "ac34a9442c661a3c3abf1cd70c0045a7346d568279a69951a0f0fd0b5f54b1aa"
+    },
+    {
+      "source": "enermap_ubem/parameters/demand_model/usage_bredem.json",
+      "file": "parameters/demand_model/usage_bredem.json",
+      "source_sha256": "b1f4637c84d517e8eb73e4deb3dac2312cf1b6bbb34dfdfdaba085d6a17db848",
+      "packaged_sha256": "88a8d2c266b4a897a0cb942c2aa04b802d36b280ad164351469e0dc845ab5968"
+    },
+    {
+      "source": "enermap_ubem/parameters/energy_prices/prices_2021.json",
+      "file": "parameters/energy_prices/prices_2021.json",
+      "source_sha256": "1855019e7965c30a9500c74bb1923eb61f83e3941b75f8654171eaf540ccdb98",
+      "packaged_sha256": "c6f8e39d97ec655b07fbbff0d3c1c6f334f31cb4a02ab185ab0068c4b7024f23"
+    },
+    {
+      "source": "enermap_ubem/parameters/finance_incentives/finance.json",
+      "file": "parameters/finance_incentives/finance.json",
+      "source_sha256": "60af817e5307236c1a2c55b05ac96e2a6330ddadbe0f1a0d87738df443397250",
+      "packaged_sha256": "b435c89e4d8f389493dc9dce8a0fee35cba69437a4f2cdb078e25a68fb5cada6"
+    },
+    {
+      "source": "enermap_ubem/parameters/finance_incentives/incentives.json",
+      "file": "parameters/finance_incentives/incentives.json",
+      "source_sha256": "3d24e6f03849c64a306363790a3b8278e2c40f934483637d5bb81992d47dc441",
+      "packaged_sha256": "dc8882325824f17cf3de26c94d74ceac32b46975b6a18abb245747c1bc0fbade"
+    },
+    {
+      "source": "enermap_ubem/parameters/grid_carbon/carbon_factors_2021.json",
+      "file": "parameters/grid_carbon/carbon_factors_2021.json",
+      "source_sha256": "14d74e11b250ebbb9c807f18f29f54d3c564f1599699c077e630e9dcbff928d9",
+      "packaged_sha256": "eb6ef24d09420587e45105e7fa42524827910f6a2e54a829313e59f92eca844d"
+    },
+    {
+      "source": "enermap_ubem/parameters/grid_carbon/grid_trajectory.json",
+      "file": "parameters/grid_carbon/grid_trajectory.json",
+      "source_sha256": "125536963d7960bc8857c21ef39caa203880c92c4088f5d9edadf0894c784f1c",
+      "packaged_sha256": "6f3300776ba8df3e94cc399b17b628454e25b7adab4cbf20584c2ffa31b41831"
+    },
+    {
+      "source": "enermap_ubem/parameters/heat_pumps/cop_model.json",
+      "file": "parameters/heat_pumps/cop_model.json",
+      "source_sha256": "e4410787eb8689196ee45fa347b9e48888e39229015ffc4ac504d828e5130dae",
+      "packaged_sha256": "e4410787eb8689196ee45fa347b9e48888e39229015ffc4ac504d828e5130dae"
+    },
+    {
+      "source": "enermap_ubem/parameters/heat_pumps/operation.json",
+      "file": "parameters/heat_pumps/operation.json",
+      "source_sha256": "c1f679839d40adfb75cbe841f11da23964ba4e25a36289e80cd05ef111f48693",
+      "packaged_sha256": "c1f679839d40adfb75cbe841f11da23964ba4e25a36289e80cd05ef111f48693"
+    },
+    {
+      "source": "enermap_ubem/parameters/heat_pumps/watson2021_heat_pump_profiles.json",
+      "file": "parameters/heat_pumps/watson2021_heat_pump_profiles.json",
+      "source_sha256": "5a492853f5340e4344f93c07f1d16a20bd798891f61f3debed0a5360f4c12cab",
+      "packaged_sha256": "cb8723e0162b90646056c31d5670ab4549ec5120d460cad35f957c3d6e740653"
+    },
+    {
+      "source": "enermap_ubem/parameters/heating_systems/efficiencies.json",
+      "file": "parameters/heating_systems/efficiencies.json",
+      "source_sha256": "6b14f64e01af86fefeae15ab8c534834645c216ed778a2c685016ec45a64696e",
+      "packaged_sha256": "443f3a50c66fe9ab875573cacc3122ee77515c563d2a67ae36c1e5c2a2a4e59d"
+    },
+    {
+      "source": "enermap_ubem/parameters/pv/rooftop_pv.json",
+      "file": "parameters/pv/rooftop_pv.json",
+      "source_sha256": "d2add6c72ecbeb77058eebf1959a81f93c5ad64a1b58c01bc9a30b0222043d9b",
+      "packaged_sha256": "0535f20414fc7a838620b7e75a5da0a02be2d6ca897a23ce44ca0944e8dbe342"
+    },
+    {
+      "source": "enermap_ubem/parameters/retrofit_measures/fabric_targets.json",
+      "file": "parameters/retrofit_measures/fabric_targets.json",
+      "source_sha256": "863f6d9c377a6f76e1a35da5272467d50106e9eef2043edbb33e0e0f5734a652",
+      "packaged_sha256": "863f6d9c377a6f76e1a35da5272467d50106e9eef2043edbb33e0e0f5734a652"
+    },
+    {
+      "source": "enermap_ubem/parameters/retrofit_measures/packages.json",
+      "file": "parameters/retrofit_measures/packages.json",
+      "source_sha256": "9c186bb8925adda10014879f84d37b7bcd7781ff5d325520f4a1be7bbc9f0f5f",
+      "packaged_sha256": "9c186bb8925adda10014879f84d37b7bcd7781ff5d325520f4a1be7bbc9f0f5f"
+    },
+    {
+      "source": "enermap_ubem/parameters/retrofit_measures/unit_costs.json",
+      "file": "parameters/retrofit_measures/unit_costs.json",
+      "source_sha256": "587c314157b9939045f6241e783e13697bb7b44fb6b2459d67ebc38444389c51",
+      "packaged_sha256": "587c314157b9939045f6241e783e13697bb7b44fb6b2459d67ebc38444389c51"
+    },
+    {
+      "source": "enermap_ubem/parameters/source_tables/fabric_targets_registry.csv",
+      "file": "parameters/source_tables/fabric_targets_registry.csv",
+      "source_sha256": "93c1be95ab9f38efb2b0047df3d987faac44297e033c0f703388c558154948e2",
+      "packaged_sha256": "c35956fdccfec0f4b5c165f870713da914b63ca65c9534f01452eaa4906cb9b0"
+    },
+    {
+      "source": "enermap_ubem/parameters/source_tables/measure_costs_and_incentives.csv",
+      "file": "parameters/source_tables/measure_costs_and_incentives.csv",
+      "source_sha256": "480ad1bdd04193bae5ca8d925020e2ad3e23e8006d56c67a4de0a6c50aba521b",
+      "packaged_sha256": "550f1595f0c76e4c4b54ff641cba66fb39efed18430dfde9b640f585da627534"
+    },
+    {
+      "source": "enermap_ubem/parameters/source_tables/prices_carbon_finance.csv",
+      "file": "parameters/source_tables/prices_carbon_finance.csv",
+      "source_sha256": "dd03c2c979c632463a0d45b9e96691e042d710b59d16066454e2aa13c9ee8a67",
+      "packaged_sha256": "f0eeda6d4766fb021611a4b3da812f2233a58c75b6973b27b2214c5d70f19cad"
+    },
+    {
+      "source": "enermap_ubem/README.md",
+      "file": "docs/ENGINE_WORKFLOW.md",
+      "source_sha256": "0a84c726109a7b85438aaef1806839511ca13a06076e577b604540e6474d7247",
+      "packaged_sha256": "0a84c726109a7b85438aaef1806839511ca13a06076e577b604540e6474d7247"
+    },
+    {
+      "source": "enermap_ubem/SCENARIO_NOTES.md",
+      "file": "docs/SCENARIO_NOTES.md",
+      "source_sha256": "7e82e55f206e414c3984ab286e036767f3b6d99ab16f62a75aa4c1b0b0eda96c",
+      "packaged_sha256": "7e82e55f206e414c3984ab286e036767f3b6d99ab16f62a75aa4c1b0b0eda96c"
+    }
+  ],
+  "retired_paths": [
+    "notebooks/02_model/06_calibration.ipynb",
+    "notebooks/02_model/07_spatial_cv.ipynb",
+    "notebooks/02_model/08_dwelling_tier_check.ipynb",
+    "outputs/figures/planning/12_carbon_x_vulnerability.png",
+    "outputs/figures/planning/12_pies_in_maps.png",
+    "outputs/figures/planning/12_prioritisation_strategies.png",
+    "outputs/figures/planning/12_retrofit_gap.png",
+    "outputs/figures/ubem/09_atlas_lsoa_demand.png",
+    "outputs/figures/ubem/09_demand_curves.png",
+    "outputs/figures/ubem/10_flexibility.png",
+    "outputs/figures/ubem/10_heat_pump_shape.png",
+    "outputs/figures/ubem/10_low_hanging_fruit.png",
+    "outputs/figures/ubem/10_peaks_map.png",
+    "outputs/figures/ubem/10_scenarios_by_ward.png",
+    "outputs/figures/ubem/10_substation_cells.png",
+    "outputs/ubem/06_calibrated_theta.json",
+    "outputs/ubem/06_lsoa_calibrated.csv",
+    "outputs/ubem/09_lsoa_atlas.csv",
+    "outputs/ubem/09_stock_hourly_heat_MW.csv",
+    "outputs/ubem/09_validation_table.csv",
+    "outputs/ubem/10_flexibility_by_ward.csv",
+    "outputs/ubem/10_peak_method_comparison.csv",
+    "outputs/ubem/10_scenario_by_ward.csv",
+    "outputs/ubem/10_scenario_summary.csv",
+    "outputs/ubem/10_tenward_hourly_elec_MW.csv",
+    "outputs/ubem/10_ward_peaks.csv"
+  ]
+}

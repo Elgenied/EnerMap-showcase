@@ -30,8 +30,9 @@ FIG_COMMON = FIG                                    # alias kept for the archety
 CLUSTERS_DIR = OUT / "archetypes"                   # notebook 01: construction sub-archetypes x systems families
 CLUSTERS_STRAT_DIR = CLUSTERS_DIR                   # alias
 EXPORT_DIR = OUT / "representatives"                # notebook 02: engine inputs per dwelling + representatives
-UBEM_OUT = OUT / "ubem"                             # notebooks 03-10
-PYPSA_OUT = OUT / "pypsa_interface"                 # notebook 11
+CURRENT_OUT = OUT / 'current'                        # single authoritative result tree
+UBEM_OUT = CURRENT_OUT / 'baseline'
+PYPSA_OUT = CURRENT_OUT / 'pypsa_interface'
 for _d in (DERIVED, OUT, FIG, CLUSTERS_DIR, EXPORT_DIR, UBEM_OUT, PYPSA_OUT):
     _d.mkdir(parents=True, exist_ok=True)
 
@@ -70,7 +71,7 @@ V2_EXTRA_LABELS = EXTRA_LABELS                            # alias
 
 # ---------------------------------------------------------------- modelling choices
 SEED = 42
-N_JOBS = os.cpu_count() or -1          # all cores
+N_JOBS = min(28, max(1, (os.cpu_count() or 2) - 4))    # one BLAS thread per worker
 
 # --- notebook 01 (construction sub-archetypes per built-form stratum, after Li & Dogan 2025) --------
 STRATA_COL = "accommodation_type"
@@ -92,7 +93,7 @@ SYSTEMS_FAMILY = {
     "Unknown": "GasBoiler",            # modal system
 }
 # Theme 3 - ENERGY LOADS: not clustered (certificates carry no surveyed usage); household behaviour is
-# sampled from the CHAP microdata and the level is calibrated to meters.
+# sampled from the CHAP microdata; demand is validated against meters without fitting.
 
 # selection rule per stratum with a stability gate
 K_RANGE_STRATUM = (2, 12)              # candidate k per stratum, both K-Means and GMM-diag

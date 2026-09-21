@@ -1,3 +1,5 @@
-# Model parameters
+# Parameter records
 
-These files record the assumptions and sources used by the original analysis. They are included for review. Editing them does not change the dashboard, which reads saved outputs. Numerical settings also occur in source code; this is not a claim that every assumption is parameterised.
+These are the retained project assumptions from the current engine workspace. Editing them does not update the saved dashboard results. The active calculation path is described in docs/ENGINE_WORKFLOW.md.
+
+Calibration configuration and fixed seasonal factors remain for compatibility; they are not used to fit the current baseline or replace hourly heat-pump electricity. Some historical parameter-file prose predates the rerun. See docs/INTERPRETATION.md for that distinction. Economic and carbon inputs retain the project's original vintage.

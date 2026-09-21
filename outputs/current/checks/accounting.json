@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "test": "All stock retained",
+      "passed": true
+    },
+    {
+      "test": "Representative membership retained",
+      "passed": true
+    },
+    {
+      "test": "Hourly annual agreement: Q_H_kWh",
+      "passed": true
+    },
+    {
+      "test": "Hourly annual agreement: delivered_elec_kWh",
+      "passed": true
+    },
+    {
+      "test": "Hourly annual agreement: elec_heat_kWh",
+      "passed": true
+    },
+    {
+      "test": "Hourly HP sum",
+      "passed": true
+    },
+    {
+      "test": "Constant-temperature space heat COP",
+      "passed": true
+    },
+    {
+      "test": "Constant-temperature DHW COP",
+      "passed": true
+    },
+    {
+      "test": "No accidental fixed-SPF fallback",
+      "passed": true
+    },
+    {
+      "test": "Preserved data",
+      "passed": true
+    },
+    {
+      "test": "Preserved outputs/archetypes",
+      "passed": true
+    },
+    {
+      "test": "Preserved outputs/representatives",
+      "passed": true
+    },
+    {
+      "test": "Preserved parameters",
+      "passed": true
+    },
+    {
+      "test": "Preserved uk_ubem_schedule_generator",
+      "passed": true
+    },
+    {
+      "test": "Household draws unchanged (values; deterministic NaNs promote people to float)",
+      "passed": true
+    }
+  ]
+}

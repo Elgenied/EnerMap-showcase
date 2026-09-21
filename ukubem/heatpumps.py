@@ -143,6 +143,31 @@ def seasonal_cop(heat_W, elec_W) -> float:
     return h / e if e > 0 else np.nan
 
 
+def annual_dhw_shape(n_hours=8760):
+    """Configured daily DHW shape, normalized to one over a non-leap model year."""
+    if n_hours != 8760:
+        raise ValueError('The current demand framework requires 8760 hourly steps')
+    shape = np.tile(dhw_hourly_shape(), 365).astype(float)
+    if not np.isfinite(shape).all() or np.any(shape < 0) or shape.sum() <= 0:
+        raise ValueError('Invalid configured DHW shape')
+    return shape / shape.sum()
+
+
+def hourly_electricity(space_heat_kWh, dhw_system_kWh, t_out_hourly):
+    """Single authoritative ASHP accounting path; return hourly space and DHW electricity.
+
+    Space heat follows supplied hourly useful heat. System-side DHW retains its annual
+    requirement (including configured losses, excluding electric showers), distributed
+    with the configured normalized daily shape. Radiator sink 40-Tout; DHW sink 50 C.
+    The unresolved existing HP family uses the ASHP curve. No seasonal-factor rescaling.
+    """
+    q = np.asarray(space_heat_kWh, float)
+    t = np.asarray(t_out_hourly, float)
+    if q.shape != (8760,) or t.shape != q.shape or not np.isfinite(q).all() or np.any(q < 0):
+        raise ValueError('Expected finite nonnegative hourly heat and 8760 aligned temperatures')
+    return q / cop_hourly(t, kind='ASHP', emitter='radiator'), float(dhw_system_kWh) * annual_dhw_shape() / cop_hourly(t, kind='ASHP', emitter='dhw')
+
+
 def profile_summary(t_out_hourly, kind: str = "ASHP") -> pd.DataFrame:
     """The banded hourly shapes as a table (for figures and the parameters documentation)."""
     return pd.DataFrame(hourly_shape(kind).T, columns=BAND_LABELS, index=pd.Index(range(24), name="hour"))

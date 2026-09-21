@@ -1,8 +1,20 @@
 diff --git a/src/pybuildingenergy/source/utils.py b/src/pybuildingenergy/source/utils.py
-index bbe273e..36ebc87 100644
+index bbe273e..5735a25 100644
 --- a/src/pybuildingenergy/source/utils.py
 +++ b/src/pybuildingenergy/source/utils.py
-@@ -2761,6 +2761,52 @@ def Calculation_ISO_52010(building_object, path_weather_file, weather_source="pv
+@@ -750,6 +750,11 @@ def _ground_contact_area(building_object):
+     if area_fallback > 0.0:
+         return float(area_fallback)
+ 
++    # Explicit surfaces with no ground contact describe an upper-floor or
++    # no-ground zone. Do not invent ground area from its useful floor area.
++    if surfaces:
++        return 0.0
++
+     floor_area = None
+     if isinstance(building_object, dict):
+         floor_area = building_object.get("building", {}).get("net_floor_area")
+@@ -2761,6 +2766,52 @@ def Calculation_ISO_52010(building_object, path_weather_file, weather_source="pv
  # ===============================================================================================
  
  
@@ -55,7 +67,33 @@ index bbe273e..36ebc87 100644
  def _series_to_float_array(df, col: str, default: float | None = None):
      """Return a column of df as a float64 NumPy array.
      Used to replace hot-path .iloc[t] accesses with O(1) array indexing.
-@@ -3418,8 +3464,25 @@ class ISO52016:
+@@ -3408,6 +3459,25 @@ class ISO52016:
+         """
+         
+         exposed_perimeter = building_object["building"]["exposed_perimeter"]
++        # EnerMap: the configured whole-envelope equivalent psi is distinct
++        # from psi_k, the floor-junction term in the ISO 13370 derivation.
++        # The latter cancels out of Theta_gr_ve below. Apply the configured
++        # whole-envelope bridge once, in the separate air-to-outdoor term.
++        configured_psi = building_object.get("building_parameters", {}).get(
++            "construction", {}
++        ).get("thermal_bridges", psi_k)
++        configured_psi = float(configured_psi)
++        if not np.isfinite(configured_psi) or configured_psi < 0:
++            raise ValueError("construction.thermal_bridges must be finite and non-negative [W/(m K)]")
++        overall_bridge_heat = float(exposed_perimeter) * configured_psi
++        if sog_area <= 0:
++            # No physical ground node: avoid 0/0 in an unused virtual boundary.
++            return temp_ground(
++                R_gr_ve=R_gr,
++                Theta_gr_ve=np.full(12, float(annual_mean_external_temperature)),
++                thermal_bridge_heat=overall_bridge_heat,
++                ground_contact_area=0.0,
++            )
+         characteristic_floor_dimension = sog_area / (0.5 * exposed_perimeter)
+         # ============================
+ 
+@@ -3418,8 +3488,25 @@ class ISO52016:
              2. External Temperature [degC]
          """
          wall_thickness = building_object["building"]["wall_thickness"]
@@ -82,7 +120,16 @@ index bbe273e..36ebc87 100644
  
          # The thermal transmittance depends on the characteristic dimension of the floor, B' [see 8.1 and Equation (2)], and the total equivalent thickness, dt (see 8.2), defined by Equation (3):
          equivalent_ground_thickness = wall_thickness + lambda_gr * (thermal_resistance_floor + R_se)  # [m]
-@@ -6938,7 +7001,15 @@ class ISO52016:
+@@ -3446,7 +3533,7 @@ class ISO52016:
+             R_gr_ve = float(R_gr_ve_raw)
+ 
+         # Adding thermal bridges
+-        thermal_bridge_heat = exposed_perimeter * psi_k
++        thermal_bridge_heat = overall_bridge_heat
+ 
+         # Calculation of steady-state  ground  heat  transfer  coefficients  are  related  to  the  ratio  of  equivalent  thickness
+         # to  characteristic floor dimension, and the periodic heat transfer coefficients are related to the ratio
+@@ -6938,7 +7025,15 @@ class ISO52016:
              path_weather_file_ = kwargs.get("path_weather_file", None)
              if kwargs["weather_source"] == "pvgis":
                  path_weather_file_ = None
@@ -99,7 +146,7 @@ index bbe273e..36ebc87 100644
              Tstepn = len(sim_df)  # number of timesteps
  
              # Heating/cooling load (heating +, cooling -)
-@@ -7258,15 +7329,23 @@ class ISO52016:
+@@ -7258,15 +7353,23 @@ class ISO52016:
              lighting_schedule_workdays,
              lighting_schedule_weekend,
              )
@@ -130,7 +177,7 @@ index bbe273e..36ebc87 100644
  
          def _has_energy(arrlike):
              a = np.asarray(arrlike, dtype=float)
-@@ -7291,6 +7370,10 @@ class ISO52016:
+@@ -7291,6 +7394,10 @@ class ISO52016:
              external_internal_gains_series = np.zeros(Tstepn, dtype=float)
          else:
              ext_arr = np.asarray(external_internal_gains_series, dtype=float).reshape(-1)
@@ -141,3 +188,88 @@ index bbe273e..36ebc87 100644
              if ext_arr.size < Tstepn:
                  ext_arr = np.pad(ext_arr, (0, Tstepn - ext_arr.size), mode="constant", constant_values=0.0)
              external_internal_gains_series = ext_arr[:Tstepn]
+@@ -7337,7 +7444,8 @@ class ISO52016:
+                 continue
+             for Pli in range(n_nodes):
+                 ri_state = 1 + nodes.PlnSum[Eli] + Pli
+-                C_state[ri_state] = float(kappa_pli_eli[Pli, Eli])
++                # Areal surface capacity -> total node capacity for reporting.
++                C_state[ri_state] = float(kappa_pli_eli[Pli, Eli]) * float(area_elements[Eli])
+ 
+         # Previous state for storage (degC): initialized ONCE
+         Theta_prev_state = np.full(nodes.Rn, 20.0, dtype=float)
+@@ -7377,6 +7485,7 @@ class ISO52016:
+         E_storage_Wh = 0.0
+         _report_q_solar_gains_all: list[float] = []
+         _report_q_internal_gains_all: list[float] = []
++        _report_air_balance_residual_all: list[float] = []
+         _report_q_storage_all: list[float] = []
+         _report_q_tb_all: list[float] = []
+         _report_q_ground_all: list[float] = []
+@@ -8014,15 +8123,37 @@ class ISO52016:
+                 if Tstepi >= Tstep_first_act:
+                     q_storage = float(np.dot(C_state, dTheta_state)) / float(Dtime[Tstepi])
+                     E_storage_Wh += q_storage * dt_h
+-                Theta_prev_state = Theta_curr_state
++                    # Direct air-node equation audit. Do not mix indoor surface
++                    # fluxes with whole-envelope storage in a global balance.
++                    _ta = float(Theta_curr_state[0])
++                    _q_conv = sum(
++                        float(area_elements[j]) * float(heat_convective_elements_internal_t[j])
++                        * (_ta - float(Theta_curr_state[nodes.PlnSum[j] + nodes.Pln[j]]))
++                        for j in range(bui_eln) if nodes.Pln[j] > 0
++                    )
++                    _q_air_storage = float(C_int) * float(dTheta_state[0]) / float(Dtime[Tstepi])
++                    _q_hvac = float(Phi_HC_nd_act[Tstepi])
++                    _f_hvac = f_H_c if _q_hvac > 0 else f_C_c
++                    _air_residual = (
++                        f_int_c * float(int_gains) + float(ext_int_gain)
++                        + f_sol_c * float(Phi_sol_dir_zt_t) + _f_hvac * _q_hvac
++                        - _q_conv - _q_air_storage
++                        - float(t_Th.thermal_bridge_heat) * (_ta - float(T2m_arr[Tstepi]))
++                        - (float(H_ve_nat) * _ta - float(S_ve_nat))
++                    )
++                    _report_air_balance_residual_all.append(_air_residual)
++                # VecB is overwritten by the next solve: retain a value copy.
++                Theta_prev_state = Theta_curr_state.copy()
+ 
+                 if Tstepi >= Tstep_first_act:
+                     # 2) Direct inputs
+                     phi_solar = float(Phi_sol_dir_zt_t)
+-                    phi_int   = float(int_gains)
++                    phi_int   = float(int_gains) + float(ext_int_gain)
+                     E_solar_Wh    += phi_solar * dt_h
+                     E_internal_Wh += phi_int   * dt_h
+-                    int_gains_arr[Tstepi] = phi_int  # store for latent post-processing (ISO 52016 §6.5.6)
++                    # External gains here are sensible only; keep the existing
++                    # built-in quantity for the separate latent calculation.
++                    int_gains_arr[Tstepi] = float(int_gains)
+ 
+                     # 3) Heating/Cooling (uses current load)
+                     phi_hc = float(Phi_HC_nd_act[Tstepi])
+@@ -8215,6 +8346,7 @@ class ISO52016:
+ 
+         hourly_results["Q_solar_gains"] = np.asarray(_report_q_solar_gains_all, dtype=float)
+         hourly_results["Q_internal_gains"] = np.asarray(_report_q_internal_gains_all, dtype=float)
++        hourly_results["Q_air_balance_residual_W"] = np.asarray(_report_air_balance_residual_all, dtype=float)
+         hourly_results["Q_storage"] = np.asarray(_report_q_storage_all, dtype=float)
+         hourly_results["Q_tr_total"] = np.asarray(_report_q_tr_total_all, dtype=float)
+         hourly_results["Q_tr_opaque"] = np.asarray(_report_q_tr_opaque_all, dtype=float)
+diff --git a/src/pybuildingenergy/source/ventilation.py b/src/pybuildingenergy/source/ventilation.py
+index 110fc06..bab6026 100644
+--- a/src/pybuildingenergy/source/ventilation.py
++++ b/src/pybuildingenergy/source/ventilation.py
+@@ -608,7 +608,12 @@ class VentilationInternalGains:
+         # Optional full-load overrides from BUI -> internal_gains
+         building_object = getattr(self, "building_object", None)
+         if building_object:
+-            for gain in building_object.get("internal_gains", []):
++            # The BUI schema stores these under building_parameters. Keep the
++            # old top-level spelling as fallback, but never add both sets.
++            gains_override = building_object.get("building_parameters", {}).get(
++                "internal_gains", building_object.get("internal_gains", [])
++            )
++            for gain in gains_override:
+                 gname = gain.get("name")
+                 full_load = gain.get("full_load")
+                 if full_load is None:

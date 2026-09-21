@@ -205,12 +205,15 @@ def build_bui(row: Mapping, a: UKGeometryAssumptions | None = None, schedule: di
     opaque_areas = {"wall": A_wall, "party": A_party, "roof": A_roof, "ground": A_ground,
                     "ceil_ad": A_ceiling_adiabatic, "floor_ad": A_floor_adiabatic}
     tot_opaque = sum(v for v in opaque_areas.values() if v > 0) or 1.0
-    cap = lambda area: C_total * area / tot_opaque  # noqa: E731
+    # Active OP/GR equations use J/(m2 K); adiabatic capacities are lumped
+    # directly into the zone in J/K. Preserve the same total fabric capacity.
+    cap = lambda area: C_total * area / tot_opaque  # noqa: E731 -- AD total J/K
+    cap_areal = lambda area: C_total / tot_opaque if area > 0 else 0.0  # noqa: E731
 
     surfaces = []
     for az, lab in ((0, "N"), (90, "E"), (180, "S"), (270, "W")):
         surfaces.append({"name": f"Wall {lab}", "type": "opaque", "area": A_wall / 4.0, "sky_view_factor": 0.5,
-                         "u_value": u_wall, "solar_absorptance": a.solar_absorptance_wall, "thermal_capacity": cap(A_wall / 4.0),
+                         "u_value": u_wall, "solar_absorptance": a.solar_absorptance_wall, "thermal_capacity": cap_areal(A_wall / 4.0),
                          "orientation": {"azimuth": az, "tilt": 90}, "name_adj_zone": None,
                          "height": height_dw, "length": (A_wall / 4.0) / height_dw})
     for az, lab in ((0, "N"), (90, "E"), (180, "S"), (270, "W")):
@@ -220,11 +223,11 @@ def build_bui(row: Mapping, a: UKGeometryAssumptions | None = None, schedule: di
                          "height": a.window_height, "width": 1.0, "parapet": 0.9, "g_value": g_win, "shading": False})
     if A_roof > 0:
         surfaces.append({"name": "Roof", "type": "opaque", "area": A_roof, "sky_view_factor": 1.0, "u_value": u_roof,
-                         "solar_absorptance": a.solar_absorptance_roof, "thermal_capacity": cap(A_roof),
+                         "solar_absorptance": a.solar_absorptance_roof, "thermal_capacity": cap_areal(A_roof),
                          "orientation": {"azimuth": 0, "tilt": 0}, "name_adj_zone": None,
                          "height": np.sqrt(A_roof), "length": np.sqrt(A_roof)})
     surfaces.append({"name": "Ground", "type": "opaque", "boundary": "ground", "area": A_ground, "sky_view_factor": 0.0,
-                     "u_value": u_floor, "solar_absorptance": 0.0, "thermal_capacity": cap(A_ground),
+                     "u_value": u_floor, "solar_absorptance": 0.0, "thermal_capacity": cap_areal(A_ground),
                      "orientation": {"azimuth": 0, "tilt": 0}, "name_adj_zone": None,
                      "height": np.sqrt(A_ground), "length": np.sqrt(A_ground)})
     if A_party > 0:
@@ -270,7 +273,7 @@ def build_bui(row: Mapping, a: UKGeometryAssumptions | None = None, schedule: di
         },
         "adjacent_zones": [],
         "building_surface": surfaces,
-        "units": {"area": "m2", "u_value": "W/m2K", "thermal_capacity": "J/K", "azimuth": "deg (0=N,90=E,180=S,270=W)",
+        "units": {"area": "m2", "u_value": "W/m2K", "thermal_capacity": "J/m2K for active surfaces; J/K for adiabatic surfaces", "azimuth": "deg (0=N,90=E,180=S,270=W)",
                   "tilt": "deg (0=horizontal, 90=vertical)", "internal_gain": "W/m2", "internal_gain_profile": "0-1", "HVAC_profile": "0/1"},
         "building_parameters": {
             "temperature_setpoints": {"heating_setpoint": float(setpoint), "heating_setback": float(setback),
