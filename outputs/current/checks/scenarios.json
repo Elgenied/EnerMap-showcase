@@ -38,5 +38,7 @@
       "hours": 8760
     }
   ],
+  "representation_method": "cluster_median_construction_three_median_areas_v1",
+  "retrofit_applied_to_virtual_baseline": true,
   "boundary": "Hourly gross electricity reconciles before annual PV self-consumption offsets."
 }

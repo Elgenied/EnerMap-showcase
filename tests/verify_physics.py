@@ -15,9 +15,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT/'deps/pyBuildingEnergy/src'
 EPW = ROOT/'data/inputs/weather/GBR_ENG_Farnborough.AP.037680_TMYx.2007-2021.epw'
-OUT = ROOT/'outputs/current/checks/physics'
-OUT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(ROOT))
+from ukubem import unified as U
+OUT = U.OUT/'checks/physics'
+OUT.mkdir(parents=True, exist_ok=True)
 from ukubem.geometry import UKGeometryAssumptions, build_bui
 from ukubem.engine import PBE, run_building
 from ukubem.runner import simulate_rows
@@ -35,8 +36,9 @@ def run_checks():
         print(('PASS ' if passed else 'FAIL ')+name+': '+str(detail), flush=True)
         assert passed, name
 
-    inputs = pd.read_parquet(ROOT/'outputs/representatives/dwelling_inputs.parquet')
-    reps = pd.read_csv(ROOT/'outputs/current/baseline/representatives.csv')
+    stock_inputs = pd.read_parquet(ROOT/'outputs/representatives/dwelling_inputs.parquet')
+    inputs = pd.read_parquet(U.BASE/'virtual_representative_inputs.parquet')
+    reps = pd.read_csv(U.BASE/'representatives.csv')
     a = UKGeometryAssumptions()
     rows=[]
     for did in reps.dwelling_id:
@@ -51,7 +53,7 @@ def run_checks():
     caps.to_csv(OUT/'capacity_conservation.csv', index=False)
     check('Fabric capacity conserved for every representative', np.allclose(caps.target_J_K,caps.adapter_J_K) and np.allclose(caps.target_J_K,caps.sanitized_J_K), f'{len(caps)} representatives')
 
-    b,d=build_bui(inputs.loc[47095],a)
+    b,d=build_bui(stock_inputs.loc[47095],a)
     # Stochastic representation sets nested full-load built-ins to zero.
     for gain in b['building_parameters']['internal_gains']: gain['full_load']=0.
     vi=VentilationInternalGains(b)
@@ -137,4 +139,3 @@ def run_checks():
     return tests
 
 if __name__=='__main__': run_checks()
-

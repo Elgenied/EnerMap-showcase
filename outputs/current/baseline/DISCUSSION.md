@@ -1,8 +1,8 @@
 # Uncalibrated validation and interpretation
 
-Gas WAPE is 7.28% and electricity WAPE is 11.21%. Signed aggregate bias is -5.84% and +1.39%, respectively. Gas is within ±10% in 64 of 84 LSOAs; electricity in 43. This band is descriptive, not a formal acceptance criterion.
+Gas WAPE is 7.26% and electricity WAPE is 11.16%. Signed aggregate bias is -5.41% and +1.32%, respectively. Gas is within ±10% in 63 of 84 LSOAs; electricity in 44. This band is descriptive, not a formal acceptance criterion.
 
-The closest combined matches are Guildford 007C (E01030483: gas -0.4%, electricity +1.3%); Guildford 010C (E01030432: gas -1.8%, electricity +1.3%); Guildford 001E (E01030476: gas -2.9%, electricity -0.3%). The largest combined discrepancies are Guildford 015C (E01030468: gas -18.5%, electricity +28.1%); Guildford 002D (E01030474: gas -23.3%, electricity +20.5%); Guildford 008C (E01030462: gas -8.9%, electricity +32.3%). No areas have been removed. The ranking gives equal weight to each area's absolute gas and electricity percentage errors; it is not WAPE.
+The closest combined matches are Guildford 001E (E01030476: gas -0.5%, electricity -0.3%); Guildford 007D (E01030484: gas +2.5%, electricity -0.2%); Guildford 010C (E01030432: gas -2.2%, electricity +1.5%). The largest combined discrepancies are Guildford 015C (E01030468: gas -20.1%, electricity +26.2%); Guildford 002D (E01030474: gas -24.5%, electricity +20.4%); Guildford 008C (E01030462: gas -7.1%, electricity +33.0%). No areas have been removed. The ranking gives equal weight to each area's absolute gas and electricity percentage errors; it is not WAPE.
 
 The map shows generally modest gas underprediction, while electricity discrepancies are more spatially varied. Residuals locate disagreement but do not establish its cause. Possible factors requiring separate checks include dwelling/meter population differences, heating-system classification, building attributes, annual usage assumptions and the TMY-versus-meter weather basis. Good totals can conceal opposing local errors.
 

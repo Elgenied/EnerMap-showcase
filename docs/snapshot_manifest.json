@@ -1,60 +1,67 @@
 {
-  "engine_completed_utc": "2026-09-18T12:16:18.749455+00:00",
+  "engine_completed_utc": "2026-09-23T22:06:25.890492+00:00",
+  "representation_method": "cluster_median_construction_three_median_areas_v1",
   "calibration": false,
   "files": [
     {
       "source": "enermap_ubem/outputs/current/completion.json",
       "file": "outputs/current/completion.json",
-      "source_sha256": "ed9656a872aa8be06402c85d001cef18107c0f26683401340635f05f69ea2dc2",
-      "packaged_sha256": "ed9656a872aa8be06402c85d001cef18107c0f26683401340635f05f69ea2dc2"
+      "source_sha256": "2c4938a5a021c0c3a13cc31a95e0a5daf0c6795d246bf466b48ec34ff09ba570",
+      "packaged_sha256": "a11783d6152907ca150692535731bdc0facac18d9095a479a8e9ee9ad26756b0"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/REPRESENTATIVE_METHOD_UPDATE.md",
+      "file": "outputs/current/REPRESENTATIVE_METHOD_UPDATE.md",
+      "source_sha256": "e7573f6196529d35c130cd3b5103bbc48ef3f3980c7cb7c8f095b906c83d7b06",
+      "packaged_sha256": "94c641e06a092d5d84fc383f18b349703901e5b05b0cb81678aac284f0ddfc61"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/summary.json",
       "file": "outputs/current/baseline/summary.json",
-      "source_sha256": "5f5e756e5813e173b7d391e535b804ca31d210f1237f500449cfd49247afe998",
-      "packaged_sha256": "5f5e756e5813e173b7d391e535b804ca31d210f1237f500449cfd49247afe998"
+      "source_sha256": "b907759a298e40f5ab14bc1f7a9d59ef94a5cceae1a1f9c0c95dc236a4f7dbf4",
+      "packaged_sha256": "0e1ce81864108c2f82825a814440b1c7bd2a99bbe8dc60a1190cb68ac02f7366"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/metrics.json",
       "file": "outputs/current/baseline/metrics.json",
-      "source_sha256": "f35b32dc62e13d8b8104aea6b4efed98f392d47c4d43fcd76d405d2a7c295ea1",
-      "packaged_sha256": "f35b32dc62e13d8b8104aea6b4efed98f392d47c4d43fcd76d405d2a7c295ea1"
+      "source_sha256": "53a881d7ce5ad9a6f5ee53b7b163fd1bc3f40479bf2609db8ac0b15d0339cf7e",
+      "packaged_sha256": "8499da08849ec11332f078cefc1d55c409c3c46347abeea0142d16006dd942cf"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/complete.json",
       "file": "outputs/current/baseline/complete.json",
-      "source_sha256": "f4db2d87599f6d9f00806d712a23cd9f7a4a3a73911bc354709e7a06814936af",
-      "packaged_sha256": "f4db2d87599f6d9f00806d712a23cd9f7a4a3a73911bc354709e7a06814936af"
+      "source_sha256": "cb00117c9564be42aae0529b4158f52a84409ce2427d8410e525e012ebfbb54d",
+      "packaged_sha256": "e2e654b2bee608d92e7fbdd907160360ea90d410979564c037c35978a4e7ef1d"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/lsoa_validation.csv",
       "file": "outputs/current/baseline/lsoa_validation.csv",
-      "source_sha256": "186537b634720fcea6b58c962780d473683a80b12ac3011573744119b3f06436",
-      "packaged_sha256": "186537b634720fcea6b58c962780d473683a80b12ac3011573744119b3f06436"
+      "source_sha256": "b581945d4208612bb8394ad457fc93b9aefda889cfcfaf1d6636ca689d105c79",
+      "packaged_sha256": "b581945d4208612bb8394ad457fc93b9aefda889cfcfaf1d6636ca689d105c79"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/lsoa_alignment_ranking.csv",
       "file": "outputs/current/baseline/lsoa_alignment_ranking.csv",
-      "source_sha256": "59730fa7418981ee09b2373c19735013ace4ea0f6f09babc1bc4df4f1850ea74",
-      "packaged_sha256": "59730fa7418981ee09b2373c19735013ace4ea0f6f09babc1bc4df4f1850ea74"
+      "source_sha256": "07dac08bf2234adf1d9757d81eea69e73754edcf6d32d7ea25006e4aeea5b0cc",
+      "packaged_sha256": "07dac08bf2234adf1d9757d81eea69e73754edcf6d32d7ea25006e4aeea5b0cc"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/lsoa_demand_totals.csv",
       "file": "outputs/current/baseline/lsoa_demand_totals.csv",
-      "source_sha256": "2e064bd339bb01a6cd4280a5fc02dba3b005de9459c4656aac841b940956958c",
-      "packaged_sha256": "2e064bd339bb01a6cd4280a5fc02dba3b005de9459c4656aac841b940956958c"
+      "source_sha256": "eebb849f2949e9201909fc9c43d8e6512c955aad055f12abc5348a91f4a3bdce",
+      "packaged_sha256": "eebb849f2949e9201909fc9c43d8e6512c955aad055f12abc5348a91f4a3bdce"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/stock_hourly.csv",
       "file": "outputs/current/baseline/stock_hourly.csv",
-      "source_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45",
-      "packaged_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45"
+      "source_sha256": "543c503d669e58a43558bdc3ce4c5530e9a258928953f8b255ea2169c68f3a28",
+      "packaged_sha256": "543c503d669e58a43558bdc3ce4c5530e9a258928953f8b255ea2169c68f3a28"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/DISCUSSION.md",
       "file": "outputs/current/baseline/DISCUSSION.md",
-      "source_sha256": "25ef3cffc3ade4558e920bf072c843fb8403bc2a6d8736f99134b5e46ce86e8e",
-      "packaged_sha256": "25ef3cffc3ade4558e920bf072c843fb8403bc2a6d8736f99134b5e46ce86e8e"
+      "source_sha256": "fb2d3105dcd21b203e654d6d43d742edcf40468a992446345814a3d64317d55e",
+      "packaged_sha256": "982dd1534249d03d45aacf8fe75b8036a1b1f2225b1c69652c9e5150abb93372"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/MAP_NOTES.md",
@@ -65,254 +72,260 @@
     {
       "source": "enermap_ubem/outputs/current/scenarios/scenario_summary.csv",
       "file": "outputs/current/scenarios/scenario_summary.csv",
-      "source_sha256": "e9ece4559c59856ac4d04dbf7d10fac85b124bb9090d94fe14195ca9fb2df91d",
-      "packaged_sha256": "e9ece4559c59856ac4d04dbf7d10fac85b124bb9090d94fe14195ca9fb2df91d"
+      "source_sha256": "7bec984cc4d40855148be2ad2663320e7ae81796b527ada67e415cf22ac23bec",
+      "packaged_sha256": "7bec984cc4d40855148be2ad2663320e7ae81796b527ada67e415cf22ac23bec"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/planning_ward_summary.csv",
       "file": "outputs/current/scenarios/planning_ward_summary.csv",
-      "source_sha256": "fe7b1c8db78ec4585e5594cdc72b8fefaa7e9816dc338fe74a8e911e07d7f35e",
-      "packaged_sha256": "fe7b1c8db78ec4585e5594cdc72b8fefaa7e9816dc338fe74a8e911e07d7f35e"
+      "source_sha256": "8a71ca3cf8b9365eccd1bdbb6aad2e520d446f0292ee6395de9e3a3f24363fd4",
+      "packaged_sha256": "8a71ca3cf8b9365eccd1bdbb6aad2e520d446f0292ee6395de9e3a3f24363fd4"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/manifest.json",
       "file": "outputs/current/scenarios/manifest.json",
       "source_sha256": "7bfe1725dca2f3eb5a6a98b00869fb194af2d03144214fd8793f8a914bae8f2e",
-      "packaged_sha256": "7bfe1725dca2f3eb5a6a98b00869fb194af2d03144214fd8793f8a914bae8f2e"
+      "packaged_sha256": "33b012ac0525a745509fdd8d9127a73c927848535c7ba75490fd2dd37228285a"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U0_baseline_hourly.csv",
       "file": "outputs/current/scenarios/U0_baseline_hourly.csv",
-      "source_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45",
-      "packaged_sha256": "6c931217791bd31ba1c13c0228b954178ffe36e1dc00760df72d53bf0588ab45"
+      "source_sha256": "543c503d669e58a43558bdc3ce4c5530e9a258928953f8b255ea2169c68f3a28",
+      "packaged_sha256": "543c503d669e58a43558bdc3ce4c5530e9a258928953f8b255ea2169c68f3a28"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U1_electrification_hourly.csv",
       "file": "outputs/current/scenarios/U1_electrification_hourly.csv",
-      "source_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db",
-      "packaged_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db"
+      "source_sha256": "056e432f1d5eb09a2a193d145fa1ec12474576677ba0b4ab09875af1fdd39226",
+      "packaged_sha256": "056e432f1d5eb09a2a193d145fa1ec12474576677ba0b4ab09875af1fdd39226"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U2_envelope_hourly.csv",
       "file": "outputs/current/scenarios/U2_envelope_hourly.csv",
-      "source_sha256": "2cb25e8d9cc6c301ae67e497eba8f38eeeaf3b658812e3be708bbf9b1e27f581",
-      "packaged_sha256": "2cb25e8d9cc6c301ae67e497eba8f38eeeaf3b658812e3be708bbf9b1e27f581"
+      "source_sha256": "92a0f6e118a6df2cf965c3acd3910bd8d47b44460ff8c96b92c157a6e3628469",
+      "packaged_sha256": "92a0f6e118a6df2cf965c3acd3910bd8d47b44460ff8c96b92c157a6e3628469"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U3_envelope_elec_hourly.csv",
       "file": "outputs/current/scenarios/U3_envelope_elec_hourly.csv",
-      "source_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5",
-      "packaged_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5"
+      "source_sha256": "b52a8ce5f8078ad87b30dc840d98a840c3e2a2f181669bfe7b16cf158b04d882",
+      "packaged_sha256": "b52a8ce5f8078ad87b30dc840d98a840c3e2a2f181669bfe7b16cf158b04d882"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U4_elec_pv_hourly.csv",
       "file": "outputs/current/scenarios/U4_elec_pv_hourly.csv",
-      "source_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db",
-      "packaged_sha256": "8bcd7504783c174051858372ec209a2459952e5bce161ab8741e660a1614d8db"
+      "source_sha256": "056e432f1d5eb09a2a193d145fa1ec12474576677ba0b4ab09875af1fdd39226",
+      "packaged_sha256": "056e432f1d5eb09a2a193d145fa1ec12474576677ba0b4ab09875af1fdd39226"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U5_envelope_elec_pv_hourly.csv",
       "file": "outputs/current/scenarios/U5_envelope_elec_pv_hourly.csv",
-      "source_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5",
-      "packaged_sha256": "e9a204eb76f293e1801da31562b33473a66603d7afb846314fb4e2781cacbff5"
+      "source_sha256": "b52a8ce5f8078ad87b30dc840d98a840c3e2a2f181669bfe7b16cf158b04d882",
+      "packaged_sha256": "b52a8ce5f8078ad87b30dc840d98a840c3e2a2f181669bfe7b16cf158b04d882"
     },
     {
       "source": "enermap_ubem/outputs/current/checks/accounting.json",
       "file": "outputs/current/checks/accounting.json",
-      "source_sha256": "ce9fb35117634e5ef0257c8a247a001f6389f48a7335e978153569db8aadc9a0",
-      "packaged_sha256": "ce9fb35117634e5ef0257c8a247a001f6389f48a7335e978153569db8aadc9a0"
+      "source_sha256": "2ede15c97944ec0d272080f93edd5d98a9e097486ed5cab0c52d0321dfbf2c03",
+      "packaged_sha256": "52edb5455a77ee6f57a8998c8575459c97ee6b129466de009d1d5c166238792c"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/checks/representative_promotion.json",
+      "file": "outputs/current/checks/representative_promotion.json",
+      "source_sha256": "ee1dda41e5d1053aa6c29f16fd279c9ae3285f7dbe7af29c421023411e69a4a7",
+      "packaged_sha256": "0456ef012a1ccb4cd3f3bca48d83cd6a999f614b2cb072c8c461513e80ff3c9c"
     },
     {
       "source": "enermap_ubem/outputs/current/checks/scenarios.json",
       "file": "outputs/current/checks/scenarios.json",
-      "source_sha256": "da39bdad5e8fd56cf0507268e6ae95d2d6f66849e7fa5dac5abafe01497ede07",
-      "packaged_sha256": "da39bdad5e8fd56cf0507268e6ae95d2d6f66849e7fa5dac5abafe01497ede07"
+      "source_sha256": "94442c88e6d0947cd4e86e85486bcc91da3507552979a54fb63200f02d12d5a5",
+      "packaged_sha256": "38f5543189c06486080df46004c4504f4c0de74b1210a841605f32cd0e6470db"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.pdf",
       "file": "outputs/current/figures/06_canet_style_distribution.pdf",
-      "source_sha256": "a59ddf45d5cf9b4c54822d4c01193f4c67cedd99bfe001be12c473765039ea1b",
-      "packaged_sha256": "a59ddf45d5cf9b4c54822d4c01193f4c67cedd99bfe001be12c473765039ea1b"
+      "source_sha256": "0fe11d788b036433d021203ff1face7a46abdd930a6f7ab6e7b1001e19a064bc",
+      "packaged_sha256": "0fe11d788b036433d021203ff1face7a46abdd930a6f7ab6e7b1001e19a064bc"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.png",
       "file": "outputs/current/figures/06_canet_style_distribution.png",
-      "source_sha256": "fa71f7d6452c0303978d9f469004b626a164beb4a5fb701e230e840129ca70fb",
-      "packaged_sha256": "fa71f7d6452c0303978d9f469004b626a164beb4a5fb701e230e840129ca70fb"
+      "source_sha256": "985e52f967e962e6f6434bd85d1bae2dabc8293e766a0f50dba2cca9bf1a5a5d",
+      "packaged_sha256": "985e52f967e962e6f6434bd85d1bae2dabc8293e766a0f50dba2cca9bf1a5a5d"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.svg",
       "file": "outputs/current/figures/06_canet_style_distribution.svg",
-      "source_sha256": "53020cc52100acd59582983998c0245da6bc9f0fd59b116498a9778a2bf2f0cb",
-      "packaged_sha256": "53020cc52100acd59582983998c0245da6bc9f0fd59b116498a9778a2bf2f0cb"
+      "source_sha256": "782186ccbf37b1de71df50930f1059b9d56f4bea115a5fec5a3781ddaa825dd8",
+      "packaged_sha256": "782186ccbf37b1de71df50930f1059b9d56f4bea115a5fec5a3781ddaa825dd8"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.pdf",
       "file": "outputs/current/figures/06_lsoa_alignment.pdf",
-      "source_sha256": "e524eb52fac9af244f245ea19c7e3f08860e6dc3c96f1f7b3f98775264bc6656",
-      "packaged_sha256": "e524eb52fac9af244f245ea19c7e3f08860e6dc3c96f1f7b3f98775264bc6656"
+      "source_sha256": "51e9ca7c8b967775e49dc4bc8893ba0ddaaf51b2cd8f9f5ffc1a7be5baee7397",
+      "packaged_sha256": "51e9ca7c8b967775e49dc4bc8893ba0ddaaf51b2cd8f9f5ffc1a7be5baee7397"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.png",
       "file": "outputs/current/figures/06_lsoa_alignment.png",
-      "source_sha256": "dcbd8c9d71e36deb3d29baeb7b3a65d95784bf31d62e89d4b1b7da04c18e9337",
-      "packaged_sha256": "dcbd8c9d71e36deb3d29baeb7b3a65d95784bf31d62e89d4b1b7da04c18e9337"
+      "source_sha256": "77cca256ae5d492d83373a5119f4c854a34b58e2a86e62fec49943267d442bf7",
+      "packaged_sha256": "77cca256ae5d492d83373a5119f4c854a34b58e2a86e62fec49943267d442bf7"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.svg",
       "file": "outputs/current/figures/06_lsoa_alignment.svg",
-      "source_sha256": "1487a722fb4cbc31e036b8c292aeffe1532808e44a7f8cadb7f0e0afc3cec12f",
-      "packaged_sha256": "1487a722fb4cbc31e036b8c292aeffe1532808e44a7f8cadb7f0e0afc3cec12f"
+      "source_sha256": "ab558bc3f458b73bd12925830ace25880f3cd274ddb5e709ad0190a3eec05440",
+      "packaged_sha256": "ab558bc3f458b73bd12925830ace25880f3cd274ddb5e709ad0190a3eec05440"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_maps.pdf",
       "file": "outputs/current/figures/06_validation_maps.pdf",
-      "source_sha256": "d61345ac5c286e8f4a0b9984b2a6d199714ca1c048b17257e35a519a808d2d2d",
-      "packaged_sha256": "d61345ac5c286e8f4a0b9984b2a6d199714ca1c048b17257e35a519a808d2d2d"
+      "source_sha256": "b5fc724f720e5fb20c7fb3bb2157e17f0bffa72373351d5f64d0e05627a3afe9",
+      "packaged_sha256": "b5fc724f720e5fb20c7fb3bb2157e17f0bffa72373351d5f64d0e05627a3afe9"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_maps.png",
       "file": "outputs/current/figures/06_validation_maps.png",
-      "source_sha256": "fc50fff48ca275eb3a83603584f4cba09197ccd4c8d64905b6bbe8d11784c360",
-      "packaged_sha256": "fc50fff48ca275eb3a83603584f4cba09197ccd4c8d64905b6bbe8d11784c360"
+      "source_sha256": "fd3ea8a39a50e1f2229a97cdec526b80ff404019dfcb765be250e7f8326495dd",
+      "packaged_sha256": "fd3ea8a39a50e1f2229a97cdec526b80ff404019dfcb765be250e7f8326495dd"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_maps.svg",
       "file": "outputs/current/figures/06_validation_maps.svg",
-      "source_sha256": "9f7ff0cbdd2ff61f33f812eca9ca2d451a9453785f221b52da1266967b91de0e",
-      "packaged_sha256": "9f7ff0cbdd2ff61f33f812eca9ca2d451a9453785f221b52da1266967b91de0e"
+      "source_sha256": "ade49fdf18bb6373b19ad8a3a55df4bb170e01bfe0d501356c7f644e46778cbf",
+      "packaged_sha256": "ade49fdf18bb6373b19ad8a3a55df4bb170e01bfe0d501356c7f644e46778cbf"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.pdf",
       "file": "outputs/current/figures/06_validation_observed_modelled.pdf",
-      "source_sha256": "73f971a2fe2c755a6a20db5a59f1362b21a17847b714f8e4e53ed0172a9768c5",
-      "packaged_sha256": "73f971a2fe2c755a6a20db5a59f1362b21a17847b714f8e4e53ed0172a9768c5"
+      "source_sha256": "4d5410fbbcd581562c1a4c67969fd3310f83274fcd525c8067dc0532349adc01",
+      "packaged_sha256": "4d5410fbbcd581562c1a4c67969fd3310f83274fcd525c8067dc0532349adc01"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.png",
       "file": "outputs/current/figures/06_validation_observed_modelled.png",
-      "source_sha256": "38ebe5f6a7844c3fd9f019e37ca8e4768d27f1b1293632388a5ca05207c58913",
-      "packaged_sha256": "38ebe5f6a7844c3fd9f019e37ca8e4768d27f1b1293632388a5ca05207c58913"
+      "source_sha256": "f09170a7b674d24405cb4248e5a53876b5ebabe02d2d6050090ff276dd5e9fe8",
+      "packaged_sha256": "f09170a7b674d24405cb4248e5a53876b5ebabe02d2d6050090ff276dd5e9fe8"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.svg",
       "file": "outputs/current/figures/06_validation_observed_modelled.svg",
-      "source_sha256": "0f6022c53a5a36baaf0197657591f613881ec93d6190f19fa8b4853c564adc37",
-      "packaged_sha256": "0f6022c53a5a36baaf0197657591f613881ec93d6190f19fa8b4853c564adc37"
+      "source_sha256": "17dc0744395d51983e01fcf8354e8b5763882133a5a8198ee43eb5808fc3041d",
+      "packaged_sha256": "17dc0744395d51983e01fcf8354e8b5763882133a5a8198ee43eb5808fc3041d"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.pdf",
       "file": "outputs/current/figures/09_annual_and_hourly_demand.pdf",
-      "source_sha256": "009e92218df559fba8ebfe9cfda7e219d975ff1eb43dc0993ec230006a295afd",
-      "packaged_sha256": "009e92218df559fba8ebfe9cfda7e219d975ff1eb43dc0993ec230006a295afd"
+      "source_sha256": "d3d76806fbbd693854356e2372fec637bd6c14bf4b90a2cc9246bea1bc95024c",
+      "packaged_sha256": "d3d76806fbbd693854356e2372fec637bd6c14bf4b90a2cc9246bea1bc95024c"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.png",
       "file": "outputs/current/figures/09_annual_and_hourly_demand.png",
-      "source_sha256": "d32188522e8fec58ea01980534897c3773ec569b52363dc7bb86b8f2be5de921",
-      "packaged_sha256": "d32188522e8fec58ea01980534897c3773ec569b52363dc7bb86b8f2be5de921"
+      "source_sha256": "06685ec6b5b81c0085f1959797ea434aac60c0190b4512bbf89fb2e88a7c50ef",
+      "packaged_sha256": "06685ec6b5b81c0085f1959797ea434aac60c0190b4512bbf89fb2e88a7c50ef"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.svg",
       "file": "outputs/current/figures/09_annual_and_hourly_demand.svg",
-      "source_sha256": "3f76e942a3e32eca2b5a98a263449266773c44e6867f5c1fe4d91af8b62b8e5c",
-      "packaged_sha256": "3f76e942a3e32eca2b5a98a263449266773c44e6867f5c1fe4d91af8b62b8e5c"
+      "source_sha256": "2388fff2bdba00e6cb3e3239d5daefa9b69d05f477b05b44f90c0cf274fd2243",
+      "packaged_sha256": "2388fff2bdba00e6cb3e3239d5daefa9b69d05f477b05b44f90c0cf274fd2243"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.pdf",
       "file": "outputs/current/figures/09_building_demand_maps.pdf",
-      "source_sha256": "1b572754f018d5ddfd62f64b95e9063241d0f332e6c6a974b22b3859f938051a",
-      "packaged_sha256": "1b572754f018d5ddfd62f64b95e9063241d0f332e6c6a974b22b3859f938051a"
+      "source_sha256": "999097ba1ee6728735a8e7c938485b3ee80c4122e069c5fe6003cbe53855eeaa",
+      "packaged_sha256": "999097ba1ee6728735a8e7c938485b3ee80c4122e069c5fe6003cbe53855eeaa"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.png",
       "file": "outputs/current/figures/09_building_demand_maps.png",
-      "source_sha256": "f0bbd580cb3c62e65f1dea8cd126c16dac2f18a58a174545bdf8f7c6bdc0d1d8",
-      "packaged_sha256": "f0bbd580cb3c62e65f1dea8cd126c16dac2f18a58a174545bdf8f7c6bdc0d1d8"
+      "source_sha256": "5b35194485ff787de2954c21ff6ecf2affa3fcc43b02e809b93c9487cc8d0efd",
+      "packaged_sha256": "5b35194485ff787de2954c21ff6ecf2affa3fcc43b02e809b93c9487cc8d0efd"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.svg",
       "file": "outputs/current/figures/09_building_demand_maps.svg",
-      "source_sha256": "b3f5231a238313d5f5ba10c4672bc4fa0b8f41a41a145231caeaa824cd393228",
-      "packaged_sha256": "b3f5231a238313d5f5ba10c4672bc4fa0b8f41a41a145231caeaa824cd393228"
+      "source_sha256": "c93a25b4e7554e87ff0b1403ff8dee07dbf01a65e908ada6d0498137245bd7fa",
+      "packaged_sha256": "c93a25b4e7554e87ff0b1403ff8dee07dbf01a65e908ada6d0498137245bd7fa"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.pdf",
       "file": "outputs/current/figures/09_demand_totals_maps.pdf",
-      "source_sha256": "b4884f0693280c4307d524d76bec1e4505f086d5cff54b5a535eefe95d40583f",
-      "packaged_sha256": "b4884f0693280c4307d524d76bec1e4505f086d5cff54b5a535eefe95d40583f"
+      "source_sha256": "7ca9d3955cc311c6a84faef51e4dcf92e556f835692a6778d35d2f28756b9700",
+      "packaged_sha256": "7ca9d3955cc311c6a84faef51e4dcf92e556f835692a6778d35d2f28756b9700"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.png",
       "file": "outputs/current/figures/09_demand_totals_maps.png",
-      "source_sha256": "0f16fb65fa30da3223ac3a762d8c5fec264edbed35ba029d3251b095174bfa88",
-      "packaged_sha256": "0f16fb65fa30da3223ac3a762d8c5fec264edbed35ba029d3251b095174bfa88"
+      "source_sha256": "53795640f12545f1b65348e4ad766ce4ea97fa9728a47330e6d3567c2973f7a9",
+      "packaged_sha256": "53795640f12545f1b65348e4ad766ce4ea97fa9728a47330e6d3567c2973f7a9"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.svg",
       "file": "outputs/current/figures/09_demand_totals_maps.svg",
-      "source_sha256": "e25acd349e6bb9197f674f1691d9cfee6ccebc6000b845cfda70ed9c908f4124",
-      "packaged_sha256": "e25acd349e6bb9197f674f1691d9cfee6ccebc6000b845cfda70ed9c908f4124"
+      "source_sha256": "78b7e7a5183fb3b480561f6a6a49c3212cbc8b9a4b37d26448fbdaa18d503acd",
+      "packaged_sha256": "78b7e7a5183fb3b480561f6a6a49c3212cbc8b9a4b37d26448fbdaa18d503acd"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.pdf",
       "file": "outputs/current/figures/09_neighbourhood_demand_detail.pdf",
-      "source_sha256": "90b538aaa4d7376d3c4c103838b5a6548cbadf8f1830b34d6bbefbdde0311393",
-      "packaged_sha256": "90b538aaa4d7376d3c4c103838b5a6548cbadf8f1830b34d6bbefbdde0311393"
+      "source_sha256": "f778da1b271a08736825b13fe4be16332adea96f5df05c408250acfd65285828",
+      "packaged_sha256": "f778da1b271a08736825b13fe4be16332adea96f5df05c408250acfd65285828"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.png",
       "file": "outputs/current/figures/09_neighbourhood_demand_detail.png",
-      "source_sha256": "34b15cb90c63b60762c1082350314ed740f6b4fffe76c4e23bc057fba9713be5",
-      "packaged_sha256": "34b15cb90c63b60762c1082350314ed740f6b4fffe76c4e23bc057fba9713be5"
+      "source_sha256": "b52560e4a7d5445655823f976de2416e2b7b8bb374dd953cdb33ae910a906e05",
+      "packaged_sha256": "b52560e4a7d5445655823f976de2416e2b7b8bb374dd953cdb33ae910a906e05"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.svg",
       "file": "outputs/current/figures/09_neighbourhood_demand_detail.svg",
-      "source_sha256": "8725c1e54f6ef75db4992eeb6b59397d504707e0be4609412eb8026ef5749d36",
-      "packaged_sha256": "8725c1e54f6ef75db4992eeb6b59397d504707e0be4609412eb8026ef5749d36"
+      "source_sha256": "fd7e30a8a429507b2e28f196dfd13ee5816d72779988d7e6a0c033aef43c0dd2",
+      "packaged_sha256": "fd7e30a8a429507b2e28f196dfd13ee5816d72779988d7e6a0c033aef43c0dd2"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.pdf",
       "file": "outputs/current/figures/10_retrofit_saving_map.pdf",
-      "source_sha256": "5101782def41aa262e2155dcd51790870952a02aa921ecaef3c55e648353f6df",
-      "packaged_sha256": "5101782def41aa262e2155dcd51790870952a02aa921ecaef3c55e648353f6df"
+      "source_sha256": "2537fb781e207ccafadd738759cc9df15281c42a9c5bd125e23eb9a18e05b80e",
+      "packaged_sha256": "2537fb781e207ccafadd738759cc9df15281c42a9c5bd125e23eb9a18e05b80e"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.png",
       "file": "outputs/current/figures/10_retrofit_saving_map.png",
-      "source_sha256": "d8f95b28175e9a486b00716f7c786aec892027e5c996fdf54757a5b27ac32469",
-      "packaged_sha256": "d8f95b28175e9a486b00716f7c786aec892027e5c996fdf54757a5b27ac32469"
+      "source_sha256": "8ee2e3802af14d665d5de22f2b09687f2a5fcc3067ef6274179b37991cf446e9",
+      "packaged_sha256": "8ee2e3802af14d665d5de22f2b09687f2a5fcc3067ef6274179b37991cf446e9"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.svg",
       "file": "outputs/current/figures/10_retrofit_saving_map.svg",
-      "source_sha256": "e2a3f6969eb07da2a115a54d7d4644bb6570fd028c30724eb7606e9f03d7b864",
-      "packaged_sha256": "e2a3f6969eb07da2a115a54d7d4644bb6570fd028c30724eb7606e9f03d7b864"
+      "source_sha256": "6555311c32ccef2e0ac380ebc1129316373c2d7a53bc31274d7b7c773651ce91",
+      "packaged_sha256": "6555311c32ccef2e0ac380ebc1129316373c2d7a53bc31274d7b7c773651ce91"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.pdf",
       "file": "outputs/current/figures/10_scenario_energy_carbon.pdf",
-      "source_sha256": "09e74c40b3263a559d0331d052611f83413ce7331d0c562ddcb95a9b93266944",
-      "packaged_sha256": "09e74c40b3263a559d0331d052611f83413ce7331d0c562ddcb95a9b93266944"
+      "source_sha256": "3981ba287e1a619e678a8225ef2394d35af303347b33a84e71f38a1899d7f907",
+      "packaged_sha256": "3981ba287e1a619e678a8225ef2394d35af303347b33a84e71f38a1899d7f907"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.png",
       "file": "outputs/current/figures/10_scenario_energy_carbon.png",
-      "source_sha256": "37abe9ae8fcf6018db7b5fad1ad351dbf06754340459f71931f0192935098e6d",
-      "packaged_sha256": "37abe9ae8fcf6018db7b5fad1ad351dbf06754340459f71931f0192935098e6d"
+      "source_sha256": "320044e92e3e4cd8b74c56ae1df099f0b7e881d442258c3b360df307e980061b",
+      "packaged_sha256": "320044e92e3e4cd8b74c56ae1df099f0b7e881d442258c3b360df307e980061b"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.svg",
       "file": "outputs/current/figures/10_scenario_energy_carbon.svg",
-      "source_sha256": "368f0fa285ff3ba8de79bc76665bdd146cc15015d4a3ca29c3d375341d826bd2",
-      "packaged_sha256": "368f0fa285ff3ba8de79bc76665bdd146cc15015d4a3ca29c3d375341d826bd2"
+      "source_sha256": "386e51979d0eeefade2a595499bbf001ee37426a1751cbcbaf4f120a80244194",
+      "packaged_sha256": "386e51979d0eeefade2a595499bbf001ee37426a1751cbcbaf4f120a80244194"
     },
     {
       "source": "enermap_ubem/app.py",
       "file": "app.py",
-      "source_sha256": "bcf519c155bcca04cd4d142dcdb0bba208bba217f546081a0b24598fbb752771",
-      "packaged_sha256": "bcf519c155bcca04cd4d142dcdb0bba208bba217f546081a0b24598fbb752771"
+      "source_sha256": "163ee93d388b163bc98dcb99f004aab7035a8747681f77a6952862bed2cba72e",
+      "packaged_sha256": "163ee93d388b163bc98dcb99f004aab7035a8747681f77a6952862bed2cba72e"
     },
     {
       "source": "enermap_ubem/config.py",
@@ -329,14 +342,14 @@
     {
       "source": "enermap_ubem/run_all.py",
       "file": "run_all.py",
-      "source_sha256": "1cb4b4197fe83adb5c46c0f7454cb4dc715498e3d67cbb2894d22ee11caa1162",
-      "packaged_sha256": "7c99aba753c6872cba4f055eafcd3f7b6189857783859614ec062c36b19aa916"
+      "source_sha256": "fe0003aa05dd1a7787142066203a8a54f3367fdc1d04209a16c8c74151ad43ce",
+      "packaged_sha256": "3d6313bf084923111d7f0a2ebe9712e186f81b5003266d3b2b4aad147bcb8d25"
     },
     {
       "source": "enermap_ubem/build_result_index.py",
       "file": "build_result_index.py",
-      "source_sha256": "ec5763b00e2119b02e7aea2579050e145b87916e9293e0b7c4a55006727fec64",
-      "packaged_sha256": "ec5763b00e2119b02e7aea2579050e145b87916e9293e0b7c4a55006727fec64"
+      "source_sha256": "236328f2794478abe6f361108f57c95cda4caf828a01eeb47dfce3cd9f768916",
+      "packaged_sha256": "236328f2794478abe6f361108f57c95cda4caf828a01eeb47dfce3cd9f768916"
     },
     {
       "source": "enermap_ubem/ukubem/__init__.py",
@@ -429,6 +442,12 @@
       "packaged_sha256": "03bb99068f899ad0e699dcf484b52ab6d8dab2c3a10fc11237d92df70421de39"
     },
     {
+      "source": "enermap_ubem/ukubem/representatives.py",
+      "file": "ukubem/representatives.py",
+      "source_sha256": "a24a207f3c97753908a5199c03013b999abca2faa2d9d5c11ea3723e2d64be8d",
+      "packaged_sha256": "a24a207f3c97753908a5199c03013b999abca2faa2d9d5c11ea3723e2d64be8d"
+    },
+    {
       "source": "enermap_ubem/ukubem/runner.py",
       "file": "ukubem/runner.py",
       "source_sha256": "e71ee3e3fc3095f953e30309c2a9626eaf166f5761e8cb4f7e846197bcb1347f",
@@ -455,8 +474,8 @@
     {
       "source": "enermap_ubem/ukubem/unified.py",
       "file": "ukubem/unified.py",
-      "source_sha256": "c2c5ef053d5259015cd0d6a9d85a13c0419a6d445cf8b2618f6ea8c130df4e79",
-      "packaged_sha256": "c2c5ef053d5259015cd0d6a9d85a13c0419a6d445cf8b2618f6ea8c130df4e79"
+      "source_sha256": "7898c2b8cebdad949e50bf556a26049025c8dad26da9edd71cacae6dff14385c",
+      "packaged_sha256": "7898c2b8cebdad949e50bf556a26049025c8dad26da9edd71cacae6dff14385c"
     },
     {
       "source": "enermap_ubem/ukubem/usage.py",
@@ -497,14 +516,14 @@
     {
       "source": "enermap_ubem/tests/verify_current.py",
       "file": "tests/verify_current.py",
-      "source_sha256": "4c28e0ff925f6a522c0d5b1bde32d434532a6134b1550ba472660677bfeb1c24",
-      "packaged_sha256": "4c28e0ff925f6a522c0d5b1bde32d434532a6134b1550ba472660677bfeb1c24"
+      "source_sha256": "95b52b463eb6323f7a42a48cf00534b105d4c867cdd393a2ed494e1c983165d6",
+      "packaged_sha256": "95b52b463eb6323f7a42a48cf00534b105d4c867cdd393a2ed494e1c983165d6"
     },
     {
       "source": "enermap_ubem/tests/verify_physics.py",
       "file": "tests/verify_physics.py",
-      "source_sha256": "87433bc8673ab6d885ca2be4b02ceea53d3c378fdd1b1e42c7ca70553e6af5ce",
-      "packaged_sha256": "87433bc8673ab6d885ca2be4b02ceea53d3c378fdd1b1e42c7ca70553e6af5ce"
+      "source_sha256": "25d29fb918f73d464582acade1795f1c712246a4e4f25ec36f90513f014b0c50",
+      "packaged_sha256": "25d29fb918f73d464582acade1795f1c712246a4e4f25ec36f90513f014b0c50"
     },
     {
       "source": "enermap_ubem/tests/verify_pypsa_interface.py",
@@ -513,10 +532,16 @@
       "packaged_sha256": "4ac3d4c9ae8690bd6a110403cb5f0d5a1ccd6589e29055a581e2c28ef0df88b5"
     },
     {
+      "source": "enermap_ubem/tests/verify_representative_promotion.py",
+      "file": "tests/verify_representative_promotion.py",
+      "source_sha256": "509aaefb07697996136d1d8cdc63bb1f271c0590b4c39074a901c715f2a950ec",
+      "packaged_sha256": "509aaefb07697996136d1d8cdc63bb1f271c0590b4c39074a901c715f2a950ec"
+    },
+    {
       "source": "enermap_ubem/tests/verify_scenarios.py",
       "file": "tests/verify_scenarios.py",
-      "source_sha256": "bac7858193eaf207e29f72e8023a1dede565f0206c2cbcba468824d78959806c",
-      "packaged_sha256": "bac7858193eaf207e29f72e8023a1dede565f0206c2cbcba468824d78959806c"
+      "source_sha256": "952bd0d5c6a7673c311da859c5fea48c6eb4338952f3672df978f8e677754316",
+      "packaged_sha256": "952bd0d5c6a7673c311da859c5fea48c6eb4338952f3672df978f8e677754316"
     },
     {
       "source": "enermap_ubem/parameters/demand_model/calibration.json",
@@ -647,42 +672,15 @@
     {
       "source": "enermap_ubem/README.md",
       "file": "docs/ENGINE_WORKFLOW.md",
-      "source_sha256": "0a84c726109a7b85438aaef1806839511ca13a06076e577b604540e6474d7247",
-      "packaged_sha256": "0a84c726109a7b85438aaef1806839511ca13a06076e577b604540e6474d7247"
+      "source_sha256": "01944d138e0912c9af623650eee07750ea9c77a6c5d7b6a631d044d5b3fc3e91",
+      "packaged_sha256": "01944d138e0912c9af623650eee07750ea9c77a6c5d7b6a631d044d5b3fc3e91"
     },
     {
       "source": "enermap_ubem/SCENARIO_NOTES.md",
       "file": "docs/SCENARIO_NOTES.md",
-      "source_sha256": "7e82e55f206e414c3984ab286e036767f3b6d99ab16f62a75aa4c1b0b0eda96c",
-      "packaged_sha256": "7e82e55f206e414c3984ab286e036767f3b6d99ab16f62a75aa4c1b0b0eda96c"
+      "source_sha256": "5ff46955c36a1eb87f3b922787eb1721d70dbcd1c9f601e80c5813cf72da97ed",
+      "packaged_sha256": "5ff46955c36a1eb87f3b922787eb1721d70dbcd1c9f601e80c5813cf72da97ed"
     }
   ],
-  "retired_paths": [
-    "notebooks/02_model/06_calibration.ipynb",
-    "notebooks/02_model/07_spatial_cv.ipynb",
-    "notebooks/02_model/08_dwelling_tier_check.ipynb",
-    "outputs/figures/planning/12_carbon_x_vulnerability.png",
-    "outputs/figures/planning/12_pies_in_maps.png",
-    "outputs/figures/planning/12_prioritisation_strategies.png",
-    "outputs/figures/planning/12_retrofit_gap.png",
-    "outputs/figures/ubem/09_atlas_lsoa_demand.png",
-    "outputs/figures/ubem/09_demand_curves.png",
-    "outputs/figures/ubem/10_flexibility.png",
-    "outputs/figures/ubem/10_heat_pump_shape.png",
-    "outputs/figures/ubem/10_low_hanging_fruit.png",
-    "outputs/figures/ubem/10_peaks_map.png",
-    "outputs/figures/ubem/10_scenarios_by_ward.png",
-    "outputs/figures/ubem/10_substation_cells.png",
-    "outputs/ubem/06_calibrated_theta.json",
-    "outputs/ubem/06_lsoa_calibrated.csv",
-    "outputs/ubem/09_lsoa_atlas.csv",
-    "outputs/ubem/09_stock_hourly_heat_MW.csv",
-    "outputs/ubem/09_validation_table.csv",
-    "outputs/ubem/10_flexibility_by_ward.csv",
-    "outputs/ubem/10_peak_method_comparison.csv",
-    "outputs/ubem/10_scenario_by_ward.csv",
-    "outputs/ubem/10_scenario_summary.csv",
-    "outputs/ubem/10_tenward_hourly_elec_MW.csv",
-    "outputs/ubem/10_ward_peaks.csv"
-  ]
+  "retired_paths": []
 }

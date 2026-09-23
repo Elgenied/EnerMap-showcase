@@ -167,7 +167,7 @@
   {
     "source": "enermap_ubem/02_representatives.ipynb",
     "notebook": "notebooks/02_model/02_representatives.ipynb",
-    "source_sha256": "360f8a246030aaa5ea05a41a8fa11c7edccba511a89559ab0f8e587fe09e77aa",
+    "source_sha256": "b67b054cb86756b1b17533b1cb7b350636adece1196f78121f7c92f62133888b",
     "original_outputs": 0,
     "retained_pngs": 0,
     "changes": []
@@ -191,15 +191,15 @@
   {
     "source": "enermap_ubem/05_archetype_run.ipynb",
     "notebook": "notebooks/02_model/05_archetype_run.ipynb",
-    "source_sha256": "4379f992ea088d9ca4538f585aa5a5a08ecebf4aa4e95849c3d2fbc09f8397a7",
-    "original_outputs": 22,
+    "source_sha256": "56a531c91a9d13d8b6a561a8550afe4859a716074ca525b914b10ba186cd88c5",
+    "original_outputs": 37,
     "retained_pngs": 0,
     "changes": []
   },
   {
     "source": "enermap_ubem/06_validation.ipynb",
     "notebook": "notebooks/02_model/06_validation.ipynb",
-    "source_sha256": "be1400c16190fa64ac3bbe68b4e919ed209361299f1cb5cb8c49358762913e54",
+    "source_sha256": "e541d4fcdb47e71c81110a5da52b5bfb70829286270e8225e2e3ebc66a9e7c86",
     "original_outputs": 7,
     "retained_pngs": 4,
     "changes": []
@@ -207,7 +207,7 @@
   {
     "source": "enermap_ubem/07_consistency_checks.ipynb",
     "notebook": "notebooks/02_model/07_consistency_checks.ipynb",
-    "source_sha256": "37e33afdc552ad11ad909a6c61b2ed6f40b7ad8151977f8226048b1484c876b9",
+    "source_sha256": "45c3f9d1e3e85174d94581a36dca710a8b5479f10691cf9f1d751685ac5b2997",
     "original_outputs": 19,
     "retained_pngs": 0,
     "changes": []
@@ -215,7 +215,7 @@
   {
     "source": "enermap_ubem/09_lsoa_atlas.ipynb",
     "notebook": "notebooks/02_model/09_lsoa_atlas.ipynb",
-    "source_sha256": "717586e781b730131a5b777edc41ef8d14ac2eb2037d4130df8e54fc72f1e3ff",
+    "source_sha256": "6b851e72cb57b5e1a6d56adb0e33c89d01929682e898a6ce5355be4928e7e8c3",
     "original_outputs": 4,
     "retained_pngs": 3,
     "changes": []
@@ -223,16 +223,16 @@
   {
     "source": "enermap_ubem/10_ward_scenarios.ipynb",
     "notebook": "notebooks/02_model/10_ward_scenarios.ipynb",
-    "source_sha256": "427355103abecf260268f1bb1f4b4a232817bf68264afd19116d332d3c702885",
-    "original_outputs": 12,
+    "source_sha256": "7c91a3c193841352c634e7bb56f7a2a15c4ebb3b0a0e8bdc2fdbf5cfe1ba43dc",
+    "original_outputs": 62,
     "retained_pngs": 2,
     "changes": []
   },
   {
     "source": "enermap_ubem/11_pypsa_interface.ipynb",
     "notebook": "notebooks/02_model/11_pypsa_interface.ipynb",
-    "source_sha256": "cc7dfb84eee6e52d8ce2da3184f1489d3dcd0ebc2271564e452c3f81954eea42",
-    "original_outputs": 13,
+    "source_sha256": "544f83bc7c07717913287b1f5f177320674ec8ad6ebed8f546b6a6f4392d5b94",
+    "original_outputs": 14,
     "retained_pngs": 1,
     "changes": [
       {
@@ -244,7 +244,7 @@
   {
     "source": "enermap_ubem/12_planning_visuals.ipynb",
     "notebook": "notebooks/02_model/12_planning_visuals.ipynb",
-    "source_sha256": "ab02689b4955a7dc16c8af5c2c1c28281cab8ae0d96c4cd5d1341624afe28593",
+    "source_sha256": "6e3c70f3e0850f60c4811f92975ead7c6ac3dac39b5cc9ef93f5fa27036f3eee",
     "original_outputs": 7,
     "retained_pngs": 4,
     "changes": []

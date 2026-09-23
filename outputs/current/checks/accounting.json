@@ -10,6 +10,426 @@
       "passed": true
     },
     {
+      "test": "Saved thermal inputs match virtual construction profiles",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.1/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.1/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.1/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.2/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.2/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.2/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.3/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.3/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.3/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.4/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.4/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.4/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.5/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.5/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.5/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.6/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.6/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.6/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.7/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.7/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.7/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.8/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.8/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.8/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.9/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.9/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Det.9/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.1/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.1/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.1/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.2/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.2/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.2/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.3/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.3/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.3/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.4/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.4/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.4/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.5/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.5/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.5/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.6/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.6/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.6/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.7/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.7/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.7/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.8/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.8/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Flat.8/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Park.1/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Park.1/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Park.1/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.1/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.1/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.1/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.10/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.10/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.10/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.11/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.11/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.11/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.2/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.2/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.2/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.3/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.3/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.3/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.4/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.4/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.4/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.5/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.5/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.5/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.6/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.6/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.6/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.7/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.7/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.7/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.8/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.8/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.8/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.9/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.9/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Semi.9/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.1/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.1/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.1/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.2/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.2/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.2/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.3/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.3/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.3/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.4/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.4/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Ter.4/S",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Unk.1/L",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Unk.1/M",
+      "passed": true
+    },
+    {
+      "test": "Exact size-band median area C.Unk.1/S",
+      "passed": true
+    },
+    {
+      "test": "Unexposed representative ceilings retain zero roof U",
+      "passed": true
+    },
+    {
+      "test": "Promoted baseline reproduces approved experiment stock results",
+      "passed": true
+    },
+    {
       "test": "Hourly annual agreement: Q_H_kWh",
       "passed": true
     },

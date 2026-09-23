@@ -103,6 +103,7 @@ if not D["completion"].get("completed") or D["completion"].get("calibration") is
 M = D["metrics"]
 st.sidebar.subheader("Guildford demonstration")
 st.sidebar.write(f"Engine run completed {D['completion']['completed_utc'][:10]}.")
+st.sidebar.caption("Current method: typical construction properties at three median floor areas, with three household draws per size.")
 st.sidebar.write("Planning scenarios: the dense ten-ward study area. Demand and validation: the modelled borough stock and available LSOAs.")
 st.sidebar.caption("This app explores saved results. Controls change the presentation; they do not rerun the thermal model.")
 
@@ -211,7 +212,7 @@ with tabs[5]:
 
 with tabs[6]:
     st.subheader("How annual and hourly demand connect")
-    st.markdown("""1. **Space heating:** the thermal engine calculates hourly useful heat. Three household draws are averaged for each size representative, then expanded using each dwelling's floor area.
+    st.markdown("""1. **Space heating:** cluster-median construction properties and modal categories define virtual buildings at exact median small, medium and large floor areas. Roof properties are conditioned on template exposure. Three household draws are averaged for each size, then expanded using each dwelling's original floor area. The original dwelling records are not overwritten.
 2. **Appliances, lighting and cooking:** annual BREDEM/SAP-based quantities are distributed using normalized hourly profiles. Raw schedule totals are not a second final annual estimate.
 3. **Hot water:** annual usage defines useful tap heat, system-side heat including losses, and electric-shower electricity. The hourly profile is normalized to those quantities.
 4. **Heat pumps:** useful space heat and system-side hot-water heat are divided by hourly COP. Annual heat-pump electricity is the sum of those hourly values. Electric-shower electricity is counted separately.
@@ -221,8 +222,10 @@ with tabs[6]:
     st.write("Space heating uses the radiator-temperature rule above; hot water uses a 50°C sink. Existing heat pumps use the ASHP curve. New electrification retains the configured profile redistribution and 1.08 space-heat uplift; this uplift is not applied again to existing heat pumps.")
     st.write("The rerun corrected thermal-capacity units, thermal-bridge handling, internal-gain overrides, no-ground geometry and heat-balance reporting. Completed-stock inputs, clustering and household sampling were retained.")
     st.caption("The simplified COP curve omits defrost, backup and cycling. Three draws per representative do not establish uncertainty convergence. Annual agreement does not validate occupancy, individual buildings, hourly peaks or future scenarios.")
+    st.write("The median construction profiles are modelling representatives, not measured individual homes. Remaining geometry and roof exposure come from each size template. Retrofit eligibility and costs retain individual stock attributes, while simulated savings are shared within each archetype-size group.")
     st.subheader("Run record")
     st.json({"completed_utc": D["completion"]["completed_utc"], "calibration": False,
+        "representation_method": D["completion"].get("representation_method"),
         "baseline_simulations": D["completion"]["baseline_simulations"],
         "stochastic_baseline_simulations": D["summary"]["stochastic_simulations"],
         "retrofit_simulations": D["completion"]["retrofit_simulations"],

@@ -1,0 +1,223 @@
+{
+  "passed": true,
+  "representation_method": "cluster_median_construction_three_median_areas_v1",
+  "old_results": "LOCAL_PATH/current",
+  "baseline_before": {
+    "completed": true,
+    "calibration": false,
+    "stock_dwellings": 57300,
+    "simulations": 408,
+    "stochastic_simulations": 306,
+    "existing_heat_pumps": 1299,
+    "totals_GWh": {
+      "Q_H_kWh": 565.5815694381603,
+      "delivered_gas_kWh": 719.6876335450295,
+      "delivered_elec_kWh": 246.7614594537995,
+      "delivered_other_kWh": 41.846387070577144
+    },
+    "metrics": {
+      "gas_MAPE": 0.07080853631425492,
+      "elec_MAPE": 0.10409058130578694,
+      "gas_bias": -0.05552369353593112,
+      "elec_bias": 0.03016949113079237,
+      "gas_WAPE_pct": 7.27754441810441,
+      "elec_WAPE_pct": 11.21335199494316,
+      "gas_NMBE_pct": -5.8423001977003794,
+      "elec_NMBE_pct": 1.3932473894685231,
+      "gas_R2_predictive": 0.8926246382375604,
+      "elec_R2_predictive": 0.6948464051874471,
+      "J_gas": 0.007979567658450601,
+      "J_elec": 0.017465469037663096
+    },
+    "electricity_peak_MW": 81.69282132825417,
+    "peak_is_modelled_not_validated": true,
+    "annual_hourly_consistency_passed": true
+  },
+  "baseline_after": {
+    "completed": true,
+    "calibration": false,
+    "stock_dwellings": 57300,
+    "representation_method": "cluster_median_construction_three_median_areas_v1",
+    "simulations": 408,
+    "stochastic_simulations": 306,
+    "existing_heat_pumps": 1299,
+    "totals_GWh": {
+      "Q_H_kWh": 567.570160263988,
+      "delivered_gas_kWh": 722.8596829363778,
+      "delivered_elec_kWh": 246.55525169197838,
+      "delivered_other_kWh": 41.3094415370975
+    },
+    "metrics": {
+      "gas_MAPE": 0.07189845074373077,
+      "elec_MAPE": 0.10348279955532205,
+      "gas_bias": -0.05312994431692375,
+      "elec_bias": 0.029363505498405384,
+      "gas_WAPE_pct": 7.260650235607888,
+      "elec_WAPE_pct": 11.15958701661053,
+      "gas_NMBE_pct": -5.413841820238396,
+      "elec_NMBE_pct": 1.3209770425436798,
+      "gas_R2_predictive": 0.8983705077821513,
+      "elec_R2_predictive": 0.6971841521022932,
+      "J_gas": 0.008351862146897952,
+      "J_elec": 0.01723488072202703
+    },
+    "electricity_peak_MW": 81.15844903217175,
+    "peak_is_modelled_not_validated": true,
+    "annual_hourly_consistency_passed": true
+  },
+  "package_fingerprints": {
+    "R0": "254af680e40d55f6067e0756fdc9424fb14cf2e8134a280ccd0c5713408dee65",
+    "R1": "b44790a73621e55e5ed8a6a54c9331d84185685a90ec664fdc5411d2ecc352b3",
+    "R2": "0e6b20107656dd3ffee0ac64270628dbf788b959f300ff4f3737957957e03be5"
+  },
+  "scenario_comparison": [
+    {
+      "scenario": "U0_baseline",
+      "scope": "borough",
+      "Q_H_GWh_before": 565.5815694381603,
+      "Q_H_GWh_after": 567.570160263988,
+      "delivered_gas_GWh_before": 719.6876335450295,
+      "delivered_gas_GWh_after": 722.8596829363778,
+      "delivered_elec_GWh_before": 246.7614594537995,
+      "delivered_elec_GWh_after": 246.5552516919784,
+      "carbon_kt_before": 194.33764441349328,
+      "carbon_kt_after": 194.74679739394057
+    },
+    {
+      "scenario": "U0_baseline",
+      "scope": "planning_wards",
+      "Q_H_GWh_before": 262.65233698462066,
+      "Q_H_GWh_after": 264.1932991794999,
+      "delivered_gas_GWh_before": 352.2515665079971,
+      "delivered_gas_GWh_after": 354.16406124172454,
+      "delivered_elec_GWh_before": 121.37614034679038,
+      "delivered_elec_GWh_after": 121.27985027783538,
+      "carbon_kt_before": 91.23530643425468,
+      "carbon_kt_after": 91.56664843035936
+    },
+    {
+      "scenario": "U1_electrification",
+      "scope": "borough",
+      "Q_H_GWh_before": 607.9401944643864,
+      "Q_H_GWh_after": 610.1011130741267,
+      "delivered_gas_GWh_before": 15.506799999153577,
+      "delivered_gas_GWh_after": 15.51494943845882,
+      "delivered_elec_GWh_before": 421.5276817773676,
+      "delivered_elec_GWh_after": 421.8470240037349,
+      "carbon_kt_before": 92.34319815963345,
+      "carbon_kt_after": 92.41249674586116
+    },
+    {
+      "scenario": "U1_electrification",
+      "scope": "planning_wards",
+      "Q_H_GWh_before": 282.2485670361476,
+      "Q_H_GWh_after": 283.9198713221772,
+      "delivered_gas_GWh_before": 9.813443909259073,
+      "delivered_gas_GWh_after": 9.74493516019409,
+      "delivered_elec_GWh_before": 202.45964525172732,
+      "delivered_elec_GWh_after": 202.7841325380797,
+      "carbon_kt_before": 44.78568686271915,
+      "carbon_kt_after": 44.8420371857516
+    },
+    {
+      "scenario": "U2_envelope",
+      "scope": "borough",
+      "Q_H_GWh_before": 414.71427001947416,
+      "Q_H_GWh_after": 416.5559180533816,
+      "delivered_gas_GWh_before": 555.836162549177,
+      "delivered_gas_GWh_after": 558.3308582951298,
+      "delivered_elec_GWh_before": 241.35787277386672,
+      "delivered_elec_GWh_after": 241.11416229266476,
+      "carbon_kt_before": 160.289811773698,
+      "carbon_kt_after": 160.6834439829378
+    },
+    {
+      "scenario": "U2_envelope",
+      "scope": "planning_wards",
+      "Q_H_GWh_before": 191.617907512355,
+      "Q_H_GWh_after": 192.56215562030147,
+      "delivered_gas_GWh_before": 270.66133060347926,
+      "delivered_gas_GWh_after": 271.95604569485675,
+      "delivered_elec_GWh_before": 118.39194299539864,
+      "delivered_elec_GWh_after": 118.1981518189018,
+      "carbon_kt_before": 75.3962251867405,
+      "carbon_kt_after": 75.59870895718778
+    },
+    {
+      "scenario": "U3_envelope_elec",
+      "scope": "borough",
+      "Q_H_GWh_before": 445.6076275022986,
+      "Q_H_GWh_after": 447.6155962976547,
+      "delivered_gas_GWh_before": 14.54498992753024,
+      "delivered_gas_GWh_after": 14.45090153884258,
+      "delivered_elec_GWh_before": 376.3995040145668,
+      "delivered_elec_GWh_after": 376.679060961643,
+      "carbon_kt_before": 82.5849670425394,
+      "carbon_kt_after": 82.62709213984007
+    },
+    {
+      "scenario": "U3_envelope_elec",
+      "scope": "planning_wards",
+      "Q_H_GWh_before": 205.8337050781012,
+      "Q_H_GWh_after": 206.87249635509085,
+      "delivered_gas_GWh_before": 9.184912948098273,
+      "delivered_gas_GWh_after": 9.06622890284726,
+      "delivered_elec_GWh_before": 180.84386946452744,
+      "delivered_elec_GWh_after": 180.95273564365544,
+      "carbon_kt_before": 40.08088745897678,
+      "carbon_kt_after": 40.08226484506287
+    },
+    {
+      "scenario": "U4_elec_pv",
+      "scope": "borough",
+      "Q_H_GWh_before": 607.9401944643864,
+      "Q_H_GWh_after": 610.1011130741267,
+      "delivered_gas_GWh_before": 15.506799999153577,
+      "delivered_gas_GWh_after": 15.51494943845882,
+      "delivered_elec_GWh_before": 421.5276817773676,
+      "delivered_elec_GWh_after": 421.8470240037349,
+      "carbon_kt_before": 85.15367037968963,
+      "carbon_kt_after": 85.22296896591735
+    },
+    {
+      "scenario": "U4_elec_pv",
+      "scope": "planning_wards",
+      "Q_H_GWh_before": 282.2485670361476,
+      "Q_H_GWh_after": 283.9198713221772,
+      "delivered_gas_GWh_before": 9.813443909259073,
+      "delivered_gas_GWh_after": 9.74493516019409,
+      "delivered_elec_GWh_before": 202.45964525172732,
+      "delivered_elec_GWh_after": 202.7841325380797,
+      "carbon_kt_before": 37.59615908277537,
+      "carbon_kt_after": 37.652509405807805
+    },
+    {
+      "scenario": "U5_envelope_elec_pv",
+      "scope": "borough",
+      "Q_H_GWh_before": 445.6076275022986,
+      "Q_H_GWh_after": 447.6155962976547,
+      "delivered_gas_GWh_before": 14.54498992753024,
+      "delivered_gas_GWh_after": 14.45090153884258,
+      "delivered_elec_GWh_before": 376.3995040145668,
+      "delivered_elec_GWh_after": 376.679060961643,
+      "carbon_kt_before": 75.39543926259563,
+      "carbon_kt_after": 75.43756435989627
+    },
+    {
+      "scenario": "U5_envelope_elec_pv",
+      "scope": "planning_wards",
+      "Q_H_GWh_before": 205.8337050781012,
+      "Q_H_GWh_after": 206.87249635509085,
+      "delivered_gas_GWh_before": 9.184912948098273,
+      "delivered_gas_GWh_after": 9.06622890284726,
+      "delivered_elec_GWh_before": 180.84386946452744,
+      "delivered_elec_GWh_after": 180.95273564365544,
+      "carbon_kt_before": 32.891359679033,
+      "carbon_kt_after": 32.89273706511907
+    }
+  ],
+  "experiment_hourly_and_annual_reproduced": true,
+  "raw_stock_preserved": true,
+  "pypsa_representative_inputs_reconciled": true,
+  "optimization_run": false
+}

@@ -36,7 +36,9 @@ The main stock is 57,300 dwellings and the annual comparison retains all 84 avai
 
 - Corrected active-surface thermal-capacity units, configured thermal bridges, nested internal-gain overrides, explicit no-ground geometry and heat-balance reporting in the main engine.
 - Removed calibration and spatial-refitting notebooks from the active workflow. No fitted physics or old calibrated outputs are read.
-- Preserved completed-stock inputs, construction groups, size selection, household probabilities, three stochastic draws, seeds, annual BREDEM usage and boiler assumptions.
+- Preserved completed-stock inputs, construction groups, size-band membership, household probabilities, three stochastic draws, seeds, annual BREDEM usage and boiler assumptions.
+- Construction profiles now use cluster-median numerical properties and modal construction categories, evaluated at the exact median floor area of each S/M/L band. Original size-selected records supply the remaining geometry/exposure and reproducible template IDs. Roof properties are summarized conditional on template exposure. `baseline/virtual_representative_inputs.parquet` records the actual virtual inputs; the original stock table is never overwritten.
+- R1/R2 retrofit packages are applied to this same virtual baseline before thermal simulation. Stock-level retrofit eligibility, quantities, costs and flexibility still use original dwelling attributes; savings remain an archetype-tier approximation where eligibility differs within a group.
 - Annual space heat comes from the mean of the three hourly thermal simulations for each size representative, expanded by each dwelling's own area. The 102 deterministic reference cases are not the stock prediction.
 - Existing heat pumps use hourly ASHP COP: radiator temperature = 40 minus outdoor temperature, minimum lift 15 K, COP = max(1, 6.08 − 0.09 ΔT + 0.0005 ΔT²). DHW uses the configured 50°C sink.
 - Annual HP electricity is the sum of hourly heat/COP. The core accounting API rejects missing hourly HP electricity instead of silently using fixed seasonal factors.
@@ -70,4 +72,6 @@ Hourly electricity peaks are simultaneous stock totals. They have not been valid
 
 ## Preservation
 
-`_archive/20260918_before_unified/` contains the full recoverable pre-change project (including its old results, notebooks and applications). Retired live notebooks and outputs are additionally separated beneath its `retired_live/` directory. No original stock data or household-generator logic was intentionally changed. Separate experimental folders outside this main project are historical comparisons, not current dependencies.
+`_archive/20260918_before_unified/` contains the recoverable earlier project. `_archive/20260923_before_median_profile_promotion/` preserves the code, notebooks and previous current results from before promotion of the virtual construction profiles. No original stock data or household-generator logic was changed. Experimental folders are historical comparisons, not current simulation dependencies.
+
+`ENERMAP_RESULTS_DIR` can point the full notebook chain at an isolated staging directory. Do not publish a staging run until all physics, accounting, scenario and PyPSA checks pass. Package manifests include the representative method, virtual-input hash and core pipeline source hash to prevent stale cache reuse.

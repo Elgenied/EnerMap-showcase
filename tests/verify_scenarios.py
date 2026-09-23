@@ -5,9 +5,16 @@ ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT))
 import numpy as np
 import pandas as pd
-from ukubem.unified import OUT, BASE, write_json
+from ukubem.unified import OUT, BASE, PACK, write_json, REPRESENTATION_METHOD
+from ukubem import measures, pypsa_export as PX
 
 def main():
+    virtual=pd.read_parquet(BASE/'virtual_representative_inputs.parquet')
+    for package in ['R1','R2']:
+        expected,flags=measures.apply_package(virtual,PX.R_PACKAGES[package]['measures'],'planning')
+        actual=pd.read_parquet(PACK/package/'virtual_representative_inputs.parquet')
+        pd.testing.assert_frame_equal(actual,expected)
+        pd.testing.assert_frame_equal(pd.read_parquet(PACK/package/'representative_applied_measures.parquet'),flags)
     folder=OUT/'scenarios'
     summary=pd.read_csv(folder/'scenario_summary.csv')
     base=pd.read_parquet(BASE/'stock_demand.parquet')
@@ -30,7 +37,8 @@ def main():
         if name=='U0_baseline':pd.testing.assert_frame_equal(stock[base.columns],base)
         results.append({'scenario':name,'passed':True,'dwellings':len(stock),'hours':len(hourly)})
     assert len(results)==6
-    write_json(OUT/'checks/scenarios.json',{'passed':True,'checks':results,'boundary':'Hourly gross electricity reconciles before annual PV self-consumption offsets.'})
+    write_json(OUT/'checks/scenarios.json',{'passed':True,'checks':results,'representation_method':REPRESENTATION_METHOD,
+        'retrofit_applied_to_virtual_baseline':True,'boundary':'Hourly gross electricity reconciles before annual PV self-consumption offsets.'})
     print('PASS: six scenarios, baseline preservation and annual/hourly reconciliation')
 
 if __name__=='__main__':main()

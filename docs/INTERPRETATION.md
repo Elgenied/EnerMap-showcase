@@ -1,6 +1,8 @@
 # Interpretation of the current results
 
-This snapshot uses the completed 18 September 2026 engine run. Gas WAPE is 7.28% and electricity WAPE is 11.21%. No calibration or spatial refitting is used. Observations were inspected during development; this is not untouched holdout validation.
+This snapshot uses the completed 23 September 2026 engine run. Gas WAPE is 7.26% and electricity WAPE is 11.16%. No calibration or spatial refitting is used. Observations were inspected during development; this is not untouched holdout validation.
+
+Construction inputs now use whole-cluster numerical medians and modal categories at the exact median floor area of each small/medium/large band. Size-selected records supply remaining geometry descriptors and roof exposure; roof properties are summarized conditional on that exposure. These are virtual profiles, not unchanged individual homes. The original completed stock, cluster assignments and household sampling remain unchanged. R1/R2 measures are applied to these same virtual baseline profiles before simulation. Individual retrofit eligibility and costs remain stock-based, while demand savings are an archetype-size approximation. See the [method update](../outputs/current/REPRESENTATIVE_METHOD_UPDATE.md).
 
 The rerun corrected active-surface thermal-capacity units, configured thermal bridges, nested internal-gain overrides, explicit no-ground geometry and heat-balance reporting. Earlier statements that these implementation discrepancies await a rerun describe the superseded version. Passing implementation checks is distinct from validating every physical assumption.
 

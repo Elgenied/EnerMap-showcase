@@ -16,9 +16,10 @@ from .accounting import account, family_masks, usage_for
 from .runner import simulate_rows, schedule_for_row, aggregate_lsoa, mape
 from . import heatpumps as HP, measures, pypsa_export as PX
 from .profiles import epw_hourly
+from .representatives import virtual_profiles, METHOD as REPRESENTATION_METHOD
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / 'outputs/current'
+OUT = Path(os.environ.get('ENERMAP_RESULTS_DIR', str(ROOT / 'outputs/current'))).resolve()
 BASE = OUT / 'baseline'
 PACK = OUT / 'packages'
 EPW = ROOT / 'data/inputs/weather/GBR_ENG_Farnborough.AP.037680_TMYx.2007-2021.epw'
@@ -61,6 +62,12 @@ def load_inputs():
     return make_representatives(pd.read_parquet(ROOT/'outputs/representatives/dwelling_inputs.parquet'))
 
 
+def load_virtual_representatives():
+    inputs, reps = load_inputs()
+    rows, changes = virtual_profiles(inputs, reps)
+    return rows, reps, changes
+
+
 def group_heat(package='R0'):
     folder = BASE if package == 'R0' else PACK/package
     z = np.load(folder/'group_hourly.npz')
@@ -91,14 +98,18 @@ def simulate_package(package='R0'):
     (folder/'checkpoints').mkdir(exist_ok=True)
     assumptions = UKGeometryAssumptions()
     spec = PX.R_PACKAGES[package]
-    rows, _ = measures.apply_package(inputs, spec['measures'], 'planning')
+    virtual, changes = virtual_profiles(inputs, reps)
+    # Apply retrofit to the SAME virtual construction library used for baseline.
+    rows, applied = measures.apply_package(virtual, spec['measures'], 'planning')
     if 'draught_proofing' in spec['measures']:
         assumptions = assumptions.with_(infil_scale=measures.ASSUMPTIONS['targets']['planning']['draught_ach_factor'])
     paths = [ROOT/'outputs/representatives/dwelling_inputs.parquet', EPW]
     for dirname in ['ukubem','uk_ubem_schedule_generator','parameters','deps/pyBuildingEnergy/src']:
-        paths += [p for p in (ROOT/dirname).rglob('*') if p.is_file() and p.suffix in ['.py','.json','.xlsx'] and p.name not in ['unified.py','reporting.py']]
+        paths += [p for p in (ROOT/dirname).rglob('*') if p.is_file() and p.suffix in ['.py','.json','.xlsx'] and p.name != 'reporting.py']
     hashes = {str(p.relative_to(ROOT)):sha(p) for p in paths}
-    manifest = {'sources':hashes,'package':package,'assumptions':asdict(assumptions),'seed':42,'year':2021,'draws':3,'calibration':False}
+    manifest = {'sources':hashes,'package':package,'assumptions':asdict(assumptions),'seed':42,'year':2021,'draws':3,'calibration':False,
+        'representation_method':REPRESENTATION_METHOD,
+        'virtual_rows_hash':hashlib.sha256(pd.util.hash_pandas_object(rows,index=True).values.tobytes()).hexdigest()}
     fingerprint = hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
     manifest['fingerprint'] = fingerprint
     target = folder/'manifest.json'
@@ -108,6 +119,9 @@ def simulate_package(package='R0'):
     if package=='R0':
         reps.to_csv(BASE/'representatives.csv', index=False)
         inputs[['construction_sa','size_class','floor_area_final']].to_parquet(BASE/'stock_assignment.parquet')
+        changes.to_json(BASE/'virtual_input_changes.json',orient='records',indent=2)
+    rows.to_parquet(folder/'virtual_representative_inputs.parquet')
+    applied.to_parquet(folder/'representative_applied_measures.parquet')
     tasks=[]; results=[]
     draws=[-1,0,1,2] if package=='R0' else [0,1,2]
     for did in reps.dwelling_id:
@@ -130,10 +144,11 @@ def simulate_package(package='R0'):
     result.to_parquet(folder/'simulation_summaries.parquet',index=False)
     groups={}; intensity=[]
     for r in reps.itertuples():
-        A=float(inputs.loc[r.dwelling_id,'floor_area_final'])
+        A=float(rows.loc[r.dwelling_id,'floor_area_final'])
         q=np.mean([np.load(folder/'hourly'/f'{r.dwelling_id}_r{k}.npz')['Q_H_W'].astype(float) for k in range(3)],axis=0)/A
         groups[str(r.dwelling_id)]=q
-        intensity.append({'dwelling_id':r.dwelling_id,'construction_sa':r.construction_sa,'size_class':r.size_class,'Q_H_kWh_m2':q.sum()/1000.})
+        intensity.append({'dwelling_id':r.dwelling_id,'construction_sa':r.construction_sa,'size_class':r.size_class,
+            'representative_area_m2':A,'Q_H_kWh_m2':q.sum()/1000.})
     np.savez_compressed(folder/'group_hourly.npz',**groups)
     pd.DataFrame(intensity).to_csv(folder/'archetype_intensities.csv',index=False)
     write_json(folder/'complete.json',{'completed':True,'simulations':len(result),'fingerprint':fingerprint})
@@ -149,7 +164,7 @@ def shapes():
     if path.exists():
         z=np.load(path); reps=pd.read_csv(BASE/'representatives.csv')
         return {(r.construction_sa,r.size_class):z[str(r.dwelling_id)] for r in reps.itertuples()}
-    inp,reps=load_inputs(); groups={}
+    inp,reps,_=load_virtual_representatives(); groups={}
     for r in reps.itertuples():
         ss=[]
         for k in range(3):
@@ -212,6 +227,7 @@ def baseline():
     write_json(BASE/'metrics.json',mape(validation))
     totals={c:float(stock[c].sum()/1e6) for c in ['Q_H_kWh','delivered_gas_kWh','delivered_elec_kWh','delivered_other_kWh']}
     write_json(BASE/'summary.json',{'completed':True,'calibration':False,'stock_dwellings':len(stock),
+        'representation_method':REPRESENTATION_METHOD,
         'simulations':408,'stochastic_simulations':306,'existing_heat_pumps':int(stock.systems_fam.eq('S.HeatPump').sum()),
         'totals_GWh':totals,'metrics':mape(validation),'electricity_peak_MW':float(hourly.delivered_electricity_kWh.max()/1000),
         'peak_is_modelled_not_validated':True,'annual_hourly_consistency_passed':True})
@@ -292,7 +308,7 @@ def interface():
     usage=usage_for(inputs.floor_area_final.to_numpy(float),family_masks(inputs.systems_fam,inputs.gas_connected.fillna(False)))
     dsh={g:HP.annual_dhw_shape() for g in profiles['R0']}; esh=shapes()
     index=pd.date_range('2021-01-01',periods=8760,freq='h',tz='UTC')
-    case={'case_id':'GF2021_TMY_UNCAL_HOURLY_COP','year':2021,'description':'Uncalibrated corrected ISO 52016; three paired stochastic draws per size; BREDEM annual usage; hourly ASHP COP; borough scope; no level matching or meter fitting'}
+    case={'case_id':'GF2021_TMY_UNCAL_MEDIAN3_HOURLY_COP','year':2021,'description':'Uncalibrated ISO 52016; typical cluster construction at three exact median areas; three paired stochastic draws per size; BREDEM annual usage; hourly ASHP COP; borough scope; no meter fitting'}
     lib,weights,totals=PX.write_demand_profiles(folder/'demand_profiles.parquet',inputs,cid,profiles,dsh,esh,usage,case['case_id'],index,chunk_clusters=32)
     lib.to_parquet(folder/'demand_profile_library.parquet',index=False)
     weights.to_csv(folder/'cluster_profile_weights.csv',index=False)
@@ -326,8 +342,15 @@ def interface():
     text=readme.read_text(encoding='utf-8').replace('weather, occupancy and calibration assumptions','weather, occupancy and uncalibrated assumptions').replace('under the calibrated\nphysics','under the uncalibrated\nphysics').replace('hourly shape from the CHAP hot-water draws of the household','configured normalized DHW hourly shape')
     text+='''\n\n## Current accounting contract\n\nThis export covers the entire borough. No calibration, spatial refit or annual level matching is used. `heat_pump_cop_hourly.csv` supplies the same radiator and 50°C DHW COP used in the baseline. Compute HP electricity hour by hour and sum; do not rescale to prescribed SCOPs. All existing aggregate HPs use the ASHP curve.\n\n`cluster_end_use_weights.csv` retains annual tap heat, system-side DHW including losses, electric-shower electricity, non-heating electricity and gas cooking by construction/size/system family. This permits the baseline end-use split to be reconstructed. The useful-DHW load includes the tap heat served by electric showers; do not also add the shower vector without removing that heat from the main DHW service. `cluster_baseline_fuel_totals.csv` is the annual delivered-energy reconciliation target.\n\n`demand_profile_library_heat_pump.parquet` is an optional scenario library for newly converted homes, carrying the configured Watson reshaping/uplift. Existing HP baseline heat remains the unchanged UBEM profile. Never add the baseline and conversion libraries together for the same dwellings. Baseline DHW uses the configured Watson daily shape normalized to the BREDEM annual total. Non-heating electricity uses normalized household shapes with BREDEM annual totals.\n\nThe exported timeline is a fixed 8760-hour model clock (no daylight-saving adjustment), represented as UTC for interface compatibility. R0/R1/R2 describe alternatives for the same homes and cannot be summed as independent stock. COP excludes defrost, backup heating and part-load/cycling effects. Peaks and flexibility are modelled, not hourly validated.\n'''
     readme.write_text(text,encoding='utf-8')
+    # Export the exact physical inputs behind each alternative profile library.
+    for package in PX.R_PACKAGES:
+        source=BASE if package=='R0' else PACK/package
+        pd.read_parquet(source/'virtual_representative_inputs.parquet').to_parquet(folder/f'virtual_representatives_{package}.parquet')
+    text+='''\n\n## Construction representation\n\nR0/R1/R2 use the same baseline cluster-median construction profiles at exact median S/M/L floor areas. Each profile averages three household draws; each actual dwelling retains its original floor area for expansion. The source dwelling ID is a traceable template ID, not a claim that virtual inputs are its measured attributes. `virtual_representatives_R0/R1/R2.parquet` documents the exact simulated inputs. The retrofit package is applied to the virtual baseline before simulation; the construction profiles are not recomputed from retrofitted stock.\n\nPer-dwelling retrofit eligibility, quantities, investment costs and flexibility retain original completed-stock attributes. They are individual-stock estimates, whereas demand savings are archetype-tier approximations; eligibility differences within a construction/size group are not separately simulated. Roof exposure is retained from each size template and roof summaries are exposure-conditioned; within-band exposure differences remain unresolved.\n'''
+    readme.write_text(text,encoding='utf-8')
     write_json(folder/'checks.json',{'completed':True,'dwellings':len(inputs),'clusters':len(clusters),
         'baseline_heat_reconciled':True,'DHW_and_nonheating_reconciled':True,'thermal_profile_runs':918,
+        'representation_method':REPRESENTATION_METHOD,
         'newly_converted_hp_library':'Includes configured reshaping/uplift; do not apply to existing HPs again',
         'schema':'Useful DHW excludes losses; use cluster_end_use_weights for baseline system/POU split. COP is a conversion efficiency, never a load.'})
     print('PYPSA INTERFACE COMPLETE',len(clusters),'clusters',flush=True)

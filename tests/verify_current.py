@@ -19,6 +19,21 @@ def main():
         tests.append({'test':name,'passed':True})
     check('All stock retained',len(stock)==len(inputs)==57300 and stock.index.is_unique)
     check('Representative membership retained',len(reps)==102 and reps.n.sum()==len(stock))
+    virtual,_,changes=U.load_virtual_representatives()
+    saved=pd.read_parquet(U.BASE/'virtual_representative_inputs.parquet')
+    pd.testing.assert_frame_equal(saved[virtual.columns],virtual)
+    check('Saved thermal inputs match virtual construction profiles',True)
+    expected=inputs.groupby(['construction_sa','size_class']).floor_area_final.median()
+    for r in reps.itertuples():
+        check(f'Exact size-band median area {r.construction_sa}/{r.size_class}',
+            np.isclose(virtual.loc[r.dwelling_id,'floor_area_final'],expected.loc[(r.construction_sa,r.size_class)]))
+    check('Unexposed representative ceilings retain zero roof U',
+        virtual.loc[~virtual.roof_exposed.astype(bool),'roof_U'].eq(0).all())
+    experimental=ROOT/'outputs/experiments/20260923_median_profile_three_areas/stock_demand.parquet'
+    if experimental.exists():
+        reference=pd.read_parquet(experimental)
+        pd.testing.assert_frame_equal(stock,reference)
+        check('Promoted baseline reproduces approved experiment stock results',True)
     for h,s in [('space_heat_kWh','Q_H_kWh'),('delivered_electricity_kWh','delivered_elec_kWh'),('heating_electricity_kWh','elec_heat_kWh')]:
         check('Hourly annual agreement: '+s,np.isclose(hourly[h].sum(),stock[s].sum(),rtol=1e-10))
     check('Hourly HP sum',np.isclose(hourly.hp_electricity_kWh.sum(),stock.loc[stock.systems_fam.eq('S.HeatPump'),'elec_heat_kWh'].sum(),rtol=1e-10))

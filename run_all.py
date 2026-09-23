@@ -20,7 +20,8 @@ args=sys.argv[1:]
 prefixes=[a for a in args if not a.startswith('--')]
 if not prefixes:prefixes=['00','01','02','03','04','05','06','07','09','10','11','12'] if '--upstream' in args else ['05','06','07','09','10','11','12']
 NOTEBOOKS=[p for p in sorted(HERE.glob('[01]*_*.ipynb')) if any(p.name.startswith(q+'_') for q in prefixes)]
-REPORTS=HERE/'outputs/current/reports';REPORTS.mkdir(parents=True,exist_ok=True)
+from ukubem.unified import OUT
+REPORTS=OUT/'reports';REPORTS.mkdir(parents=True,exist_ok=True)
 
 for nb_path in NOTEBOOKS:
     t0 = time.time()

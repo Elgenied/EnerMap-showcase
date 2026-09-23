@@ -9,3 +9,9 @@ PV is applied only where the retained rooftop-potential inputs provide capacity.
 Detailed capital costs and incentive proxies retain the original planning-ward scope. Prices, carbon factors and incentive assumptions have not been updated to present-day values. They are historical model assumptions, not current tariffs or confirmed grant eligibility.
 
 Annual net grid electricity subtracts the configured annual PV self-consumption estimate. The exported stock-hourly electricity profiles are gross demand before PV offsets: do not interpret their peaks as post-PV grid-import peaks. Technology choices, hourly dispatch and capacity expansion have not been optimised in PyPSA; notebook 11 exports and tests the interface.
+
+## Representative construction update (23 September 2026)
+
+The demand library uses cluster-median construction profiles at exact median S/M/L floor areas, with three household draws per size. R0, R1 and R2 are generated from the same virtual baseline; retrofit measures are applied after constructing that baseline, not before recomputing medians. Source template IDs preserve reproducibility, not actual-dwelling construction values. Whole-stock expansion retains each dwelling's original floor area and heating system.
+
+Individual retrofit eligibility, cost quantities, sizing and flexibility continue to use completed-stock attributes. These outputs have individual-stock detail, while simulated demand savings use a shared construction/size profile. Within-group eligibility and exposure variation are therefore not independently simulated. This approximation is retained rather than silently overwriting individual stock inputs with group medians.

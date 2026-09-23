@@ -1,25 +1,27 @@
 {
   "completed": true,
-  "completed_utc": "2026-09-18T12:16:18.749455+00:00",
+  "completed_utc": "2026-09-23T22:06:25.890492+00:00",
   "calibration": false,
+  "representation_method": "cluster_median_construction_three_median_areas_v1",
   "baseline_simulations": 408,
   "retrofit_simulations": 612,
   "interface_import_passed": true,
   "physics_tests": 16,
-  "accounting_tests": 15,
+  "accounting_tests": 120,
   "package_fingerprints": {
-    "R0": "3fd5f84f243f2b8dd2015ca6494449445c343cb1a3e9532f679782fa9824179c",
-    "R1": "70938f4dda5cff3d60e6f518e8110339b63a8c8e3e28df18faa26a8fb36b2bf6",
-    "R2": "064068648b03c1b1a8d262ab9bd73b35f2ccb0b4de1046116427fe2ae174a51c"
+    "R0": "254af680e40d55f6067e0756fdc9424fb14cf2e8134a280ccd0c5713408dee65",
+    "R1": "b44790a73621e55e5ed8a6a54c9331d84185685a90ec664fdc5411d2ecc352b3",
+    "R2": "0e6b20107656dd3ffee0ac64270628dbf788b959f300ff4f3737957957e03be5"
   },
   "pipeline_source_hashes": {
-    "ukubem\\unified.py": "c2c5ef053d5259015cd0d6a9d85a13c0419a6d445cf8b2618f6ea8c130df4e79",
+    "ukubem\\unified.py": "7898c2b8cebdad949e50bf556a26049025c8dad26da9edd71cacae6dff14385c",
     "ukubem\\reporting.py": "03bb99068f899ad0e699dcf484b52ab6d8dab2c3a10fc11237d92df70421de39",
-    "run_all.py": "1cb4b4197fe83adb5c46c0f7454cb4dc715498e3d67cbb2894d22ee11caa1162",
-    "build_result_index.py": "ec5763b00e2119b02e7aea2579050e145b87916e9293e0b7c4a55006727fec64",
-    "tests\\verify_current.py": "4c28e0ff925f6a522c0d5b1bde32d434532a6134b1550ba472660677bfeb1c24",
-    "tests\\verify_physics.py": "87433bc8673ab6d885ca2be4b02ceea53d3c378fdd1b1e42c7ca70553e6af5ce",
+    "run_all.py": "fe0003aa05dd1a7787142066203a8a54f3367fdc1d04209a16c8c74151ad43ce",
+    "build_result_index.py": "236328f2794478abe6f361108f57c95cda4caf828a01eeb47dfce3cd9f768916",
+    "tests\\verify_current.py": "95b52b463eb6323f7a42a48cf00534b105d4c867cdd393a2ed494e1c983165d6",
+    "tests\\verify_physics.py": "25d29fb918f73d464582acade1795f1c712246a4e4f25ec36f90513f014b0c50",
     "tests\\verify_pypsa_interface.py": "4ac3d4c9ae8690bd6a110403cb5f0d5a1ccd6589e29055a581e2c28ef0df88b5",
-    "tests\\verify_scenarios.py": "bac7858193eaf207e29f72e8023a1dede565f0206c2cbcba468824d78959806c"
+    "tests\\verify_representative_promotion.py": "509aaefb07697996136d1d8cdc63bb1f271c0590b4c39074a901c715f2a950ec",
+    "tests\\verify_scenarios.py": "952bd0d5c6a7673c311da859c5fea48c6eb4338952f3672df978f8e677754316"
   }
 }
