@@ -58,8 +58,3 @@ Open notebooks directly in GitHub or download for local viewing. Saved static ch
 | [12_planning_visuals.ipynb](notebooks/02_model/12_planning_visuals.ipynb) | Current modelling workflow |
 | [notebook13_clustering_diagnostics.ipynb](notebooks/02_model/notebook13_clustering_diagnostics.ipynb) | Current modelling workflow |
 
-## Provenance and access
-
-The source is included for inspection in ukubem/ and uk_ubem_schedule_generator/. Legacy compatibility modules are not dashboard inputs. docs/snapshot_manifest.json records the copied current result files and hashes; docs/notebook_manifest.json records notebook treatment. Read docs/DATA_AND_REUSE.md for excluded inputs and provider terms.
-
-This remains a private research showcase. The original calibrated version is recoverable from Git history.
