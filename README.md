@@ -40,7 +40,6 @@ Heat-pump electricity comes from hourly heat/COP and is summed annually. Annual 
 
 ## Notebook guide
 
-Open notebooks directly in GitHub or download for local viewing. Saved static charts are retained; interactive payloads and address-level tables are excluded. Notebooks 03–04 have no current saved demonstration outputs. Packaging does not execute the simulations.
 
 | Notebook | Role |
 |---|---|
