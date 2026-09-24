@@ -4,8 +4,6 @@
 
 EnerMap connects completed building stock, construction archetypes and stochastic household schedules to hourly demand simulation and electrification planning. Guildford demonstrates the framework; planning scenarios focus on its dense ten-ward study area.
 
-**Updated to the completed 23 September 2026 uncalibrated engine run.** The dashboard and modelling notebooks use outputs/current. Gas WAPE is **7.26%** and electricity WAPE is **11.16%**, comparing annual area means across 84 LSOAs. Read the [interpretation notes](docs/INTERPRETATION.md) alongside these results.
-
 The current simulation library uses **cluster-median construction properties at three median floor areas**, with three stochastic household draws for each size. Original dwelling records and clustering are preserved. Baseline, retrofit scenarios and the downstream interface have all been rerun consistently; the preceding results remain in Git history.
 
 ## Explore
@@ -34,11 +32,11 @@ The app reads packaged results and does not execute the modelling notebooks. Sce
 
 ## Current results
 
-The borough baseline contains 57,300 dwellings and reports 567.6 GWh/year useful space heat, 722.9 GWh/year delivered gas and 246.6 GWh/year delivered electricity. Scenario tables also include the ten-ward subtotal of 28,663 dwellings. Scope is explicit in every view.
+This presents a case study of EnerMap, presented for Guildford Borough Council, which contains 57,300 dwellings (Residential). Results are 567.6 GWh/year useful space heat, 722.9 GWh/year delivered gas, and 246.6 GWh/year delivered electricity. Scenario tables also include the ten-ward subtotal of 28,663 dwellings. Scope is explicit in every view.
 
-Heat-pump electricity now comes from hourly heat/COP and is summed annually. Annual BREDEM/SAP usage and normalized hourly profiles provide one consistent electricity/DHW account. Calibration and spatial-refit notebooks have been retired from the active presentation. See [the engine workflow](docs/ENGINE_WORKFLOW.md) and [scenario assumptions](docs/SCENARIO_NOTES.md).
+Heat-pump electricity comes from hourly heat/COP and is summed annually. Annual BREDEM/SAP usage and normalised hourly profiles provide one consistent electricity/DHW account.
 
-Hourly peaks are modelled residential demand before PV offsets and have not been validated against hourly metering. Annual observations were inspected during development, so the reported comparison is not an untouched holdout.
+
 
 ## Notebook guide
 
