@@ -27,6 +27,12 @@ flowchart LR
     J --> K[Assign demand to matching dwellings]
 ```
 
+## From demand to decarbonisation and LAEP
+
+![EnerMap decarbonisation framework: baseline demand, retrofit, heat-pump and solar scenarios, and local energy planning outputs](assets/EnerMap_decarbonisation_framework.png)
+
+Baseline demand provides the starting point for comparing fabric retrofit, heat pumps and rooftop solar. Energy consumption, electricity peaks, emissions and costs are assessed to identify local priorities for decarbonisation.
+
 ## Explore
 
 1. Stock preparation and linkage: notebooks/01_stock.
