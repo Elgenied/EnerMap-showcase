@@ -1,0 +1,44 @@
+{
+  "group_A_dwellings": 1434,
+  "group_A_median_ratio": 18.70379504968817,
+  "group_A_median_net_GBP": 1014.2113845653948,
+  "payback_ok_pct": 11.457279419460628,
+  "payback_median_HTD": 28.855958873079715,
+  "payback_median_other": 18.07140569712444,
+  "epc_imputed_count": 7551,
+  "epc_imputed_pct": 26.344067264417543,
+  "priority_25pct": {
+    "Carbon-first": {
+      "dwellings": 9063,
+      "carbon_kt": 25.76650181610372,
+      "net_budget_MGBP": 69.58597322820685
+    },
+    "Equity-first": {
+      "dwellings": 6850,
+      "carbon_kt": 11.663728039077188,
+      "net_budget_MGBP": 69.59466225406129
+    },
+    "Infrastructure-led": {
+      "dwellings": 6989,
+      "carbon_kt": 15.21467890809039,
+      "net_budget_MGBP": 69.5850255768917
+    }
+  },
+  "old_priority_reproduction": {
+    "Carbon-first": {
+      "dwellings": 9204,
+      "carbon_kt": 25.72000611482094,
+      "net_budget_MGBP": 68.45522693267435
+    },
+    "Equity-first": {
+      "dwellings": 6847,
+      "carbon_kt": 11.656551537600205,
+      "net_budget_MGBP": 68.45154267066587
+    },
+    "Infrastructure-led": {
+      "dwellings": 6986,
+      "carbon_kt": 15.211731709464,
+      "net_budget_MGBP": 68.45116132958312
+    }
+  }
+}

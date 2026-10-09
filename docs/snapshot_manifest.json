@@ -1,13 +1,13 @@
 {
-  "engine_completed_utc": "2026-09-23T22:06:25.890492+00:00",
+  "engine_completed_utc": "2026-10-09T12:03:28.624058+00:00",
   "representation_method": "cluster_median_construction_three_median_areas_v1",
   "calibration": false,
   "files": [
     {
       "source": "enermap_ubem/outputs/current/completion.json",
       "file": "outputs/current/completion.json",
-      "source_sha256": "2c4938a5a021c0c3a13cc31a95e0a5daf0c6795d246bf466b48ec34ff09ba570",
-      "packaged_sha256": "a11783d6152907ca150692535731bdc0facac18d9095a479a8e9ee9ad26756b0"
+      "source_sha256": "27b562ab4d5fdb1390cd199599323f071c93e724bd0c01a45a27e180b9292e83",
+      "packaged_sha256": "19d5af85230738f9d871aa64b8520502fc2b6e6e89a276b68c6aee74aec27358"
     },
     {
       "source": "enermap_ubem/outputs/current/REPRESENTATIVE_METHOD_UPDATE.md",
@@ -30,8 +30,8 @@
     {
       "source": "enermap_ubem/outputs/current/baseline/complete.json",
       "file": "outputs/current/baseline/complete.json",
-      "source_sha256": "cb00117c9564be42aae0529b4158f52a84409ce2427d8410e525e012ebfbb54d",
-      "packaged_sha256": "e2e654b2bee608d92e7fbdd907160360ea90d410979564c037c35978a4e7ef1d"
+      "source_sha256": "b4089a9fbe9499ea8b5192ecce5792c7c71a38c12cb8bd7a62976237b7c43b4a",
+      "packaged_sha256": "68e8b63e5cecf81f3c79642faec2f8c0359d5ee4ff2e461130d5705a34b5b3b1"
     },
     {
       "source": "enermap_ubem/outputs/current/baseline/lsoa_validation.csv",
@@ -78,14 +78,14 @@
     {
       "source": "enermap_ubem/outputs/current/scenarios/planning_ward_summary.csv",
       "file": "outputs/current/scenarios/planning_ward_summary.csv",
-      "source_sha256": "8a71ca3cf8b9365eccd1bdbb6aad2e520d446f0292ee6395de9e3a3f24363fd4",
-      "packaged_sha256": "8a71ca3cf8b9365eccd1bdbb6aad2e520d446f0292ee6395de9e3a3f24363fd4"
+      "source_sha256": "189f750a0ff997dd0f76a7adb2e3c5289a966de5d452a7a3f606d08a81ba0c71",
+      "packaged_sha256": "189f750a0ff997dd0f76a7adb2e3c5289a966de5d452a7a3f606d08a81ba0c71"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/manifest.json",
       "file": "outputs/current/scenarios/manifest.json",
-      "source_sha256": "7bfe1725dca2f3eb5a6a98b00869fb194af2d03144214fd8793f8a914bae8f2e",
-      "packaged_sha256": "33b012ac0525a745509fdd8d9127a73c927848535c7ba75490fd2dd37228285a"
+      "source_sha256": "511cf3662edfd556a6546d39f248b9ff1247754bc01d82776671dc530702439f",
+      "packaged_sha256": "048937b17d36cdf0f60452e0c8c6161ee4add96a929cbfef14f4804833624b3b"
     },
     {
       "source": "enermap_ubem/outputs/current/scenarios/U0_baseline_hourly.csv",
@@ -130,6 +130,12 @@
       "packaged_sha256": "52edb5455a77ee6f57a8998c8575459c97ee6b129466de009d1d5c166238792c"
     },
     {
+      "source": "enermap_ubem/outputs/current/checks/incentive_revision_comparison.json",
+      "file": "outputs/current/checks/incentive_revision_comparison.json",
+      "source_sha256": "ca850ea6ab87ab769df049005679ffef940134c6eecca31d8521869363ee9740",
+      "packaged_sha256": "5393083ce0684f3165bbfe732362d2adc1bfd6017cecd275b7ec90d6383f9fab"
+    },
+    {
       "source": "enermap_ubem/outputs/current/checks/representative_promotion.json",
       "file": "outputs/current/checks/representative_promotion.json",
       "source_sha256": "ee1dda41e5d1053aa6c29f16fd279c9ae3285f7dbe7af29c421023411e69a4a7",
@@ -138,14 +144,14 @@
     {
       "source": "enermap_ubem/outputs/current/checks/scenarios.json",
       "file": "outputs/current/checks/scenarios.json",
-      "source_sha256": "94442c88e6d0947cd4e86e85486bcc91da3507552979a54fb63200f02d12d5a5",
-      "packaged_sha256": "38f5543189c06486080df46004c4504f4c0de74b1210a841605f32cd0e6470db"
+      "source_sha256": "8879abb9991b94b6726be00f054216a5462d743d8dff6220ed3de1a663fb8abe",
+      "packaged_sha256": "470d7dd020ce23782f5cc37dbf9e95a340de143c2b6428fa4059b96178a38983"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.pdf",
       "file": "outputs/current/figures/06_canet_style_distribution.pdf",
-      "source_sha256": "0fe11d788b036433d021203ff1face7a46abdd930a6f7ab6e7b1001e19a064bc",
-      "packaged_sha256": "0fe11d788b036433d021203ff1face7a46abdd930a6f7ab6e7b1001e19a064bc"
+      "source_sha256": "9f2a5c39d737c9aee77b7ae1ba73d905db6a91af06559c2c98c3399fa9dad7c2",
+      "packaged_sha256": "9f2a5c39d737c9aee77b7ae1ba73d905db6a91af06559c2c98c3399fa9dad7c2"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.png",
@@ -156,14 +162,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/06_canet_style_distribution.svg",
       "file": "outputs/current/figures/06_canet_style_distribution.svg",
-      "source_sha256": "782186ccbf37b1de71df50930f1059b9d56f4bea115a5fec5a3781ddaa825dd8",
-      "packaged_sha256": "782186ccbf37b1de71df50930f1059b9d56f4bea115a5fec5a3781ddaa825dd8"
+      "source_sha256": "5700db941288e9fa125e6707e507bc2e62afb85c28668e822e22af07cfffb4a3",
+      "packaged_sha256": "5700db941288e9fa125e6707e507bc2e62afb85c28668e822e22af07cfffb4a3"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.pdf",
       "file": "outputs/current/figures/06_lsoa_alignment.pdf",
-      "source_sha256": "51e9ca7c8b967775e49dc4bc8893ba0ddaaf51b2cd8f9f5ffc1a7be5baee7397",
-      "packaged_sha256": "51e9ca7c8b967775e49dc4bc8893ba0ddaaf51b2cd8f9f5ffc1a7be5baee7397"
+      "source_sha256": "2fad779c18fbf30ef25fb1e8440724d48bfbc45344733835bca3fc5d9c616c67",
+      "packaged_sha256": "2fad779c18fbf30ef25fb1e8440724d48bfbc45344733835bca3fc5d9c616c67"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.png",
@@ -174,14 +180,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/06_lsoa_alignment.svg",
       "file": "outputs/current/figures/06_lsoa_alignment.svg",
-      "source_sha256": "ab558bc3f458b73bd12925830ace25880f3cd274ddb5e709ad0190a3eec05440",
-      "packaged_sha256": "ab558bc3f458b73bd12925830ace25880f3cd274ddb5e709ad0190a3eec05440"
+      "source_sha256": "d7322e4e355cf9587be940663e1d959340b8e34e82378030ce04d41b69ad98d9",
+      "packaged_sha256": "d7322e4e355cf9587be940663e1d959340b8e34e82378030ce04d41b69ad98d9"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_maps.pdf",
       "file": "outputs/current/figures/06_validation_maps.pdf",
-      "source_sha256": "b5fc724f720e5fb20c7fb3bb2157e17f0bffa72373351d5f64d0e05627a3afe9",
-      "packaged_sha256": "b5fc724f720e5fb20c7fb3bb2157e17f0bffa72373351d5f64d0e05627a3afe9"
+      "source_sha256": "cfb5fb43dee0edd0ef9d927056be81c493b701982c52ed338ecca3e2bf0c74e9",
+      "packaged_sha256": "cfb5fb43dee0edd0ef9d927056be81c493b701982c52ed338ecca3e2bf0c74e9"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_maps.png",
@@ -192,14 +198,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_maps.svg",
       "file": "outputs/current/figures/06_validation_maps.svg",
-      "source_sha256": "ade49fdf18bb6373b19ad8a3a55df4bb170e01bfe0d501356c7f644e46778cbf",
-      "packaged_sha256": "ade49fdf18bb6373b19ad8a3a55df4bb170e01bfe0d501356c7f644e46778cbf"
+      "source_sha256": "c68e7bb9ce1cd73631cb2a29c5bd210572b9960f162025006ea365be03555575",
+      "packaged_sha256": "c68e7bb9ce1cd73631cb2a29c5bd210572b9960f162025006ea365be03555575"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.pdf",
       "file": "outputs/current/figures/06_validation_observed_modelled.pdf",
-      "source_sha256": "4d5410fbbcd581562c1a4c67969fd3310f83274fcd525c8067dc0532349adc01",
-      "packaged_sha256": "4d5410fbbcd581562c1a4c67969fd3310f83274fcd525c8067dc0532349adc01"
+      "source_sha256": "d15dccbf5d5aa22af850476be8ab82e46fa67ca086e8ca649bfee053a74276f3",
+      "packaged_sha256": "d15dccbf5d5aa22af850476be8ab82e46fa67ca086e8ca649bfee053a74276f3"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.png",
@@ -210,14 +216,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/06_validation_observed_modelled.svg",
       "file": "outputs/current/figures/06_validation_observed_modelled.svg",
-      "source_sha256": "17dc0744395d51983e01fcf8354e8b5763882133a5a8198ee43eb5808fc3041d",
-      "packaged_sha256": "17dc0744395d51983e01fcf8354e8b5763882133a5a8198ee43eb5808fc3041d"
+      "source_sha256": "4679a7dc1b024fe10a9e0e3a47559aadd13e7fa1e367cb5761fb488ace9814aa",
+      "packaged_sha256": "4679a7dc1b024fe10a9e0e3a47559aadd13e7fa1e367cb5761fb488ace9814aa"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.pdf",
       "file": "outputs/current/figures/09_annual_and_hourly_demand.pdf",
-      "source_sha256": "d3d76806fbbd693854356e2372fec637bd6c14bf4b90a2cc9246bea1bc95024c",
-      "packaged_sha256": "d3d76806fbbd693854356e2372fec637bd6c14bf4b90a2cc9246bea1bc95024c"
+      "source_sha256": "f4332a1a5ab3dde29c761af980cb7c77129edd410f4416ddf838802bf622a49e",
+      "packaged_sha256": "f4332a1a5ab3dde29c761af980cb7c77129edd410f4416ddf838802bf622a49e"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.png",
@@ -228,14 +234,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/09_annual_and_hourly_demand.svg",
       "file": "outputs/current/figures/09_annual_and_hourly_demand.svg",
-      "source_sha256": "2388fff2bdba00e6cb3e3239d5daefa9b69d05f477b05b44f90c0cf274fd2243",
-      "packaged_sha256": "2388fff2bdba00e6cb3e3239d5daefa9b69d05f477b05b44f90c0cf274fd2243"
+      "source_sha256": "bd14ab643cc21ecb51e8830d46288a9f6f27d1dd4701a3a83ce1449936ff9e29",
+      "packaged_sha256": "bd14ab643cc21ecb51e8830d46288a9f6f27d1dd4701a3a83ce1449936ff9e29"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.pdf",
       "file": "outputs/current/figures/09_building_demand_maps.pdf",
-      "source_sha256": "999097ba1ee6728735a8e7c938485b3ee80c4122e069c5fe6003cbe53855eeaa",
-      "packaged_sha256": "999097ba1ee6728735a8e7c938485b3ee80c4122e069c5fe6003cbe53855eeaa"
+      "source_sha256": "32bd71d04148d405e4ffcf8574f0902d5483a7d829d22214ea860ec05cf2dd31",
+      "packaged_sha256": "32bd71d04148d405e4ffcf8574f0902d5483a7d829d22214ea860ec05cf2dd31"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.png",
@@ -246,14 +252,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/09_building_demand_maps.svg",
       "file": "outputs/current/figures/09_building_demand_maps.svg",
-      "source_sha256": "c93a25b4e7554e87ff0b1403ff8dee07dbf01a65e908ada6d0498137245bd7fa",
-      "packaged_sha256": "c93a25b4e7554e87ff0b1403ff8dee07dbf01a65e908ada6d0498137245bd7fa"
+      "source_sha256": "fa4f111c2c1fc3cbe0619e8c168036c1b1d115c938208f925c0f6f1ba1cf1a12",
+      "packaged_sha256": "fa4f111c2c1fc3cbe0619e8c168036c1b1d115c938208f925c0f6f1ba1cf1a12"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.pdf",
       "file": "outputs/current/figures/09_demand_totals_maps.pdf",
-      "source_sha256": "7ca9d3955cc311c6a84faef51e4dcf92e556f835692a6778d35d2f28756b9700",
-      "packaged_sha256": "7ca9d3955cc311c6a84faef51e4dcf92e556f835692a6778d35d2f28756b9700"
+      "source_sha256": "0bc953fb79a69fe92c4b860145f3088837d28b19a3e23c05f2c9abb621855368",
+      "packaged_sha256": "0bc953fb79a69fe92c4b860145f3088837d28b19a3e23c05f2c9abb621855368"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.png",
@@ -264,14 +270,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/09_demand_totals_maps.svg",
       "file": "outputs/current/figures/09_demand_totals_maps.svg",
-      "source_sha256": "78b7e7a5183fb3b480561f6a6a49c3212cbc8b9a4b37d26448fbdaa18d503acd",
-      "packaged_sha256": "78b7e7a5183fb3b480561f6a6a49c3212cbc8b9a4b37d26448fbdaa18d503acd"
+      "source_sha256": "91f7232e1b5a476a0ed5581a4578c057f0d1b0079cdbc7879bb1cdf6cfc9267b",
+      "packaged_sha256": "91f7232e1b5a476a0ed5581a4578c057f0d1b0079cdbc7879bb1cdf6cfc9267b"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.pdf",
       "file": "outputs/current/figures/09_neighbourhood_demand_detail.pdf",
-      "source_sha256": "f778da1b271a08736825b13fe4be16332adea96f5df05c408250acfd65285828",
-      "packaged_sha256": "f778da1b271a08736825b13fe4be16332adea96f5df05c408250acfd65285828"
+      "source_sha256": "4409a1155f4e560f3925c6d413a540bf56fffde42451760785ff5df495b7e42a",
+      "packaged_sha256": "4409a1155f4e560f3925c6d413a540bf56fffde42451760785ff5df495b7e42a"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.png",
@@ -282,14 +288,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/09_neighbourhood_demand_detail.svg",
       "file": "outputs/current/figures/09_neighbourhood_demand_detail.svg",
-      "source_sha256": "fd7e30a8a429507b2e28f196dfd13ee5816d72779988d7e6a0c033aef43c0dd2",
-      "packaged_sha256": "fd7e30a8a429507b2e28f196dfd13ee5816d72779988d7e6a0c033aef43c0dd2"
+      "source_sha256": "91299264c9b5f2d00117ad43602ceda5c7f2dd00ef2d818ee754365fa129b1ab",
+      "packaged_sha256": "91299264c9b5f2d00117ad43602ceda5c7f2dd00ef2d818ee754365fa129b1ab"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.pdf",
       "file": "outputs/current/figures/10_retrofit_saving_map.pdf",
-      "source_sha256": "2537fb781e207ccafadd738759cc9df15281c42a9c5bd125e23eb9a18e05b80e",
-      "packaged_sha256": "2537fb781e207ccafadd738759cc9df15281c42a9c5bd125e23eb9a18e05b80e"
+      "source_sha256": "c17476f186d80a8b3476da5254a560ee5e63fb1f7efca9b4b74a735c61c4e65a",
+      "packaged_sha256": "c17476f186d80a8b3476da5254a560ee5e63fb1f7efca9b4b74a735c61c4e65a"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.png",
@@ -300,14 +306,14 @@
     {
       "source": "enermap_ubem/outputs/current/figures/10_retrofit_saving_map.svg",
       "file": "outputs/current/figures/10_retrofit_saving_map.svg",
-      "source_sha256": "6555311c32ccef2e0ac380ebc1129316373c2d7a53bc31274d7b7c773651ce91",
-      "packaged_sha256": "6555311c32ccef2e0ac380ebc1129316373c2d7a53bc31274d7b7c773651ce91"
+      "source_sha256": "ea8b165c57f5465419fe1caa125da312ecacc186656816500aa54bd4a7201800",
+      "packaged_sha256": "ea8b165c57f5465419fe1caa125da312ecacc186656816500aa54bd4a7201800"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.pdf",
       "file": "outputs/current/figures/10_scenario_energy_carbon.pdf",
-      "source_sha256": "3981ba287e1a619e678a8225ef2394d35af303347b33a84e71f38a1899d7f907",
-      "packaged_sha256": "3981ba287e1a619e678a8225ef2394d35af303347b33a84e71f38a1899d7f907"
+      "source_sha256": "4dc0d4b839546acdf8e2516f3bfd13a7dc8d591b40dbf6ca2fc42560c1d380b2",
+      "packaged_sha256": "4dc0d4b839546acdf8e2516f3bfd13a7dc8d591b40dbf6ca2fc42560c1d380b2"
     },
     {
       "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.png",
@@ -318,20 +324,20 @@
     {
       "source": "enermap_ubem/outputs/current/figures/10_scenario_energy_carbon.svg",
       "file": "outputs/current/figures/10_scenario_energy_carbon.svg",
-      "source_sha256": "386e51979d0eeefade2a595499bbf001ee37426a1751cbcbaf4f120a80244194",
-      "packaged_sha256": "386e51979d0eeefade2a595499bbf001ee37426a1751cbcbaf4f120a80244194"
+      "source_sha256": "a05ecfc19d91d36aa8aabeaf1c8d19db8df80b8853dae0f2fed57862c7f63ee7",
+      "packaged_sha256": "a05ecfc19d91d36aa8aabeaf1c8d19db8df80b8853dae0f2fed57862c7f63ee7"
     },
     {
       "source": "enermap_ubem/app.py",
       "file": "app.py",
-      "source_sha256": "163ee93d388b163bc98dcb99f004aab7035a8747681f77a6952862bed2cba72e",
-      "packaged_sha256": "163ee93d388b163bc98dcb99f004aab7035a8747681f77a6952862bed2cba72e"
+      "source_sha256": "ee953008357f8cfc8ef4a72f942053b0082cdb51256dee1bf7c24a89737ca6f3",
+      "packaged_sha256": "ee953008357f8cfc8ef4a72f942053b0082cdb51256dee1bf7c24a89737ca6f3"
     },
     {
       "source": "enermap_ubem/config.py",
       "file": "config.py",
-      "source_sha256": "836f1296d854257d0ab859c05ce29d2c45510e6c377c07334fa1625065af28d0",
-      "packaged_sha256": "d6ffab7d135fe88601b7842fbece89a173a3d6e14bba50502c9ec806fceae9e6"
+      "source_sha256": "1a50504a71076c37b8249ced7db00a1a600b99e13e985d25afcbf78c0d69de8f",
+      "packaged_sha256": "5636a658b976027d28baeb534b2ec116afe12e0994a220b585ba3006030cd90f"
     },
     {
       "source": "enermap_ubem/pbc_helpers.py",
@@ -348,8 +354,8 @@
     {
       "source": "enermap_ubem/build_result_index.py",
       "file": "build_result_index.py",
-      "source_sha256": "236328f2794478abe6f361108f57c95cda4caf828a01eeb47dfce3cd9f768916",
-      "packaged_sha256": "236328f2794478abe6f361108f57c95cda4caf828a01eeb47dfce3cd9f768916"
+      "source_sha256": "0825466b896f02e4a25e398a7b63022d222dac467c4377c970b7caeb3f8bdb5d",
+      "packaged_sha256": "3fdfaaf01fb0b631b49d265580ad994752522c3eaede1022e12800ed2e617ed3"
     },
     {
       "source": "enermap_ubem/ukubem/__init__.py",
@@ -402,8 +408,8 @@
     {
       "source": "enermap_ubem/ukubem/measures.py",
       "file": "ukubem/measures.py",
-      "source_sha256": "d2741a09f98f79170331a05dc9643827d4e1a3837580e3eb904d97942e27c437",
-      "packaged_sha256": "48c5911efeeaf19cdacbff0d5e7c17c5fc50d6e733b34f3e52acd9470565fd5b"
+      "source_sha256": "68186bf11741518e350e02b7823753817c2fc09438a2256898efd37ae1193498",
+      "packaged_sha256": "eced07f120febac6bc4b6846c9d3e0a4a420dd4f6fa72de2abbf34369db5b832"
     },
     {
       "source": "enermap_ubem/ukubem/metrics.py",
@@ -474,8 +480,8 @@
     {
       "source": "enermap_ubem/ukubem/unified.py",
       "file": "ukubem/unified.py",
-      "source_sha256": "7898c2b8cebdad949e50bf556a26049025c8dad26da9edd71cacae6dff14385c",
-      "packaged_sha256": "7898c2b8cebdad949e50bf556a26049025c8dad26da9edd71cacae6dff14385c"
+      "source_sha256": "315599ef8ac17f1d7ce3724706c1e3d49f62048dc5a10f7e8238dcf1876ccd42",
+      "packaged_sha256": "315599ef8ac17f1d7ce3724706c1e3d49f62048dc5a10f7e8238dcf1876ccd42"
     },
     {
       "source": "enermap_ubem/ukubem/usage.py",
@@ -540,8 +546,8 @@
     {
       "source": "enermap_ubem/tests/verify_scenarios.py",
       "file": "tests/verify_scenarios.py",
-      "source_sha256": "952bd0d5c6a7673c311da859c5fea48c6eb4338952f3672df978f8e677754316",
-      "packaged_sha256": "952bd0d5c6a7673c311da859c5fea48c6eb4338952f3672df978f8e677754316"
+      "source_sha256": "5444f0cb84dcc5b672b88e5789322ad6b6ee5a44876729d6166560bdb46b3b1f",
+      "packaged_sha256": "5444f0cb84dcc5b672b88e5789322ad6b6ee5a44876729d6166560bdb46b3b1f"
     },
     {
       "source": "enermap_ubem/parameters/demand_model/calibration.json",
@@ -590,6 +596,12 @@
       "file": "parameters/finance_incentives/incentives.json",
       "source_sha256": "3d24e6f03849c64a306363790a3b8278e2c40f934483637d5bb81992d47dc441",
       "packaged_sha256": "dc8882325824f17cf3de26c94d74ceac32b46975b6a18abb245747c1bc0fbade"
+    },
+    {
+      "source": "enermap_ubem/parameters/finance_incentives/incentives_2026.json",
+      "file": "parameters/finance_incentives/incentives_2026.json",
+      "source_sha256": "ff014911446d5575f1ed3c2f285018118b7387301cc6129e07329da79130a320",
+      "packaged_sha256": "ff014911446d5575f1ed3c2f285018118b7387301cc6129e07329da79130a320"
     },
     {
       "source": "enermap_ubem/parameters/grid_carbon/carbon_factors_2021.json",
@@ -672,14 +684,158 @@
     {
       "source": "enermap_ubem/README.md",
       "file": "docs/ENGINE_WORKFLOW.md",
-      "source_sha256": "01944d138e0912c9af623650eee07750ea9c77a6c5d7b6a631d044d5b3fc3e91",
-      "packaged_sha256": "01944d138e0912c9af623650eee07750ea9c77a6c5d7b6a631d044d5b3fc3e91"
+      "source_sha256": "75442e757559916ab6225a21b382de9dc07e91642f43aa9ff5d17606235fc5b6",
+      "packaged_sha256": "992dbd714d4a08a81d446d5a977179c5e532e640915cb3ef50501133d846ebf6"
     },
     {
       "source": "enermap_ubem/SCENARIO_NOTES.md",
       "file": "docs/SCENARIO_NOTES.md",
-      "source_sha256": "5ff46955c36a1eb87f3b922787eb1721d70dbcd1c9f601e80c5813cf72da97ed",
-      "packaged_sha256": "5ff46955c36a1eb87f3b922787eb1721d70dbcd1c9f601e80c5813cf72da97ed"
+      "source_sha256": "bda5a08a8b6f3f24fd0b25be039e176908171ca04d6b0c3d25045698697b7fba",
+      "packaged_sha256": "45377fd5efba194a124af1bc7c66d562fb242ae40ba296636a78f386c300fa0f"
+    },
+    {
+      "source": "enermap_ubem/analysis/u4_pv_balance.py",
+      "file": "analysis/u4_pv_balance.py",
+      "source_sha256": "af5831c960fe79c8802f1a58dd2e47f2358bdec2760d0e85d2fc1b389f135011",
+      "packaged_sha256": "af5831c960fe79c8802f1a58dd2e47f2358bdec2760d0e85d2fc1b389f135011"
+    },
+    {
+      "source": "enermap_ubem/analysis/chapter4_infrastructure.py",
+      "file": "analysis/chapter4_infrastructure.py",
+      "source_sha256": "a78481bbed8efc684bd6191b5207e019da7c37faa54c24b46fc64e193e26fc4e",
+      "packaged_sha256": "a78481bbed8efc684bd6191b5207e019da7c37faa54c24b46fc64e193e26fc4e"
+    },
+    {
+      "source": "enermap_ubem/analysis/refresh_finance_figures.py",
+      "file": "analysis/refresh_finance_figures.py",
+      "source_sha256": "f039273bf7c349b23681e38162804fa19a0aae129085f2ab1298c6c9e160e29b",
+      "packaged_sha256": "f039273bf7c349b23681e38162804fa19a0aae129085f2ab1298c6c9e160e29b"
+    },
+    {
+      "source": "enermap_ubem/analysis/build_u4_notebook.py",
+      "file": "analysis/build_u4_notebook.py",
+      "source_sha256": "6188de76703e9faafcf21d5bd1256ca8d846ae7437ee5f7c0c3823e1b2f3d1d4",
+      "packaged_sha256": "e0bcf11e16c15795ba5c41d243fbcc134a8611e2b35cb630ec96420a6c2e25c4"
+    },
+    {
+      "source": "enermap_ubem/docs/make_current_site.py",
+      "file": "docs/make_current_site.py",
+      "source_sha256": "a02d6ca6637ea5a3178c501959ba372512aba2a0af7ddfba7563c5b9f4bf40ea",
+      "packaged_sha256": "a02d6ca6637ea5a3178c501959ba372512aba2a0af7ddfba7563c5b9f4bf40ea"
+    },
+    {
+      "source": "enermap_ubem/docs/index.html",
+      "file": "docs/index.html",
+      "source_sha256": "6accc80118bcdc548872230824e698ef769c2061871826905134860f7161c3a8",
+      "packaged_sha256": "6accc80118bcdc548872230824e698ef769c2061871826905134860f7161c3a8"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/finance_summary.csv",
+      "file": "outputs/current/chapter4_infrastructure/finance_summary.csv",
+      "source_sha256": "45af6c663a0ce1e418d79fe0ded3f681db61d6aae441cdeedb7d1b2470568f4c",
+      "packaged_sha256": "45af6c663a0ce1e418d79fe0ded3f681db61d6aae441cdeedb7d1b2470568f4c"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/finance_refresh_stats.json",
+      "file": "outputs/current/chapter4_infrastructure/finance_refresh_stats.json",
+      "source_sha256": "ce6f4800a91174652df9620c5643f9bfb8f35ed29954a09c4f31e36b16b368a7",
+      "packaged_sha256": "73bb16e5559e1f33da96bb521f36a615bc01f457a0154cefa739eeb5213009b2"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/incentive_scheme_summary_U5.csv",
+      "file": "outputs/current/chapter4_infrastructure/incentive_scheme_summary_U5.csv",
+      "source_sha256": "26c1fff9a1c0a8fb03c21f3bf325e82178743e411cd76dc86c32759617096b0d",
+      "packaged_sha256": "26c1fff9a1c0a8fb03c21f3bf325e82178743e411cd76dc86c32759617096b0d"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/all_scenario_summary.csv",
+      "file": "outputs/current/chapter4_infrastructure/all_scenario_summary.csv",
+      "source_sha256": "4a1ebed12f7507f52b099559649b15dc8d9b5b2ca8b83d0cc8356e89a63d6700",
+      "packaged_sha256": "4a1ebed12f7507f52b099559649b15dc8d9b5b2ca8b83d0cc8356e89a63d6700"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/checks.json",
+      "file": "outputs/current/chapter4_infrastructure/checks.json",
+      "source_sha256": "3cca7a7bdb9776834e6d876daaced5c2fa99d400bf38eb371952676ab9618e22",
+      "packaged_sha256": "06da64f8cbbf6b0c44eabedd77b89561f899dd1a11c79acb5d7153d72eb7f921"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/manifest.json",
+      "file": "outputs/current/chapter4_infrastructure/manifest.json",
+      "source_sha256": "dd5e0d3a6119330c0dbce6cc2f410e0251e0d40c657549f139fd3b69a9ca2307",
+      "packaged_sha256": "3e65411688e1b6c402e404207c2fa833e31733dcdae42976deede2d3caa36322"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/figures/refresh_figure6.png",
+      "file": "outputs/current/chapter4_infrastructure/figures/refresh_figure6.png",
+      "source_sha256": "03796fbddff40d6a8067eb84e9ffe9d2d27e3c019765de88ac1c2d9f5df2afbc",
+      "packaged_sha256": "03796fbddff40d6a8067eb84e9ffe9d2d27e3c019765de88ac1c2d9f5df2afbc"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/figures/refresh_figure9bcd.png",
+      "file": "outputs/current/chapter4_infrastructure/figures/refresh_figure9bcd.png",
+      "source_sha256": "12ecc6889fc343e557cf07c911010a1eb0068c22ec2e13786a2a71ac7cf0e7b4",
+      "packaged_sha256": "12ecc6889fc343e557cf07c911010a1eb0068c22ec2e13786a2a71ac7cf0e7b4"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/figures/scenario_infrastructure.png",
+      "file": "outputs/current/chapter4_infrastructure/figures/scenario_infrastructure.png",
+      "source_sha256": "b745793255bb08accf53449e47f0a9586e1478516d3079a29e702a9565a64041",
+      "packaged_sha256": "b745793255bb08accf53449e47f0a9586e1478516d3079a29e702a9565a64041"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/chapter4_infrastructure/figures/scenario_screening_maps.png",
+      "file": "outputs/current/chapter4_infrastructure/figures/scenario_screening_maps.png",
+      "source_sha256": "0a3df69beda6cc2a5d769b4e2555c728995dd5c6749423c9321aa28dce0a84ae",
+      "packaged_sha256": "0a3df69beda6cc2a5d769b4e2555c728995dd5c6749423c9321aa28dce0a84ae"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/scenario_summary.csv",
+      "file": "outputs/current/u4_pv_balance/scenario_summary.csv",
+      "source_sha256": "d31655c12335a959b407c5b776663393cc3c57edfe9fa19879063699492755a0",
+      "packaged_sha256": "d31655c12335a959b407c5b776663393cc3c57edfe9fa19879063699492755a0"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/annual_solar_potential_by_substation.csv",
+      "file": "outputs/current/u4_pv_balance/annual_solar_potential_by_substation.csv",
+      "source_sha256": "8b7b26f44a311232dff4ed4f621dce4f8676256cae10bd9b152963f66a507449",
+      "packaged_sha256": "8b7b26f44a311232dff4ed4f621dce4f8676256cae10bd9b152963f66a507449"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/monthly_GWh.csv",
+      "file": "outputs/current/u4_pv_balance/monthly_GWh.csv",
+      "source_sha256": "4799a53f641bfe5ce72c0399f0e292178f000ba4506faa4da424a7db00b3fae0",
+      "packaged_sha256": "4799a53f641bfe5ce72c0399f0e292178f000ba4506faa4da424a7db00b3fae0"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/checks.json",
+      "file": "outputs/current/u4_pv_balance/checks.json",
+      "source_sha256": "f1932dc3dff3fbbdcbc7283ba2a345fcd15712d3868195f1e1f1d742364a2f7f",
+      "packaged_sha256": "0f6fbaf622eef05efd1f8ce5bb4916d8e5bae638690eba669c04dcbc0c4d0194"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/README.md",
+      "file": "outputs/current/u4_pv_balance/README.md",
+      "source_sha256": "36521dad12174d8a6987793ccc5f66e7fc4257f4b8b428053c32b281349d0d70",
+      "packaged_sha256": "89282825183e68ef3b512e0c43288fe774c4b35b1f4b34779923137e36ae690c"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/findings.md",
+      "file": "outputs/current/u4_pv_balance/findings.md",
+      "source_sha256": "2948336ba9e15f05154f2969ac6135db2d78ec29f16a78c629a2494c778ba5c7",
+      "packaged_sha256": "58cb94f0c9a02f3751eb837866460f58577a9d11145e904ea5109ae1e4cb8ba0"
+    },
+    {
+      "source": "enermap_ubem/outputs/current/u4_pv_balance/current_incentive_investment_summary.csv",
+      "file": "outputs/current/u4_pv_balance/current_incentive_investment_summary.csv",
+      "source_sha256": "45af6c663a0ce1e418d79fe0ded3f681db61d6aae441cdeedb7d1b2470568f4c",
+      "packaged_sha256": "45af6c663a0ce1e418d79fe0ded3f681db61d6aae441cdeedb7d1b2470568f4c"
+    },
+    {
+      "source": "enermap_ubem/parameters/finance_incentives/README.md",
+      "file": "parameters/finance_incentives/README.md",
+      "source_sha256": "1a1cff3ddeae6bc94a9a74788c5f2b967125bb8aaa917885f24ba56513a25499",
+      "packaged_sha256": "1a1cff3ddeae6bc94a9a74788c5f2b967125bb8aaa917885f24ba56513a25499"
     }
   ],
   "retired_paths": []

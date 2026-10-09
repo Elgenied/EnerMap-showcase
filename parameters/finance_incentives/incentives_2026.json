@@ -1,0 +1,42 @@
+{
+ "source": "Revised incentive representation (2025-26 scheme rules, applied to the 2021 cost basis). Supersedes incentives.json, which is retained unchanged for provenance. BUS: GOV.UK, Apply for the Boiler Upgrade Scheme (check if you're eligible; what you can get): GBP 7,500 per air-source heat pump, GBP 1,500 extra for oil/LPG homes until March 2027, social housing not eligible. Low-income fabric grant: ECO4 (closing December 2026) and its successor Warm Homes: Local Grant (EPC D-G, low income); per-household limit GBP 10,000 after De Mel et al. (2023) Energy 268, 126651, Table 7. Social housing grant: Warm Homes: Social Housing Fund Wave 3 (GBP 7,500 per home, landlord co-funding about 50%, EPC D-G). GBIS: Great British Insulation Scheme (EPC D-G; closed 31 March 2026, retained for the study period).",
+ "epc_band_sap_lower_bounds": {"A": 92, "B": 81, "C": 69, "D": 55, "E": 39, "F": 21, "G": 1},
+ "epc_imputation": "dwellings without a certificate take the median SAP of certified dwellings with the same construction_sa x age_band_resolved; fallback construction_sa, then all certified dwellings",
+ "eligible_epc_bands": ["D", "E", "F", "G"],
+ "BUS": {
+  "measures": ["ashp"],
+  "kind": "fixed, limited to the heat-pump cost",
+  "amount": 7500.0,
+  "off_gas_extra": 1500.0,
+  "off_gas_families": ["S.OilBoiler", "S.LPGBoiler"],
+  "excluded_tenures": ["rented (social)"],
+  "rule": "ASHP installed in a dwelling that is not social rented; grant = min(amount + off-gas extra, ASHP cost)"
+ },
+ "low_income_fabric": {
+  "measures": ["cavity_fill", "solid_wall_iwi", "loft_topup", "flat_roof", "draught_proofing"],
+  "kind": "share",
+  "share": 0.9,
+  "cap": 10000.0,
+  "fuel_poor_pct_min": 12.0,
+  "imd_decile_max": 3,
+  "excluded_tenures": ["rented (social)"],
+  "rule": "not social rented, EPC D-G, and LSOA fuel poverty >= 12% or IMD decile <= 3"
+ },
+ "social_housing": {
+  "measures": ["cavity_fill", "solid_wall_iwi", "loft_topup", "flat_roof", "glazing_upgrade", "draught_proofing", "ashp"],
+  "kind": "share",
+  "share": 0.5,
+  "cap": 7500.0,
+  "tenures": ["rented (social)"],
+  "rule": "social rented and EPC D-G"
+ },
+ "GBIS": {
+  "measures": ["cavity_fill", "loft_topup"],
+  "kind": "share",
+  "share": 0.75,
+  "cap": 1500.0,
+  "max_floor_area_m2": 120.0,
+  "excluded_tenures": ["rented (social)"],
+  "rule": "not social rented, EPC D-G, floor area < 120 m2, and not eligible for the low-income fabric grant"
+ }
+}

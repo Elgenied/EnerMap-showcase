@@ -1,0 +1,85 @@
+{
+  "rating_sources_agree": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "no_duplicated_roof_potential": {
+    "passed": true
+  },
+  "U1_U4_same_gross_demand": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "current_U4_capacity_reproduced": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "current_U4_annual_PV_reproduced": {
+    "passed": true,
+    "max_abs_error": 9.094947017729282e-13
+  },
+  "PV_shapes_sum_to_one": {
+    "passed": true,
+    "max_abs_error": 2.220446049250313e-16
+  },
+  "PV_and_demand_weather_temperatures_align": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U5_reproduces_capped_PV": {
+    "passed": true,
+    "max_abs_error": 9.094947017729282e-13
+  },
+  "U2_envelope_every_dwelling_annual_electricity": {
+    "passed": true,
+    "max_abs_error": 7.275957614183426e-12
+  },
+  "U2_envelope_all_8760_hours_match_canonical": {
+    "passed": true,
+    "max_abs_error": 5.093170329928398e-11
+  },
+  "U3_envelope_elec_every_dwelling_annual_electricity": {
+    "passed": true,
+    "max_abs_error": 7.275957614183426e-12
+  },
+  "U3_envelope_elec_all_8760_hours_match_canonical": {
+    "passed": true,
+    "max_abs_error": 1.0186340659856796e-10
+  },
+  "U2_load_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U2_PV_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U2_meter_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U3_load_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U3_PV_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U3_meter_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U5_load_identity": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U5_PV_identity": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U5_meter_identity": {
+    "passed": true,
+    "max_abs_error": 1.4210854715202004e-13
+  }
+}

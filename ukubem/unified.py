@@ -250,6 +250,9 @@ def scenarios():
     assert a0.notna().all().all() and af.notna().all().all()
     social_path=ROOT/'data/inputs/social/lsoa_social_context.csv'
     social=pd.read_csv(social_path).set_index('LSOA')[['imd_decile','fuel_poor_pct']] if social_path.exists() else None
+    # Incentive eligibility uses the EPC band: certificate SAP, else the archetype x age-band median.
+    epc_path=ROOT/'data/inputs/stock/epc_certificate_figures.parquet'
+    epc=measures.epc_bands(inputs,pd.read_parquet(epc_path).set_index('dwelling_id').current_energy_efficiency) if epc_path.exists() else None
     results={};ward_rows=[]
     for name,package in measures.PACKAGES.items():
         inp,applied=measures.apply_package(inputs,package,'planning')
@@ -264,7 +267,8 @@ def scenarios():
         # not the already-converted S.HeatPump label.
         costs=measures.measure_costs(inputs.loc[planning],applied.loc[planning],a0,
             (af.HTC_fabric_W_K+af.H_ve_W_K) if fabric else (a0.HTC_fabric_W_K+a0.H_ve_W_K))
-        incentives=measures.incentives(inp.loc[planning],costs,social)
+        # Grants also depend on the original heating system (oil/LPG BUS top-up), so use the unconverted inputs.
+        incentives=measures.incentives(inputs.loc[planning],costs,social,epc)
         result=result.join(costs).join(incentives).join(applied.add_prefix('applied_'))
         results[name]=result
         result.to_parquet(folder/f'{name}.parquet')
@@ -285,9 +289,11 @@ def scenarios():
     econ=measures.economics(base,deep,deep,deep)
     econ['group']=measures.rank_groups(econ);econ['HTD']=measures.hard_to_decarbonise(inputs.loc[planning])
     econ=econ.join(inputs.loc[planning,['ward','LSOA','toid','tenure']])
+    econ=econ.join(deep[['epc_band','epc_source','inc_BUS_GBP','inc_low_income_GBP','inc_social_housing_GBP','inc_GBIS_GBP']])
     econ.to_csv(folder/'planning_ward_economics_U5.csv')
     write_json(folder/'manifest.json',{'calibration':False,'hourly_COP':True,'space_heat_uplift':'Existing configuration applied only to newly converted HP dwellings',
         'economic_assumptions':'Existing project prices/carbon factors retained, not current quotes; retrofit costs and policy incentives only for original planning-ward scope',
+        'incentives':'parameters/finance_incentives/incentives_2026.json (BUS, low-income fabric grant, social housing grant, GBIS); EPC band from the certificate SAP score, else the archetype x age-band median; incentives reduce upfront cost only',
         'scope':'borough plus separately labelled planning-ward subtotal'})
 
 

@@ -1,6 +1,6 @@
 {
   "completed": true,
-  "completed_utc": "2026-09-23T22:06:25.890492+00:00",
+  "completed_utc": "2026-10-09T12:03:28.624058+00:00",
   "calibration": false,
   "representation_method": "cluster_median_construction_three_median_areas_v1",
   "baseline_simulations": 408,
@@ -9,19 +9,19 @@
   "physics_tests": 16,
   "accounting_tests": 120,
   "package_fingerprints": {
-    "R0": "254af680e40d55f6067e0756fdc9424fb14cf2e8134a280ccd0c5713408dee65",
-    "R1": "b44790a73621e55e5ed8a6a54c9331d84185685a90ec664fdc5411d2ecc352b3",
-    "R2": "0e6b20107656dd3ffee0ac64270628dbf788b959f300ff4f3737957957e03be5"
+    "R0": "ae314e0497a65e07c47be6edbc5af1b7280144c3de2d251e1b12650f1e6ed6af",
+    "R1": "a3701066d678cc7504352cddf2deabe45ad6fee38e844b659288858b54f0fc6e",
+    "R2": "e45e98d00c8a63ddf34dad4e4cd6bc7640e99ab1b826e452ccd6e1d4ab8d2099"
   },
   "pipeline_source_hashes": {
-    "ukubem\\unified.py": "7898c2b8cebdad949e50bf556a26049025c8dad26da9edd71cacae6dff14385c",
+    "ukubem\\unified.py": "315599ef8ac17f1d7ce3724706c1e3d49f62048dc5a10f7e8238dcf1876ccd42",
     "ukubem\\reporting.py": "03bb99068f899ad0e699dcf484b52ab6d8dab2c3a10fc11237d92df70421de39",
     "run_all.py": "fe0003aa05dd1a7787142066203a8a54f3367fdc1d04209a16c8c74151ad43ce",
-    "build_result_index.py": "236328f2794478abe6f361108f57c95cda4caf828a01eeb47dfce3cd9f768916",
+    "build_result_index.py": "0825466b896f02e4a25e398a7b63022d222dac467c4377c970b7caeb3f8bdb5d",
     "tests\\verify_current.py": "95b52b463eb6323f7a42a48cf00534b105d4c867cdd393a2ed494e1c983165d6",
     "tests\\verify_physics.py": "25d29fb918f73d464582acade1795f1c712246a4e4f25ec36f90513f014b0c50",
     "tests\\verify_pypsa_interface.py": "4ac3d4c9ae8690bd6a110403cb5f0d5a1ccd6589e29055a581e2c28ef0df88b5",
     "tests\\verify_representative_promotion.py": "509aaefb07697996136d1d8cdc63bb1f271c0590b4c39074a901c715f2a950ec",
-    "tests\\verify_scenarios.py": "952bd0d5c6a7673c311da859c5fea48c6eb4338952f3672df978f8e677754316"
+    "tests\\verify_scenarios.py": "5444f0cb84dcc5b672b88e5789322ad6b6ee5a44876729d6166560bdb46b3b1f"
   }
 }

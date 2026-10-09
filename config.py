@@ -39,7 +39,7 @@ for _d in (DERIVED, OUT, FIG, CLUSTERS_DIR, EXPORT_DIR, UBEM_OUT, PYPSA_OUT):
 # ---------------------------------------------------------------- inputs (read-only; replace for another area)
 STOCK_TABLE = INPUTS / "stock" / "stock_table.parquet"                     # one row per dwelling: attributes, geometry, geography, provenance
 STUDY_AREA_POPULATION = INPUTS / "stock" / "study_area_population.parquet" # dwellings of the planning study area: ward, rooftop PV potential
-EPC_CERTIFICATE_FIGURES = INPUTS / "stock" / "epc_certificate_figures.parquet"  # optional: certificate energy / cost / rating figures
+EPC_CERTIFICATE_FIGURES = INPUTS / "stock" / "epc_certificate_figures.parquet"  # optional: certificate energy / cost / rating figures (SAP rating -> EPC band for incentive eligibility)
 SOCIAL_CONTEXT = INPUTS / "social" / "dwelling_social_context.parquet"    # optional: LSOA deprivation / fuel-poverty context per dwelling
 LSOA_SOCIAL_CSV = INPUTS / "social" / "lsoa_social_context.csv"            # optional: IMD decile and fuel-poverty share per LSOA (incentive eligibility, equity maps)
 BENCH_LSOA_RAW = INPUTS / "benchmarks" / "desnz_lsoa_2021.csv"             # DESNZ sub-national gas + electricity per LSOA (meters, means)

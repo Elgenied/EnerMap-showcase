@@ -14,6 +14,7 @@ import streamlit as st
 HERE = Path(__file__).resolve().parent
 CURRENT = HERE / "outputs" / "current"
 FIG = CURRENT / "figures"
+INFRA = CURRENT / "chapter4_infrastructure"
 SCENARIOS = {
     "U0_baseline": "U0 · Baseline",
     "U1_electrification": "U1 · Electrification",
@@ -34,6 +35,9 @@ def read_json(path):
 def load(snapshot_signature):
     # File size/mtime signature invalidates cached tables when a rerun replaces them.
     return {
+        "finance": pd.read_csv(INFRA / "finance_summary.csv"),
+        "infrastructure": pd.read_csv(INFRA / "all_scenario_summary.csv"),
+        "finance_stats": read_json(INFRA / "finance_refresh_stats.json"),
         "summary": read_json(CURRENT / "baseline/summary.json"),
         "metrics": read_json(CURRENT / "baseline/metrics.json"),
         "completion": read_json(CURRENT / "completion.json"),
@@ -92,6 +96,7 @@ required = [CURRENT / "completion.json", CURRENT / "baseline/summary.json", CURR
     CURRENT / "baseline/lsoa_demand_totals.csv", CURRENT / "baseline/stock_hourly.csv",
     CURRENT / "scenarios/scenario_summary.csv", CURRENT / "scenarios/planning_ward_summary.csv"]
 required += [CURRENT / f"scenarios/{code}_hourly.csv" for code in SCENARIOS]
+required += [INFRA / n for n in ["finance_summary.csv", "all_scenario_summary.csv", "finance_refresh_stats.json"]]
 missing = [str(p.relative_to(HERE)) for p in required if not p.exists()]
 if missing:
     st.error("The current results snapshot is incomplete. Missing: " + ", ".join(missing))
@@ -188,6 +193,19 @@ with tabs[3]:
         labels={"value": "GWh/year", "ward": "Ward", "variable": "Delivered energy"}, color_discrete_sequence=COLORS), width="stretch")
     st.dataframe(wards.round(2), hide_index=True, width="stretch")
     figure("10_retrofit_saving_map.png")
+    st.subheader("Investment after the revised incentives")
+    st.caption("Ten planning wards · 28,663 dwellings · support applied to upfront costs. Fixed scenario adoption means incentives do not change simulated energy demand.")
+    finance = D["finance"].rename(columns={"net_capex_MGBP": "Net investment", "incentives_MGBP": "Support"}).copy()
+    finance["Scenario"] = finance.scenario.map(SCENARIOS)
+    st.plotly_chart(px.bar(finance, y="Scenario", x=["Net investment", "Support"], orientation="h",
+        title="Gross investment split between net cost and support", labels={"value": "£ million", "variable": "Funding"},
+        color_discrete_sequence=[COLORS[0], "#c7dedd"]), width="stretch")
+    st.dataframe(D["finance"].round(2), hide_index=True, width="stretch")
+    cols = st.columns(3)
+    cols[0].metric("U5 net investment", f"£{D['finance'].iloc[-1].net_capex_MGBP:.2f} million")
+    cols[1].metric("U5 payback ≤12.5 years", f"{D['finance_stats']['payback_ok_pct']:.1f}%")
+    cols[2].metric("Imputed EPC bands", f"{D['finance_stats']['epc_imputed_pct']:.1f}%")
+    csv_download(D["finance"], "planning_investment_after_incentives.csv")
 
 with tabs[4]:
     st.subheader("Simultaneous hourly electricity demand")
@@ -202,6 +220,13 @@ with tabs[4]:
     st.dataframe(peaks.round(2), hide_index=True, width="stretch")
     csv_download(peaks, "borough_scenario_electricity_peaks.csv")
     st.caption("PV scenarios can have the same gross demand peak as the corresponding case without PV. Annual PV offsets do not supply an hourly grid-import profile.")
+    st.subheader("Secondary-substation screening with hourly PV")
+    st.write("The separate hourly balance covers 28,662 dwellings in 271 rated, inferred substation cells. PV is capped at 4 kWp per dwelling allocation; imports and exports are summed separately across cells.")
+    st.image(str(INFRA / "figures/scenario_infrastructure.png"), width="stretch")
+    fields = ["scenario", "cell_import_GWh", "cell_export_GWh", "coincident_cell_import_peak_MW", "cells_above_import_rating_screen", "cells_above_export_rating_screen"]
+    st.dataframe(D["infrastructure"][fields].round(2), hide_index=True, width="stretch")
+    st.caption("The screen uses recorded kVA ratings × 0.95 and represented residential demand only. Voronoi assignments are inferred; exceedances are not verified overloads. No battery or export curtailment is assumed. These hourly imports differ from the annual 45% self-consumption convention used for bills and emissions.")
+    csv_download(D["infrastructure"], "secondary_substation_scenario_summary.csv")
 
 with tabs[5]:
     st.subheader("Locating demand across the completed building stock")
@@ -224,6 +249,8 @@ with tabs[6]:
     st.caption("The simplified COP curve omits defrost, backup and cycling. Three draws per representative do not establish uncertainty convergence. Annual agreement does not validate occupancy, individual buildings, hourly peaks or future scenarios.")
     st.write("The median construction profiles are modelling representatives, not measured individual homes. Remaining geometry and roof exposure come from each size template. Retrofit eligibility and costs retain individual stock attributes, while simulated savings are shared within each archetype-size group.")
     st.subheader("Run record")
+    st.write("Revised support assumptions: BUS supplies up to £7,500 plus £1,500 for oil/LPG replacement, limited to new ASHP cost and excluding social renting. The low-income fabric proxy covers 90% up to £10,000 for non-social EPC D–G homes meeting the area fuel-poverty or deprivation threshold. Social EPC D–G homes receive 50% of eligible fabric and ASHP costs, up to £7,500. The GBIS proxy covers 75% of cavity and loft costs, up to £1,500, for other eligible non-social EPC D–G homes below 120 m². Each measure receives funding from at most one scheme. These are configured study rules, not verified programme entitlement.")
+    st.caption("Missing EPC bands use median certified SAP within construction and age groups, with broader fallbacks. Later support amounts are combined with the retained 2021 operating-cost basis. Incentives affect net cost, payback and priority ranking; adoption remains fixed.")
     st.json({"completed_utc": D["completion"]["completed_utc"], "calibration": False,
         "representation_method": D["completion"].get("representation_method"),
         "baseline_simulations": D["completion"]["baseline_simulations"],

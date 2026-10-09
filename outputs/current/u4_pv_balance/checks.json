@@ -1,0 +1,155 @@
+{
+  "rating_sources_agree": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "no_duplicated_roof_potential": {
+    "passed": true
+  },
+  "U1_U4_same_gross_demand": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "current_U4_capacity_reproduced": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "current_U4_annual_PV_reproduced": {
+    "passed": true,
+    "max_abs_error": 9.094947017729282e-13
+  },
+  "PV_shapes_sum_to_one": {
+    "passed": true,
+    "max_abs_error": 2.220446049250313e-16
+  },
+  "PV_and_demand_weather_temperatures_align": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "synthetic_meter_vs_cell_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "synthetic_no_PV_and_no_load_import": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "synthetic_no_PV_and_no_load_export": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U0_baseline_every_dwelling_annual_electricity": {
+    "passed": true,
+    "max_abs_error": 1.4551915228366852e-11
+  },
+  "U0_baseline_all_8760_hours_match_canonical": {
+    "passed": true,
+    "max_abs_error": 5.820766091346741e-11
+  },
+  "U1_electrification_every_dwelling_annual_electricity": {
+    "passed": true,
+    "max_abs_error": 1.4551915228366852e-11
+  },
+  "U1_electrification_all_8760_hours_match_canonical": {
+    "passed": true,
+    "max_abs_error": 1.4551915228366852e-10
+  },
+  "U4_capped_south_PV_conserves_annual_yield": {
+    "passed": true,
+    "max_abs_error": 1.1641532182693481e-10
+  },
+  "U4_capped_east_west_PV_conserves_annual_yield": {
+    "passed": true,
+    "max_abs_error": 1.1641532182693481e-10
+  },
+  "U0_existing_no_pv_load_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U0_existing_no_pv_PV_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U0_existing_no_pv_meter_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U0_existing_no_pv_coincidence_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U1_electrification_no_pv_load_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U1_electrification_no_pv_PV_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U1_electrification_no_pv_meter_balance": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U1_electrification_no_pv_coincidence_identity": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "U4_capped_south_load_balance": {
+    "passed": true,
+    "max_abs_error": 2.2737367544323206e-13
+  },
+  "U4_capped_south_PV_balance": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U4_capped_south_meter_balance": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U4_capped_south_coincidence_identity": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U4_capped_east_west_load_balance": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U4_capped_east_west_PV_balance": {
+    "passed": true,
+    "max_abs_error": 1.1368683772161603e-13
+  },
+  "U4_capped_east_west_meter_balance": {
+    "passed": true,
+    "max_abs_error": 1.7053025658242404e-13
+  },
+  "U4_capped_east_west_coincidence_identity": {
+    "passed": true,
+    "max_abs_error": 1.7053025658242404e-13
+  },
+  "mapped_points_in_illustrative_cells": {
+    "passed": true,
+    "inside": 28662,
+    "total": 28662,
+    "note": "Map geometry only; hourly membership always uses original ID mapping."
+  },
+  "annual_cell_solar_assessed_capacity_kWp": {
+    "passed": true,
+    "max_abs_error": 1.4551915228366852e-11
+  },
+  "annual_cell_solar_assessed_annual_PV_kWh": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "annual_cell_solar_capped_capacity_kWp": {
+    "passed": true,
+    "max_abs_error": 0.0
+  },
+  "annual_cell_solar_capped_annual_PV_kWh": {
+    "passed": true,
+    "max_abs_error": 1.4901161193847656e-08
+  },
+  "annual_cell_solar_matches_hourly_U4": {
+    "passed": true,
+    "max_abs_error": 0.0
+  }
+}

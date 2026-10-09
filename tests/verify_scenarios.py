@@ -19,6 +19,8 @@ def main():
     summary=pd.read_csv(folder/'scenario_summary.csv')
     base=pd.read_parquet(BASE/'stock_demand.parquet')
     results=[]
+    tenure=pd.read_parquet(ROOT/'outputs/representatives/dwelling_inputs.parquet').tenure.astype(str).str.lower()
+    I=measures.ASSUMPTIONS['incentives']
     for name in summary.scenario.unique():
         stock=pd.read_parquet(folder/f'{name}.parquet')
         hourly=pd.read_csv(folder/f'{name}_hourly.csv')
@@ -35,10 +37,23 @@ def main():
             for col in ['Q_H_kWh','delivered_gas_kWh','delivered_elec_kWh','delivered_other_kWh','elec_net_kWh']:
                 np.testing.assert_allclose(stock.loc[mask,col].sum()/1e6,row[col.replace('_kWh','_GWh')],rtol=1e-10)
         if name=='U0_baseline':pd.testing.assert_frame_equal(stock[base.columns],base)
-        results.append({'scenario':name,'passed':True,'dwellings':len(stock),'hours':len(hourly)})
+        # Incentive rules (parameters/finance_incentives/incentives_2026.json): never above the funded cost,
+        # social homes only in the social scheme, no low-income/GBIS stacking, fabric/social grants only for EPC D-G.
+        plan=stock.loc[stock.in_study_area.astype(bool)];soc=tenure.reindex(plan.index).eq('rented (social)')
+        schemes={'inc_BUS_GBP':'BUS','inc_low_income_GBP':'low_income_fabric','inc_social_housing_GBP':'social_housing','inc_GBIS_GBP':'GBIS'}
+        for col,key in schemes.items():
+            assert (plan[col]<=plan[[f'cost_{m}_GBP' for m in I[key]['measures']]].fillna(0).sum(axis=1)+1e-6).all(),f'{name}: {col} above funded cost'
+        assert (plan.loc[soc,['inc_BUS_GBP','inc_low_income_GBP','inc_GBIS_GBP']]==0).all().all() and (plan.loc[~soc,'inc_social_housing_GBP']==0).all(),f'{name}: tenure rule'
+        assert not ((plan.inc_low_income_GBP>0)&(plan.inc_GBIS_GBP>0)).any(),f'{name}: stacked fabric grants'
+        fabric=plan[['inc_low_income_GBP','inc_social_housing_GBP','inc_GBIS_GBP']].sum(axis=1)>0
+        assert plan.loc[fabric,'epc_band'].isin(I['eligible_epc_bands']).all(),f'{name}: grant outside EPC D-G'
+        np.testing.assert_allclose(plan.incentives_GBP,plan[list(schemes)].sum(axis=1),rtol=1e-12)
+        assert (plan.incentives_GBP<=plan.capex_gross_GBP+1e-6).all(),f'{name}: incentives above capex'
+        results.append({'scenario':name,'passed':True,'dwellings':len(stock),'hours':len(hourly),'incentive_rules':True})
     assert len(results)==6
     write_json(OUT/'checks/scenarios.json',{'passed':True,'checks':results,'representation_method':REPRESENTATION_METHOD,
-        'retrofit_applied_to_virtual_baseline':True,'boundary':'Hourly gross electricity reconciles before annual PV self-consumption offsets.'})
-    print('PASS: six scenarios, baseline preservation and annual/hourly reconciliation')
+        'retrofit_applied_to_virtual_baseline':True,'boundary':'Hourly gross electricity reconciles before annual PV self-consumption offsets.',
+        'incentive_rules':'parameters/finance_incentives/incentives_2026.json: grant <= funded cost, tenure rules, no stacking, fabric/social grants EPC D-G only'})
+    print('PASS: six scenarios, baseline preservation, annual/hourly reconciliation and incentive rules')
 
 if __name__=='__main__':main()

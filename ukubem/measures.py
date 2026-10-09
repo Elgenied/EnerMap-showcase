@@ -12,6 +12,10 @@ walls, internal wall insulation only on solid masonry, loft top-up only under an
 above the trigger U-value, flat-roof insulation only on exposed flat roofs, glazing replacement only
 for single/secondary glazing, ASHP only for fossil boilers (communal, existing heat pumps and electric
 heating untouched), PV only where the rooftop study gives a potential.
+
+Incentives (parameters/finance_incentives/incentives_2026.json) reduce upfront cost only, after the energy
+simulation: BUS for the heat pump, a low-income fabric grant (ECO4 / Warm Homes: Local Grant), a social housing
+grant (Warm Homes: Social Housing Fund) and GBIS, with eligibility by tenure, EPC band and area deprivation.
 """
 from __future__ import annotations
 
@@ -28,7 +32,7 @@ def _assumptions() -> dict:
     ft = params.load("retrofit_measures", "fabric_targets"); uc = params.load("retrofit_measures", "unit_costs")
     pv = params.load("pv", "rooftop_pv"); pr = params.load("energy_prices", "prices_2021")
     cf = params.load("grid_carbon", "carbon_factors_2021"); gt = params.load("grid_carbon", "grid_trajectory")
-    fin = params.load("finance_incentives", "finance"); inc = params.load("finance_incentives", "incentives")
+    fin = params.load("finance_incentives", "finance"); inc = params.load("finance_incentives", "incentives_2026")
     return {
         "targets": {k: v for k, v in ft.items() if k != "source"},
         "unit_costs_GBP": dict(uc["fabric_GBP_per_unit"]),
@@ -144,22 +148,73 @@ def measure_costs(inputs: pd.DataFrame, applied: pd.DataFrame, areas: pd.DataFra
     return c
 
 
-def incentives(inputs: pd.DataFrame, costs: pd.DataFrame, social: pd.DataFrame | None = None) -> pd.DataFrame:
-    """Incentive proxies: BUS (ASHP), ECO4 proxy (area-proxied means test), GBIS proxy."""
+def epc_band_from_sap(sap) -> pd.Series:
+    """EPC band A-G from the SAP score (lower bounds in parameters/finance_incentives/incentives_2026.json)."""
+    lb = ASSUMPTIONS["incentives"]["epc_band_sap_lower_bounds"]
+    sap = pd.Series(sap, dtype=float)
+    band = pd.Series("G", index=sap.index, dtype=object)
+    for b in ["F", "E", "D", "C", "B", "A"]:                              # ascending bounds, the last match wins
+        band[sap >= lb[b]] = b
+    return band.where(sap.notna())
+
+
+def epc_bands(inputs: pd.DataFrame, sap: pd.Series) -> pd.DataFrame:
+    """
+    EPC band per dwelling: the certificate SAP score where one exists; otherwise the median SAP of certified
+    dwellings with the same construction archetype and age band (then the archetype, then all certified dwellings).
+    """
+    s = sap.reindex(inputs.index).astype(float)
+    cert = inputs.assign(_sap=s)[s.notna()]
+    fine = cert.groupby(["construction_sa", "age_band_resolved"], observed=True)["_sap"].median()
+    coarse = cert.groupby("construction_sa", observed=True)["_sap"].median()
+    est = inputs.join(fine.rename("_est"), on=["construction_sa", "age_band_resolved"])["_est"]
+    est = est.fillna(inputs["construction_sa"].map(coarse)).fillna(cert["_sap"].median())
+    filled = s.fillna(est)
+    return pd.DataFrame({"sap": filled, "epc_band": epc_band_from_sap(filled),
+                         "epc_source": np.where(s.notna(), "certificate", "archetype_median")}, index=inputs.index)
+
+
+def _funded_cost(costs: pd.DataFrame, measures_funded: list[str]) -> pd.Series:
+    return costs[[f"cost_{m}_GBP" for m in measures_funded]].fillna(0.0).sum(axis=1)
+
+
+def incentives(inputs: pd.DataFrame, costs: pd.DataFrame, social: pd.DataFrame | None = None,
+               epc: pd.DataFrame | None = None) -> pd.DataFrame:
+    """
+    Grants per dwelling under parameters/finance_incentives/incentives_2026.json. `inputs` carries the ORIGINAL
+    heating system (before conversion); `epc` is the output of `epc_bands` (None treats every dwelling as EPC D-G).
+
+        BUS                min(7,500 [+1,500 oil/LPG], ASHP cost)               not social rented
+        low-income fabric  min(0.9 x insulation + draught-proofing cost, 10,000)   not social, EPC D-G,
+                                                                                    LSOA fuel poverty >= 12 % or IMD <= 3
+        social housing     min(0.5 x fabric + ASHP cost, 7,500)                     social rented, EPC D-G
+        GBIS               min(0.75 x cavity + loft cost, 1,500)                    not social, EPC D-G, < 120 m2,
+                                                                                    not low-income eligible
+    Each measure is funded by at most one scheme and no grant exceeds the cost of the measures it funds.
+    """
     I = ASSUMPTIONS["incentives"]
+    B, L, S, G = I["BUS"], I["low_income_fabric"], I["social_housing"], I["GBIS"]
+    costs = costs.reindex(inputs.index)
     tenure = inputs["tenure"].astype(str).str.lower()
+    band = epc["epc_band"].reindex(inputs.index) if epc is not None else pd.Series(pd.NA, index=inputs.index, dtype=object)
+    dg = band.isin(I["eligible_epc_bands"]).to_numpy() if epc is not None else np.ones(len(inputs), bool)
     fp = social["fuel_poor_pct"].reindex(inputs["LSOA"]).to_numpy() if social is not None and "fuel_poor_pct" in social else np.full(len(inputs), np.nan)
     imd = social["imd_decile"].reindex(inputs["LSOA"]).to_numpy() if social is not None and "imd_decile" in social else np.full(len(inputs), np.nan)
-    eco4_elig = (fp >= 12) | (imd <= 3) | tenure.eq("rented (social)").to_numpy()
+
     out = pd.DataFrame(index=inputs.index)
-    out["inc_BUS_GBP"] = np.where((costs["cost_ashp_GBP"] > 0) & ~tenure.eq("rented (social)").to_numpy(), I["BUS"]["amount"], 0.0)
-    fab_cost = costs[[f"cost_{m}_GBP" for m in I["ECO4_proxy"]["measures"]]].sum(axis=1)
-    out["inc_ECO4_proxy_GBP"] = np.where(eco4_elig, np.minimum(I["ECO4_proxy"]["share"] * fab_cost, I["ECO4_proxy"]["cap"]), 0.0)
-    gbis_cost = costs[[f"cost_{m}_GBP" for m in I["GBIS_proxy"]["measures"]]].sum(axis=1)
-    gbis_elig = (inputs["floor_area_final"] < 120).to_numpy() & ~eco4_elig
-    out["inc_GBIS_proxy_GBP"] = np.where(gbis_elig, np.minimum(I["GBIS_proxy"]["share"] * gbis_cost, I["GBIS_proxy"]["cap"]), 0.0)
+    ashp = costs["cost_ashp_GBP"].fillna(0.0)
+    bus = B["amount"] + np.where(inputs["systems_fam"].astype(str).isin(B["off_gas_families"]), B["off_gas_extra"], 0.0)
+    out["inc_BUS_GBP"] = np.where(~tenure.isin(B["excluded_tenures"]).to_numpy() & (ashp > 0).to_numpy(), np.minimum(bus, ashp), 0.0)
+    low = ~tenure.isin(L["excluded_tenures"]).to_numpy() & dg & ((fp >= L["fuel_poor_pct_min"]) | (imd <= L["imd_decile_max"]))
+    out["inc_low_income_GBP"] = np.where(low, np.minimum(L["share"] * _funded_cost(costs, L["measures"]), L["cap"]), 0.0)
+    out["inc_social_housing_GBP"] = np.where(tenure.isin(S["tenures"]).to_numpy() & dg,
+                                             np.minimum(S["share"] * _funded_cost(costs, S["measures"]), S["cap"]), 0.0)
+    gbis = ~tenure.isin(G["excluded_tenures"]).to_numpy() & dg & (inputs["floor_area_final"] < G["max_floor_area_m2"]).to_numpy() & ~low
+    out["inc_GBIS_GBP"] = np.where(gbis, np.minimum(G["share"] * _funded_cost(costs, G["measures"]), G["cap"]), 0.0)
     out["incentives_GBP"] = out.sum(axis=1)
-    out["eco4_eligible"] = eco4_elig
+    out["low_income_eligible"] = low
+    out["epc_band"] = band.to_numpy()
+    out["epc_source"] = epc["epc_source"].reindex(inputs.index).to_numpy() if epc is not None else "not_applied"
     return out
 
 

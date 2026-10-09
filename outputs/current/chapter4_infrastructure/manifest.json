@@ -1,0 +1,19 @@
+{
+  "population": 28662,
+  "cells": 271,
+  "excluded_unassigned": 1,
+  "scope": "Residential allocations in ten wards; inferred nearest-substation cells; unchanged ONAN rating x 0.95",
+  "PV": "4 kWp cap per allocated dwelling; annual rooftop yield; south-facing hourly shape; no storage or curtailment",
+  "source_hashes": {
+    "analysis\\chapter4_infrastructure.py": "a78481bbed8efc684bd6191b5207e019da7c37faa54c24b46fc64e193e26fc4e",
+    "analysis\\u4_pv_balance.py": "af5831c960fe79c8802f1a58dd2e47f2358bdec2760d0e85d2fc1b389f135011",
+    "outputs\\current\\u4_pv_balance\\scenario_summary.csv": "d31655c12335a959b407c5b776663393cc3c57edfe9fa19879063699492755a0",
+    "outputs\\current\\u4_pv_balance\\cell_summary.csv": "e7ed27e3c0c08670e597d62e4996bc6c351159ba13db7c8385bf3b983af8bc91",
+    "outputs\\current\\scenarios\\U0_baseline.parquet": "ff12cc87bd68ec2a6b5709f122da08eb251c466e6c4ed8b74fed0eec24428ab6",
+    "outputs\\current\\scenarios\\U1_electrification.parquet": "cf9ee0ac41cf58971f8c618a7895fc544eb2bf93132c4607c0e5f4cf41239cf4",
+    "outputs\\current\\scenarios\\U4_elec_pv.parquet": "ee15518d551efcc2ca85f9cac503b0f9f4d7f0e53e85f275f4731468b08e0dc3",
+    "outputs\\current\\scenarios\\U2_envelope.parquet": "8330e2e16327ac9460b9a80afd1f8749339edb716e2b5e5d6a563e200353539c",
+    "outputs\\current\\scenarios\\U3_envelope_elec.parquet": "042572f77a2524ef95c19fe694062ed51d5d89d4ac3dc4014bff17cc1787f3f3",
+    "outputs\\current\\scenarios\\U5_envelope_elec_pv.parquet": "f4c052386953fe529e1e43a2bb949b3456cff5596a72d08cdbb18dd89c4b7374"
+  }
+}

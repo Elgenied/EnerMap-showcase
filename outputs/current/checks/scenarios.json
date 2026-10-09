@@ -5,40 +5,47 @@
       "scenario": "U0_baseline",
       "passed": true,
       "dwellings": 57300,
-      "hours": 8760
+      "hours": 8760,
+      "incentive_rules": true
     },
     {
       "scenario": "U1_electrification",
       "passed": true,
       "dwellings": 57300,
-      "hours": 8760
+      "hours": 8760,
+      "incentive_rules": true
     },
     {
       "scenario": "U2_envelope",
       "passed": true,
       "dwellings": 57300,
-      "hours": 8760
+      "hours": 8760,
+      "incentive_rules": true
     },
     {
       "scenario": "U3_envelope_elec",
       "passed": true,
       "dwellings": 57300,
-      "hours": 8760
+      "hours": 8760,
+      "incentive_rules": true
     },
     {
       "scenario": "U4_elec_pv",
       "passed": true,
       "dwellings": 57300,
-      "hours": 8760
+      "hours": 8760,
+      "incentive_rules": true
     },
     {
       "scenario": "U5_envelope_elec_pv",
       "passed": true,
       "dwellings": 57300,
-      "hours": 8760
+      "hours": 8760,
+      "incentive_rules": true
     }
   ],
   "representation_method": "cluster_median_construction_three_median_areas_v1",
   "retrofit_applied_to_virtual_baseline": true,
-  "boundary": "Hourly gross electricity reconciles before annual PV self-consumption offsets."
+  "boundary": "Hourly gross electricity reconciles before annual PV self-consumption offsets.",
+  "incentive_rules": "parameters/finance_incentives/incentives_2026.json: grant <= funded cost, tenure rules, no stacking, fabric/social grants EPC D-G only"
 }

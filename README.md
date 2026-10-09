@@ -57,6 +57,19 @@ python -m streamlit run app.py
 
 The app reads packaged results and does not execute the modelling notebooks. Scenario, area and week controls select saved data. No raw inputs or thermal-engine installation is required to explore the app. A GitHub repository alone is not a hosted Streamlit website.
 
+## Revised incentives and infrastructure results — 9 October 2026
+
+The current run uses four support proxies, EPC D–G screening where applicable, and separate social-housing support. Incentives change net investment, payback and prioritisation, while fixed adoption leaves energy demand unchanged. U5 net investment is **£278.38 million**, and **11.5%** of planning dwellings meet the 12.5-year simple-payback screen.
+
+The hourly substation comparison covers **28,662 dwellings in 271 inferred cells**, with PV capped at 4 kWp per dwelling allocation. U5 imports **140.98 GWh/year** and has a **92.45 MW** winter import peak. Adding PV reduces annual imports but leaves that winter peak unchanged.
+
+- [Results page](https://elgenied.github.io/EnerMap-showcase/)
+- [Secondary-substation notebook](notebooks/02_model/14_U4_PV_substation_balance.ipynb)
+- [Scenario and incentive assumptions](docs/SCENARIO_NOTES.md)
+- [Annual solar potential per inferred cell](outputs/current/u4_pv_balance/annual_solar_potential_by_substation.csv)
+
+The page uses aggregate results. Cell assignments are proximity-based and screening exceedances are not verified overloads. Annual financial accounts retain 45% PV self-consumption; hourly cell imports are reported separately.
+
 ## Current results
 
 This presents a case study of EnerMap, presented for Guildford Borough Council, which contains 57,300 dwellings (Residential). Results are 567.6 GWh/year useful space heat, 722.9 GWh/year delivered gas, and 246.6 GWh/year delivered electricity. Scenario tables also include the ten-ward subtotal of 28,663 dwellings. Scope is explicit in every view.
@@ -83,3 +96,5 @@ Heat-pump electricity comes from hourly heat/COP and is summed annually. Annual 
 | [11_pypsa_interface.ipynb](notebooks/02_model/11_pypsa_interface.ipynb) | Internal downstream ---Softlink with PyPSA-LAEP |
 | [12_planning_visuals.ipynb](notebooks/02_model/12_planning_visuals.ipynb) | Current modelling workflow |
 | [notebook13_clustering_diagnostics.ipynb](notebooks/02_model/notebook13_clustering_diagnostics.ipynb) | Current modelling workflow |
+
+| [14_U4_PV_substation_balance.ipynb](notebooks/02_model/14_U4_PV_substation_balance.ipynb) | Hourly PV, annual solar per cell and U0–U5 infrastructure screening |
