@@ -331,7 +331,7 @@
       "source": "enermap_ubem/app.py",
       "file": "app.py",
       "source_sha256": "ee953008357f8cfc8ef4a72f942053b0082cdb51256dee1bf7c24a89737ca6f3",
-      "packaged_sha256": "ee953008357f8cfc8ef4a72f942053b0082cdb51256dee1bf7c24a89737ca6f3"
+      "packaged_sha256": "d3e8f4f4ae932e195cade26b658eabe5c8c5c0703ca2831cfa15f2fe24e3c226"
     },
     {
       "source": "enermap_ubem/config.py",
