@@ -1,0 +1,99 @@
+{
+  "entrypoint": "app.py",
+  "requirements": [
+    "pandas",
+    "plotly"
+  ],
+  "files": {
+    "app.py": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/app.py"
+    },
+    "assets/EnerMap_logo.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/assets/EnerMap_logo.png"
+    },
+    ".streamlit/config.toml": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/.streamlit/config.toml"
+    },
+    "outputs/current/completion.json": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/completion.json"
+    },
+    "outputs/current/baseline/summary.json": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/baseline/summary.json"
+    },
+    "outputs/current/baseline/metrics.json": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/baseline/metrics.json"
+    },
+    "outputs/current/baseline/lsoa_validation.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/baseline/lsoa_validation.csv"
+    },
+    "outputs/current/baseline/lsoa_alignment_ranking.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/baseline/lsoa_alignment_ranking.csv"
+    },
+    "outputs/current/baseline/lsoa_demand_totals.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/baseline/lsoa_demand_totals.csv"
+    },
+    "outputs/current/baseline/stock_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/baseline/stock_hourly.csv"
+    },
+    "outputs/current/scenarios/scenario_summary.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/scenario_summary.csv"
+    },
+    "outputs/current/scenarios/planning_ward_summary.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/planning_ward_summary.csv"
+    },
+    "outputs/current/scenarios/U0_baseline_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/U0_baseline_hourly.csv"
+    },
+    "outputs/current/scenarios/U1_electrification_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/U1_electrification_hourly.csv"
+    },
+    "outputs/current/scenarios/U2_envelope_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/U2_envelope_hourly.csv"
+    },
+    "outputs/current/scenarios/U3_envelope_elec_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/U3_envelope_elec_hourly.csv"
+    },
+    "outputs/current/scenarios/U4_elec_pv_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/U4_elec_pv_hourly.csv"
+    },
+    "outputs/current/scenarios/U5_envelope_elec_pv_hourly.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/scenarios/U5_envelope_elec_pv_hourly.csv"
+    },
+    "outputs/current/chapter4_infrastructure/finance_summary.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/chapter4_infrastructure/finance_summary.csv"
+    },
+    "outputs/current/chapter4_infrastructure/all_scenario_summary.csv": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/chapter4_infrastructure/all_scenario_summary.csv"
+    },
+    "outputs/current/chapter4_infrastructure/finance_refresh_stats.json": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/chapter4_infrastructure/finance_refresh_stats.json"
+    },
+    "outputs/current/chapter4_infrastructure/figures/scenario_infrastructure.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/chapter4_infrastructure/figures/scenario_infrastructure.png"
+    },
+    "outputs/current/figures/09_annual_and_hourly_demand.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/09_annual_and_hourly_demand.png"
+    },
+    "outputs/current/figures/06_validation_maps.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/06_validation_maps.png"
+    },
+    "outputs/current/figures/06_canet_style_distribution.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/06_canet_style_distribution.png"
+    },
+    "outputs/current/figures/06_lsoa_alignment.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/06_lsoa_alignment.png"
+    },
+    "outputs/current/figures/10_retrofit_saving_map.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/10_retrofit_saving_map.png"
+    },
+    "outputs/current/figures/09_demand_totals_maps.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/09_demand_totals_maps.png"
+    },
+    "outputs/current/figures/09_building_demand_maps.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/09_building_demand_maps.png"
+    },
+    "outputs/current/figures/09_neighbourhood_demand_detail.png": {
+      "url": "https://raw.githubusercontent.com/Elgenied/EnerMap-showcase/fd3e7155b2e361d9984e65b3b85c89dd7a21c4fe/outputs/current/figures/09_neighbourhood_demand_detail.png"
+    }
+  }
+}

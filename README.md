@@ -43,6 +43,10 @@ Baseline demand provides the starting point for comparing fabric retrofit, heat 
 
 The rooftop-PV notebook remains in notebooks/03_solar. The separate road-proximity experiment remains in notebooks/04_explorations.
 
+## Public interactive dashboard
+
+[Open the EnerMap dashboard](https://elgenied.github.io/EnerMap-showcase/dashboard/) — no account or installation required. The Streamlit app runs in the browser using Stlite; the first visit downloads Python and the packaged results. The [results summary](https://elgenied.github.io/EnerMap-showcase/) remains available as a faster overview.
+
 ## Run the dashboard
 
 Use Python 3.11 or 3.12:
