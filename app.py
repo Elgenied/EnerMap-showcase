@@ -63,7 +63,19 @@ def figure(filename, caption=None):
 
 
 def csv_download(frame, filename, label="Download table"):
-    st.download_button(label, frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=filename)
+    import sys
+    if sys.platform == "emscripten":
+        # Browser runtime has no HTTP media endpoint. Use a browser-owned file URL.
+        from js import Blob, URL
+        from pyodide.ffi import to_js
+        urls = st.session_state.setdefault("_csv_blob_urls", {})
+        if filename in urls:
+            URL.revokeObjectURL(urls[filename])
+        url = str(URL.createObjectURL(Blob.new(to_js([frame.to_csv(index=False)]), to_js({"type": "text/csv"}))))
+        urls[filename] = url
+        st.link_button(label, url)
+    else:
+        st.download_button(label, frame.to_csv(index=False).encode("utf-8"), filename, "text/csv", key=filename)
 
 
 def scatter(frame, fuel, label, color):
