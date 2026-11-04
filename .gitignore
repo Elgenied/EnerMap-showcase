@@ -11,6 +11,9 @@ data/
 !docs/dashboard/data/
 !docs/dashboard/data/*.json
 !docs/dashboard/data/*.geojson
+!docs/dashboard/data/*.json.gz
+!docs/dashboard/data/profiles/
+!docs/dashboard/data/profiles/*.json.gz
 deps/
 *.gpkg
 *.shp

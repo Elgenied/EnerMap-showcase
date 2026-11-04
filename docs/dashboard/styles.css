@@ -13,3 +13,5 @@ dialog{width:min(740px,93vw);max-height:88vh;overflow:auto;border:1px solid var(
 @media print{.topbar,.main-nav,.sidebar,.map-actions,.outline,footer,.segmented{display:none!important}#application{display:block}main{padding:0}.map-section,.kpis,.chart-card{break-inside:avoid}.map-wrap #map{height:500px}}
 
 .light-tiles{filter:grayscale(.8)}
+
+.archetype-legend{max-height:140px;overflow:auto;display:grid;grid-template-columns:repeat(3,1fr)}.profile-downloads{grid-column:1/-1;display:flex;gap:12px}.profile-loading{grid-column:1/-1;color:#526970}.kpi-value{overflow-wrap:anywhere}.map-legend{max-width:440px}

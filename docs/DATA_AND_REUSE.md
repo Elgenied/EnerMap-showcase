@@ -9,3 +9,11 @@ The first code cell blocks accidental Run All unless ENERMAP_ENABLE_MODEL_RUN=1 
 The code and local pyBuildingEnergy patch are available for inspection. This repository grants no new redistribution rights for third-party data or software. The results page publishes aggregate scenario and infrastructure findings. Raw household records, inferred eligibility and building-level financial tables remain excluded.
 
 The interactive planning dashboard also publishes curated LSOA, ward, construction-group and inferred-cell summaries, with simplified ONS boundaries and inferred Voronoi geometries. Input hashes and aggregation scope are recorded in `dashboard/data/provenance.json`. No household identifiers or building-level economics are included in these exports.
+
+The building-detail explorer adds simplified footprint display geometry with annual roof
+potential and construction-group counts. Raw MasterMap files and UPRN/TOID identifiers remain
+excluded; original provider rights apply to derived geometry. Buildings receive anonymous
+display IDs. Cell profile bundles contain aggregated hourly electricity and useful space
+heat, not individual household profiles. `dashboard/data/detail_checks.json` records the
+detail inputs and reconciliation checks. Full assessed roof potential includes non-residential
+buildings, whereas network PV scenarios cover assigned residential dwellings with the study cap.

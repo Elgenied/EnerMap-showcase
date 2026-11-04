@@ -1,0 +1,46 @@
+/* Building-level cartography and hourly secondary-substation exploration. */
+let B=null,M=null,buildingPromise=null,detailCache=new Map(),scaleCache=null;
+const solarColors=['#d7dadb','#f3dfaa','#eabf70','#e88c52','#ca5541','#8f2d3b'];
+const profileMetrics={imports:'Electricity imports',exports:'Electricity exports',electricity:'Gross electricity demand',heat:'Useful space-heating demand',pv:'Scenario PV generation',potential:'Full residential PV potential'};
+const roofMetrics={pv_kWh:['Annual rooftop PV potential','kWh/year'],pv_kWp:['Assessed PV capacity','kWp'],suitable_m2:['Suitable roof area','m²'],irradiation:['Mean retained-roof irradiation','kWh/m²/year']};
+function buildingView(){return state.geometry==='buildings'&&(state.view==='archetypes'||state.view==='retrofit'&&state.topic==='solar');}
+async function compressedJSON(file){const r=await fetch('./data/'+file+'?v=4');if(!r.ok)throw new Error('Could not load '+file);if(r.headers.get('content-encoding')==='gzip')return r.json();if(!globalThis.DecompressionStream)throw new Error('Please use a current browser to open detailed profiles.');return new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).json();}
+function groupColor(id){const i=D.archetypes.findIndex(a=>a.construction_sa===id);return i<0?'#d7dadb':`hsl(${(i*137.508)%360} 48% 47%)`;}
+function selectArea(id,zoom=false){state.area=id;if($('area'))$('area').value=id;highlight();renderInspector();if(state.view==='networks'||buildingView()&&state.view==='retrofit'){renderKpis();renderCharts().catch(showError);}if(zoom&&id){const l=Object.values(layer._layers).find(l=>l.feature.properties.id===id);if(l)map.fitBounds(l.getBounds(),{padding:[35,35],maxZoom:geoKey==='buildings'?19:16});}}
+function buildingRows(){const solar=state.view==='retrofit';let rs=B.rows.filter(r=>solar?r.pv_kWh!==null:r.dwellings>0).map(r=>({...r}));
+ if(solar){if(!roofMetrics[state.metric])state.metric='pv_kWh';const opt=roofMetrics[state.metric];metric={key:state.metric,label:opt[0],unit:opt[1],solar:true};rs.forEach(r=>r.value=r[state.metric]);}
+ else{metric={key:'archetype',label:state.archetype==='all'?'Construction archetypes by building':state.archetype+' · dwelling share',unit:state.archetype==='all'?'construction group':'%',categorical:state.archetype==='all',groupColors:true};rs=rs.filter(r=>state.form==='all'||D.archetypes.find(a=>a.construction_sa===r.archetype)?.stratum===state.form);rs.forEach(r=>{r.value=state.archetype==='all'?r.archetype:100*(r.archetypes[state.archetype]||0)/r.dwellings;});}
+ rows=rs;return 'buildings';
+}
+function buildingInspector(r){let html=`<div class="eyebrow">BUILDING FOOTPRINT</div><h3>${esc(r.name)}</h3>`;
+ if(state.view==='retrofit'){html+=`<div class="big-number">${fmt(r.value)}</div><div class="unit">${metric.unit}</div>`+detail('Annual PV potential',fmt(r.pv_kWh/1000,2)+' MWh/year')+detail('Assessed capacity',fmt(r.pv_kWp,2)+' kWp')+detail('Suitable roof area',fmt(r.suitable_m2)+' m²')+detail('Retained-roof irradiation',fmt(r.irradiation,0)+' kWh/m²/year')+'<p>Full assessed roof potential before the residential scenario cap.</p>';}
+ if(r.dwellings){html+=detail('Modelled dwellings',fmt(r.dwellings,0))+detail('Dominant archetype',esc(r.archetype))+detail('Dominant share',fmt(r.archetype_pct)+'%');const a=D.archetypes.find(a=>a.construction_sa===r.archetype);if(a)html+=detail('Built form',esc(a.stratum))+detail('Wall construction',esc(a.wall))+detail('Wall U-value',fmt(a.wall_U,2)+' W/m²K');html+=detail('Construction groups',Object.entries(r.archetypes).map(([k,v])=>`${esc(k)}: ${v}`).join('<br>'));}
+ html+='<button id="clearArea" class="area-clear">Clear selection ×</button>';$('inspector').innerHTML=html;$('clearArea').onclick=()=>selectArea('');
+}
+function solarBuildingKpis(){const r=rows;return kpi('Mapped roofs',fmt(r.length,0),'','Buildings with a solar assessment')+kpi('Full annual potential',fmt(sum(r,'pv_kWh')/1e6),'GWh/year','All assessed building roofs')+kpi('Assessed capacity',fmt(sum(r,'pv_kWp')/1000),'MWp','Before the scenario cap')+kpi('Suitable roof area',fmt(sum(r,'suitable_m2')/1e6,2),'km²','Retained suitable roof surface');}
+async function networkProfiles(epoch){
+ const id=state.area,meta=id?M.cells[id]:M.all,key=meta.file;
+ const note=document.createElement('p');note.className='profile-loading';note.textContent='Loading annual and weekly profiles…';$('charts').appendChild(note);
+ if(!detailCache.has(key))detailCache.set(key,compressedJSON(key).catch(e=>{detailCache.delete(key);throw e;}));
+ const p=await detailCache.get(key);if(epoch!==chartEpoch)return;note.remove();
+ const kind=state.profile||'imports',selected=state.compare.length?state.compare:[state.scenario];
+ const scenarioList=kind==='potential'?[state.scenario]:selected;
+ const label=id?(rows.find(r=>r.id===id)?.name||meta.label):'All 271 substation cells';
+ const subtitle=label+(kind==='potential'||kind==='pv'?' · '+M.solar_note:id?' · '+fmt(rows.find(r=>r.id===id)?.modelled_dwellings,0)+' assigned dwellings':' · 28,662 assigned residential dwellings');
+ const data=scenarioList.map(c=>({c,values:ExplorerMath.series(p,meta,M.shape,c,kind)}));
+ const date=i=>new Date(Date.UTC(2021,0,1)+i*3600000).toISOString();
+ const trace=(d,values,x)=>({type:'scatter',mode:'lines',x,y:values,name:kind==='potential'?'Full assessed potential':d.c+' · '+names[codes.indexOf(d.c)],line:{color:kind==='potential'?'#c18435':colors[codes.indexOf(d.c)],width:2}});
+ chart('network-weekly',profileMetrics[kind]+' · full year',subtitle,data.map(d=>trace(d,ExplorerMath.weeks(d.values),Array.from({length:53},(_,i)=>date(i*168)))),{xaxis:{type:'date',title:{text:'Week beginning · final week contains 24 hours'}},yaxis:{title:{text:'Weekly energy (MWh)'}}},true);
+ const start=(state.week-1)*168,end=Math.min(start+168,8760),factor=id?1:1000;
+ chart('network-hourly',profileMetrics[kind]+` · week ${state.week}`,label+' · '+date(start).slice(0,10)+' to '+date(end-1).slice(0,10),data.map(d=>trace(d,d.values.slice(start,end).map(v=>v/factor),Array.from({length:end-start},(_,i)=>date(start+i)))),{xaxis:{type:'date'},yaxis:{title:{text:(id?'Power (kW)':'Power (MW)')}}},true);
+ const controls=document.createElement('div');controls.className='profile-downloads';controls.innerHTML='<button class="outline" id="downloadWeeks">↓ Weekly profiles CSV</button><button class="outline" id="downloadHours">↓ Full-year hourly CSV</button>';$('charts').appendChild(controls);
+ function save(weekly){const count=weekly?53:8760,values=data.map(d=>weekly?ExplorerMath.weeks(d.values):d.values);const a=[['time',...data.map(d=>d.c+'_'+kind+(weekly?'_MWh':'_kW'))].join(',')];for(let i=0;i<count;i++)a.push([date(i*(weekly?168:1)),...values.map(v=>v[i].toFixed(3))].join(','));const url=URL.createObjectURL(new Blob([a.join('\n')],{type:'text/csv'}));const link=document.createElement('a');link.href=url;link.download=`EnerMap_${id?'selected_cell':'all_cells'}_${kind}_${weekly?'weekly':'hourly'}.csv`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ $('downloadWeeks').onclick=()=>save(true);$('downloadHours').onclick=()=>save(false);
+}
+function buildingSolarProfiles(){
+ const r=rows.find(r=>r.id===state.area),annual=r?r.pv_kWh:sum(rows,'pv_kWh'),factor=r?1:1000;
+ const label=r?r.name:'All assessed building roofs',p=M.shape.map(v=>v*annual),date=i=>new Date(Date.UTC(2021,0,1)+i*3600000).toISOString();
+ chart('roof-weekly','Solar potential through the year',label+' · annual yield distributed using the common south-facing profile',[{type:'scatter',mode:'lines',x:Array.from({length:53},(_,i)=>date(i*168)),y:ExplorerMath.weeks(p),line:{color:'#c18435',width:2},fill:'tozeroy',fillcolor:'rgba(228,177,88,.15)',name:'Full assessed potential'}],{xaxis:{type:'date',title:{text:'Week beginning · final week contains 24 hours'}},yaxis:{title:{text:'Weekly potential (MWh)'}}},true);
+ const start=(state.week-1)*168,end=Math.min(start+168,8760);
+ chart('roof-hourly',`Solar potential · week ${state.week}`,label+' · full potential before the residential cap',[{type:'scatter',mode:'lines',x:Array.from({length:end-start},(_,i)=>date(start+i)),y:p.slice(start,end).map(v=>v/factor),line:{color:'#c18435',width:2},name:'Full assessed potential'}],{xaxis:{type:'date'},yaxis:{title:{text:r?'Potential output (kW)':'Potential output (MW)'}}},true);
+}
