@@ -1,7 +1,7 @@
-# Browser deployment
+# Public planning dashboard
 
-This entry point runs the public Streamlit `app.py` using @stlite/browser 1.12.0. No Python server or credentials are required. GitHub Pages serves this directory. `mount-options.json` pins all app/data URLs to a public repository commit so the dashboard is internally consistent.
+The default `/dashboard/` entry point is the map-first EnerMap planning interface, hosted publicly on GitHub Pages. It runs Leaflet and Plotly directly in the browser and requires no account, Python download or server.
 
-To refresh: update the pinned commit in mount-options.json after publishing a complete, tested app/results snapshot. Include any new file dependencies. Test the browser app before publishing the changed manifest.
+See [PLANNING_INTERFACE.md](PLANNING_INTERFACE.md) for views, data sources, export commands and verification.
 
-The native Streamlit app remains available using `streamlit run app.py`. Browser execution downloads Python packages and 14.2 MB of app/results assets on the first visit; allow time for initial loading. All selected assets were already public in the repository.
+The original Streamlit implementation remains at `streamlit.html`, powered by @stlite/browser 1.12.0. Its `mount-options.json` pins app/data URLs to the tested original public snapshot. This separate research explorer is not the default public interface.

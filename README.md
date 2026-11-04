@@ -45,7 +45,9 @@ The rooftop-PV notebook remains in notebooks/03_solar. The separate road-proximi
 
 ## Public interactive dashboard
 
-[Open the EnerMap dashboard](https://elgenied.github.io/EnerMap-showcase/dashboard/) — no account or installation required. The Streamlit app runs in the browser using Stlite; the first visit downloads Python and the packaged results. The [results summary](https://elgenied.github.io/EnerMap-showcase/) remains available as a faster overview.
+[Open the EnerMap dashboard](https://elgenied.github.io/EnerMap-showcase/dashboard/) — publicly available without an account or installation. The map-first planning interface includes LSOA energy demand and emissions, construction archetypes, six decarbonisation scenarios, retrofit and solar potential, equity and carbon priorities, and electricity-network screening. Guildford is the current case study. Maps, filters, budget selection, charts and CSV exports run directly in the browser on GitHub Pages.
+
+See [interface documentation](docs/dashboard/PLANNING_INTERFACE.md) for data scope and refresh instructions. The [research summary](https://elgenied.github.io/EnerMap-showcase/) and [original Streamlit explorer](https://elgenied.github.io/EnerMap-showcase/dashboard/streamlit.html) remain available separately.
 
 ## Run the dashboard
 

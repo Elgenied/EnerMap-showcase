@@ -7,3 +7,5 @@ Research notebooks are review copies with saved static outputs. Identifier-beari
 The first code cell blocks accidental Run All unless ENERMAP_ENABLE_MODEL_RUN=1 is deliberately set. This is a presentation guard, not a security boundary. Actual rerunning also requires omitted source inputs, third-party engines and the original environment. The Streamlit dashboard needs only requirements.txt and the packaged summaries.
 
 The code and local pyBuildingEnergy patch are available for inspection. This repository grants no new redistribution rights for third-party data or software. The results page publishes aggregate scenario and infrastructure findings. Raw household records, inferred eligibility and building-level financial tables remain excluded.
+
+The interactive planning dashboard also publishes curated LSOA, ward, construction-group and inferred-cell summaries, with simplified ONS boundaries and inferred Voronoi geometries. Input hashes and aggregation scope are recorded in `dashboard/data/provenance.json`. No household identifiers or building-level economics are included in these exports.
