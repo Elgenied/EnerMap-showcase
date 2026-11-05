@@ -11,6 +11,10 @@ Streamlit explorer remains available at `streamlit.html`, with its pinned resear
 - Archetypes: 34 construction groups, 102 virtual representatives, construction properties,
   heating-family counts, LSOA shares and linked building footprints. A shared footprint
   shows its dominant construction group; the inspector lists the full dwelling mix.
+  Attribute tables follow the form/group filters and list wall construction and insulation,
+  roof construction/insulation, glazing, wall/roof/window U-values and median small,
+  medium and large floor areas. CSV exports include these attributes. Summary cards
+  show only construction-group and dwelling counts.
 - Scenarios: U0–U5 ward maps, baseline differences, energy, emissions, bills and investment.
 - Retrofit & equity: fabric savings, capped/assessed residential solar, construction difficulty,
   tenure, neighbourhood fuel poverty/deprivation, payback and two budget priority orders.
